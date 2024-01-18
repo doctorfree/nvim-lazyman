@@ -359,7 +359,6 @@ init_neovim() {
     }
   }
   [ "${neodir}" == "${lunarvimdir}" ] ||
-    [ "${neodir}" == "nvim-JustinLvim" ] ||
     [ "${neodir}" == "nvim-LunarIde" ] ||
     [ "${neodir}" == "nvim-LvimAdib" ] ||
     [ "${neodir}" == "nvim-Shuvro" ] ||
@@ -467,7 +466,6 @@ init_neovim() {
           else
             [ "${neodir}" == "${lunarvimdir}" ] ||
               [ "${neodir}" == "nvim-Daniel" ] ||
-              [ "${neodir}" == "nvim-JustinLvim" ] ||
               [ "${neodir}" == "nvim-LvimAdib" ] ||
               [ "${neodir}" == "nvim-Shuvro" ] ||
               [ "${neodir}" == "nvim-LunarIde" ] && {
@@ -536,7 +534,6 @@ init_neovim() {
               [ "${neodir}" == "nvim-LvimAdib" ] ||
               [ "${neodir}" == "nvim-Shuvro" ] ||
               [ "${neodir}" == "nvim-Daniel" ] ||
-              [ "${neodir}" == "nvim-JustinLvim" ] ||
               [ "${neodir}" == "nvim-LunarIde" ] && {
               export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
@@ -927,7 +924,6 @@ update_config() {
       [ "${ndir}" == "nvim-LunarIde" ] ||
       [ "${ndir}" == "nvim-LvimAdib" ] ||
       [ "${ndir}" == "nvim-Shuvro" ] ||
-      [ "${ndir}" == "nvim-JustinLvim" ] ||
       [ "${ndir}" == "nvim-Daniel" ] && fix_lvim_dir "${ndir}"
     apply_patch "${ndir}"
     [ "${ndir}" == "${latexvimdir}" ] && {
@@ -1828,7 +1824,7 @@ install_config() {
   2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | KickstartPython | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
-  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | JustinLvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Jdhao | Kristijan | Heiker | SeniorMars | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
+  Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Jdhao | Kristijan | Heiker | SeniorMars | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
     lazyman ${darg} -w ${confname} -z -y -Q -q
     ;;
   *)
@@ -4204,11 +4200,6 @@ install_remove() {
         lazyman ${darg} -b main -C https://github.com/dmmulroy/dotfiles \
           -D .config/nvim -N nvim-Dillon -P ${quietflag} -z ${yesflag}
       }
-      [ "$(getok nvim-JustinLvim)" == "ok" ] && {
-        printf "\n${action} JustinLvim Neovim configuration"
-        lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
-          -D lunarvim/.config/lvim -N nvim-JustinLvim ${quietflag} -z ${yesflag}
-      }
       [ "$(getok nvim-JustinNvim)" == "ok" ] && {
         printf "\n${action} JustinNvim Neovim configuration"
         lazyman ${darg} -b main -C https://github.com/justinsgithub/dotfiles \
@@ -4491,11 +4482,6 @@ install_remove() {
         prsnl_url="-C https://github.com/dmmulroy/dotfiles"
         prsnl_opt="-b main -P"
         prsnl_dir="-D .config/nvim"
-        ;;
-      JustinLvim)
-        prsnl_url="-C https://github.com/justinsgithub/dotfiles"
-        prsnl_opt="-b main"
-        prsnl_dir="-D lunarvim/.config/lvim"
         ;;
       JustinNvim)
         prsnl_url="-C https://github.com/justinsgithub/dotfiles"
@@ -5396,7 +5382,6 @@ set_brew
     }
     [ "$tellme" ] || {
       [ "${neovimdir[0]}" == "nvim-Daniel" ] ||
-        [ "${neovimdir[0]}" == "nvim-JustinLvim" ] ||
         [ "${neovimdir[0]}" == "nvim-LvimAdib" ] ||
         [ "${neovimdir[0]}" == "nvim-Shuvro" ] ||
         [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
@@ -5434,7 +5419,6 @@ set_brew
         }
       }
       [ "${neovimdir[0]}" == "nvim-Daniel" ] ||
-        [ "${neovimdir[0]}" == "nvim-JustinLvim" ] ||
         [ "${neovimdir[0]}" == "nvim-LvimAdib" ] ||
         [ "${neovimdir[0]}" == "nvim-Shuvro" ] ||
         [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {

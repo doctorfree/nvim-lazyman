@@ -317,7 +317,7 @@ Webdev
 
 `-w conf` : indicates install and initialize Personal 'conf' configuration.
 'conf' can be one of: All Adib Artur Beethoven Brain Charles Craftzdog Daniel
-Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean JustinLvim
+Dillon Elianiva Elijah Enrique Kristijan Heiker J4de Josean
 JustinNvim Kodo LamarVim Lukas LvimAdib Maddison Metis Mini ONNO OnMyWay
 Optixal Orhun Primeagen Rafi RNvim Roiz Simple Slydragonn Spider Traap Wuelner
 xero Xiao

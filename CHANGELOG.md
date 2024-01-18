@@ -6,6 +6,8 @@
 
 ### 🐞 Fixed
 
+- Remove `JustinLvim`, no longer maintained
+
 ## v3.1.4r1
 
 ### ⚡️ Added

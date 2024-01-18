@@ -884,15 +884,6 @@ make_info() {
       C_DESC="A modern Neovim configuration with full support for Python, Lua, C++, Markdown, LaTeX, and more"
       C_INST="lazyman -w Jdhao"
       ;;
-    JustinLvim)
-      GH_URL="https://github.com/justinsgithub/dotfiles"
-      WS_URL="https://www.lunarvim.org"
-      YT_URL="https://www.youtube.com/@justindevelops"
-      CF_CAT="Personal"
-      CF_TYP="[LunarVim](https://www.lunarvim.org)"
-      C_DESC="LunarVim based Neovim configuration by Justin Angeles"
-      C_INST="lazyman -w JustinLvim"
-      ;;
     JustinNvim)
       GH_URL="https://github.com/justinsgithub/dotfiles"
       WS_URL="https://www.lazyvim.org"
