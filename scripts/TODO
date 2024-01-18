@@ -1,5 +1,9 @@
 TODO:
 
+- Add Nvimpy at https://github.com/Dan7h3x/NvimPy
+  - lazyman -C https://github.com/Dan7h3x/Nvimpy -N nvim-Py
+- Add nvim-Jupyter with use of Molten
+  - https://github.com/benlubas/molten-nvim/blob/main/docs/Notebook-Setup.md
 - Add Kevin Feng's configuration:
   - lazyman -C https://github.com/kevinfengcs88/nvim -N nvim-Kevin
 - Check out Stefan's configuration:
