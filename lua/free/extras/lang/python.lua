@@ -32,6 +32,9 @@ return {
                 useLibraryCodeForTypes = true,
                 diagnosticMode = "openFilesOnly", -- "openFilesOnly" or "openFilesOnly"
                 stubPath = vim.fn.stdpath "data" .. "/lazy/python-type-stubs/stubs",
+                diagnosticSeverityOverrides = {
+                    reportUnusedExpression = "none",
+                },
               },
             },
           },

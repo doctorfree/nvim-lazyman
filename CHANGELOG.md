@@ -6,7 +6,17 @@
 
 ### 🐞 Fixed
 
+## v3.1.4r2
+
+### ⚡️ Added
+
+- Add a couple of configs to check out in TODO
+- Add `reportUnusedExpression = "none"` to `pyright` setup
+
+### 🐞 Fixed
+
 - Remove `JustinLvim`, no longer maintained
+- Fix Neovide asset download
 
 ## v3.1.4r1
 

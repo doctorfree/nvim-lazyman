@@ -96,6 +96,7 @@ local servers = {
             reportOptionalMemberAccess = "none",
             reportOptionalSubscript = "none",
             reportPrivateImportUsage = "none",
+            reportUnusedExpression = "none",
           },
         },
       },
