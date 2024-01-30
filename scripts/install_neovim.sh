@@ -1332,7 +1332,6 @@ install_tools() {
     else
       platform_install pipx
       pipx ensurepath >/dev/null 2>&1
-      pipx install pip >/dev/null 2>&1
       pipx install setuptools >/dev/null 2>&1
       pipx install wheel >/dev/null 2>&1
       pipx install pynvim doq >/dev/null 2>&1
