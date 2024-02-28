@@ -25,6 +25,13 @@ if [ -s /tmp/kitty-$$.sh ]; then
   else
     printf "\nUnable to create Kitty link to ~/.local/bin/\n"
   fi
+  if [ -x ~/${LOCAL}/bin/kitten ]; then
+    [ -x ~/.local/bin/kitten ] || {
+      ln -s ~/${LOCAL}/bin/kitten ~/.local/bin/
+    }
+  else
+    printf "\nUnable to create kitten link to ~/.local/bin/\n"
+  fi
   # Link the kitty man pages somewhere it can be found by the man command
   LINMAN="${HOME}/${LOCAL}/share/man"
   [ -d ~/.local/share/man/man1 ] || mkdir -p ~/.local/share/man/man1
@@ -64,11 +71,11 @@ if [ -s /tmp/kitty-$$.sh ]; then
   # Update the paths to the kitty and its icon in the kitty.desktop file(s)
   for desktop in "${HOME}"/.local/share/applications/kitty*.desktop; do
     [ "${desktop}" == "${HOME}/.local/share/applications/kitty*.desktop" ] && continue
-    [ -f /home/${MPP_USER}/${LOCAL}/share/icons/hicolor/256x256/apps/kitty.png ] && {
-      sed -i "s|Icon=kitty|Icon=/home/${MPP_USER}/${LOCAL}/share/icons/hicolor/256x256/apps/kitty.png|g" "${desktop}"
+    [ -f ${HOME}/${LOCAL}/share/icons/hicolor/256x256/apps/kitty.png ] && {
+      sed -i "s|Icon=kitty|Icon=${HOME}/${LOCAL}/share/icons/hicolor/256x256/apps/kitty.png|g" "${desktop}"
     }
-    [ -x /home/${MPP_USER}/${LOCAL}/bin/kitty ] && {
-      sed -i "s|Exec=kitty|Exec=/home/${MPP_USER}/${LOCAL}/bin/kitty|g" "${desktop}"
+    [ -x ${HOME}/${LOCAL}/bin/kitty ] && {
+      sed -i "s|Exec=kitty|Exec=${HOME}/${LOCAL}/bin/kitty|g" "${desktop}"
     }
   done
   printf " done!\n"
