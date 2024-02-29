@@ -493,6 +493,7 @@ install_neovim_dependencies() {
 
   if [ "${use_homebrew}" ]; then
     brew_install clipboard
+    brew_install gpatch
   else
     platform_install wl-clipboard wl-copy
   fi
