@@ -4,7 +4,16 @@
 
 ### ⚡️ Added
 
+- Install `kitten` in Kitty install script
+
 ### 🐞 Fixed
+
+- Remove Allaman patch
+- Remove Allaman custom config on removal of Allaman
+- Create custom Allaman config if none exists
+- Install `gpatch` with `brew` if Homebrew is being used
+- No need to install `pip` with `pipx`
+- Update `ufo` configuration replacing deprecated `close_fold_kinds`
 
 ## v3.1.4r2
 
