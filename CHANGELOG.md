@@ -4,6 +4,12 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.1.4r3
+
+### ⚡️ Added
+
 - Install `kitten` in Kitty install script
 
 ### 🐞 Fixed
