@@ -141,7 +141,11 @@ return {
     },
     config = function()
       require("ufo").setup({
-        close_fold_kinds = { "imports" },
+        close_fold_kinds_for_ft = {
+          default = {'imports', 'comment'},
+          json = {'array'},
+          c = {'comment', 'region'}
+        },
       })
       vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
       vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })

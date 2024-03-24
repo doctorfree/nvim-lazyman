@@ -692,7 +692,11 @@ end
 
 require("ufo").setup({
   fold_virt_text_handler = require("config.nvim-ufo").handler,
-  close_fold_kinds = { "imports" },
+  close_fold_kinds_for_ft = {
+    default = {'imports', 'comment'},
+    json = {'array'},
+    c = {'comment', 'region'}
+  },
 })
 
 -- Diagnostic keymaps
