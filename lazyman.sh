@@ -688,7 +688,10 @@ remove_config() {
     printf " done"
   }
 
-  if [ "${ndir}" == "${spacevimdir}" ]; then
+  # Some configurations have custom files and folders
+  if [ "${ndir}" == "nvim-Allaman" ]; then
+    rm -f ${HOME}/.nvim_config.lua
+  elif [ "${ndir}" == "${spacevimdir}" ]; then
     [ -f ${SPDIR}/.git/config ] && {
       grep github.com/doctorfree/spacevim ${SPDIR}/.git/config >/dev/null && {
         [ "$quiet" ] || {
@@ -699,8 +702,7 @@ remove_config() {
         }
       }
     }
-  fi
-  if [ "${ndir}" == "${lunarvimdir}" ]; then
+  elif [ "${ndir}" == "${lunarvimdir}" ]; then
     USCP="${HOME}/.local/share/${lunarvimdir}/lvim/utils/installer/uninstall.sh"
     [ -x ${USCP} ] || {
       LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
