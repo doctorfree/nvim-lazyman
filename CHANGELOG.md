@@ -14,6 +14,7 @@
 - Install `gpatch` with `brew` if Homebrew is being used
 - No need to install `pip` with `pipx`
 - Update `ufo` configuration replacing deprecated `close_fold_kinds`
+- Do not enable `gopls` on macOS
 
 ## v3.1.4r2
 

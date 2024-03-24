@@ -5167,9 +5167,6 @@ fi
       have_matter=$(type -p ${matter})
       [ "${have_matter}" ] || ${SUBMENUS} -s formatters_linters ${matter} disable
     done
-    # Enable gopls if go is available
-    have_go=$(type -p go)
-    [ "${have_go}" ] && ${SUBMENUS} -s lsp_servers gopls enable
 
     platform=$(uname -s)
     [ "${platform}" == "Darwin" ] || {
@@ -5188,6 +5185,9 @@ fi
             ;;
         esac
       }
+      # Enable gopls if go is available except on macOS
+      have_go=$(type -p go)
+      [ "${have_go}" ] && ${SUBMENUS} -s lsp_servers gopls enable
     }
   else
     printf "\n${INSTNVIM} not executable"
