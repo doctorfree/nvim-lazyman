@@ -17,7 +17,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - name: Nvims
-        uses: kdheepak/panvimdoc@v4.0.0
+        uses: kdheepak/panvimdoc@v4.0.1
         with:
           vimdoc: Nvims # Output vimdoc project name (required)
           # The following are all optional
