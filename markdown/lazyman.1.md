@@ -14,7 +14,7 @@ lazyman - install, initialize, manage, and explore multiple Neovim configuration
 
 ## SYNOPSIS
 
-lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u] [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]
+lazyman [-4] [-9] [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s] [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J] [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U] [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u] [health] [info] [init] [install [bob]] [open] [remove] [search] [status] [usage]
 
 Visit the [Lazyman website](https://lazyman.dev) for more info.
 
@@ -206,6 +206,10 @@ The Lazyman Neovim configuration manager can also be used from the command line.
 ## OPTIONS
 
 The following command line options are available with the `lazyman` command:
+
+`-4` : indicates initialize with AstroNvim v4 (use in conjunction with `-J`)
+
+`-9` : indicates do not apply any patches to this configuration
 
 `-A` : indicates install all supported Neovim configurations
 

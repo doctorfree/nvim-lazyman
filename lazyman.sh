@@ -63,8 +63,8 @@ cfginstalled=0
 showinstalled=1
 
 brief_usage() {
-  printf "\nUsage: lazyman [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config] [-e]"
-  printf "\n   [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
+  printf "\nUsage: lazyman [-4] [-9] [-A] [-a] [-B] [-b branch] [-c] [-d] [-E config]"
+  printf "\n   [-e] [-f path] [-F menu] [-g] [-i group] [-j] [-k] [-l] [-m] [-M] [-s]"
   printf "\n   [-S] [-v] [-n] [-o] [-O name] [-p] [-P] [-q] [-Q] [-h] [-H] [-I] [-J]"
   printf "\n   [-L lang] [-rR] [-C url] [-D subdir] [-N nvimdir] [-G] [-tT] [-U]"
   printf "\n   [-V url] [-w conf] [-W] [-x conf] [-X] [-y] [-Y] [-z] [-Z] [-K conf] [-u]"
@@ -78,6 +78,8 @@ brief_usage() {
 usage() {
   brief_usage noexit
   printf "\nWhere:"
+  printf "\n    -4 indicates initialize with AstroNvim v4 (use in conjunction with -J)"
+  printf "\n    -9 indicates do not apply any patches to this configuration"
   printf "\n    -A indicates install all supported Neovim configurations"
   printf "\n    -a indicates install and initialize AstroNvimPlus Neovim configuration"
   printf "\n    -B indicates install and initialize all 'Base' Neovim configurations"
@@ -1678,7 +1680,7 @@ show_status() {
 install_astronvim() {
   base_dir="$1"
   user_url="$2"
-  clone_repo AstroNvim AstroNvim/AstroNvim "$base_dir" "v3.45.3"
+  clone_repo AstroNvim AstroNvim/AstroNvim "$base_dir" "${astro_version}"
   [ "$quiet" ] || {
     printf "\nAdding user configuration into"
     printf "\n\t${HOME}/.config/${base_dir}/lua/user"
@@ -3346,6 +3348,7 @@ nvchadcustom=
 tellme=
 exitafter=
 astronvim=
+astro_version="v3.45.3"
 customastro=
 abstract=
 basicide=
@@ -3408,8 +3411,11 @@ neovimdir=()
   [ "$1" == "-F" ] && set -- "$@" 'config'
   [ "$1" == "-U" ] && neovimdir=("${LAZYMAN}")
 }
-while getopts "9aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYzZu" flag; do
+while getopts "49aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyYzZu" flag; do
   case $flag in
+  4)
+    astro_version=
+    ;;
   9)
     nopatch=1
     ;;

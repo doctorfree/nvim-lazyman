@@ -4,6 +4,8 @@
 
 ### ⚡️ Added
 
+- Add `-4` argument to `lazyman` to indicate use `AstroNvim` v4 during initialization
+
 ### 🐞 Fixed
 
 ## v3.1.5r1
