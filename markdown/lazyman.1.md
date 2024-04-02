@@ -207,7 +207,7 @@ The Lazyman Neovim configuration manager can also be used from the command line.
 
 The following command line options are available with the `lazyman` command:
 
-`-4` : indicates initialize with AstroNvim v4 (use in conjunction with `-J`)
+`-4` : indicates initialize as AstroNvim v4 (use in place of `-J`)
 
 `-9` : indicates do not apply any patches to this configuration
 
@@ -267,7 +267,7 @@ The following command line options are available with the `lazyman` command:
 
 `-I` : indicates install all language servers and tools for coding diagnostics
 
-`-J` : indicates install indicated repo as an AstroNvim custom configuration
+`-J` : indicates install indicated repo as an AstroNvim v3 custom configuration
 
 `-L lang` : indicates install the `lang` Language configuration where 'lang' can be one of: All AlanVim Allaman CatNvim Cpp Go Go2one Insis Knvim LaTeX LazyIde LunarIde LvimIde Magidc Nv NV-IDE Orange Python Rust SaleVim Shuvro Webdev
 

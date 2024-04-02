@@ -78,7 +78,7 @@ brief_usage() {
 usage() {
   brief_usage noexit
   printf "\nWhere:"
-  printf "\n    -4 indicates initialize with AstroNvim v4 (use in conjunction with -J)"
+  printf "\n    -4 indicates install indicated repo as an AstroNvim v4 custom configuration"
   printf "\n    -9 indicates do not apply any patches to this configuration"
   printf "\n    -A indicates install all supported Neovim configurations"
   printf "\n    -a indicates install and initialize AstroNvimPlus Neovim configuration"
@@ -123,7 +123,7 @@ usage() {
   printf "\n       'group' can be one of:"
   printf "\n           astronvim kickstart lazyvim lunarvim nvchad packer plug"
   printf "\n    -I indicates install all language servers and tools for coding diagnostics"
-  printf "\n    -J indicates install indicated repo as an AstroNvim custom configuration"
+  printf "\n    -J indicates install indicated repo as an AstroNvim v3 custom configuration"
   printf "\n    -L 'lang' indicates install the 'lang' Language configuration"
   printf "\n       'lang' can be one of:"
   printf "\n           All ${LANGUCFGS}"
@@ -3649,6 +3649,16 @@ while getopts "49aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyY
   esac
 done
 shift $((OPTIND - 1))
+
+# Check if both v3 and v4 AstroNvim have been specified
+[ "${customastro}" ] && {
+  [ "${astro_version}" ] || {
+    printf "\nERROR: -4 and -J are incompatible arguments."
+    printf "\n-4 indicates initialize as AstroNvim v4, -J specifies AstroNvim v3."
+    printf "\nExiting.\n"
+    exit 1
+  }
+}
 
 if [ "${debug}" ]
 then
