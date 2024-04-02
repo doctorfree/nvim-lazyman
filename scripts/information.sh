@@ -830,6 +830,14 @@ make_info() {
       C_DESC="Default AstroNvim example configuration"
       C_INST="lazyman -x AstroNvimStart"
       ;;
+    AstroNvimV4)
+      GH_URL="https://github.com/doctorfree/astronvim_v4"
+      WS_URL="https://astronvim.com"
+      CF_CAT="Starter"
+      CF_TYP="[AstroNvim](https://astronvim.com)"
+      C_DESC="An example [AstroNvim v4](https://github.com/AstroNvim/AstroNvim) configuration"
+      C_INST="lazyman -x AstroNvimV4"
+      ;;
     Basic)
       GH_URL="https://github.com/NvChad/basic-config"
       YT_URL="https://www.youtube.com/@siduck_og"

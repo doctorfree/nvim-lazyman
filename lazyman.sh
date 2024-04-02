@@ -1828,7 +1828,7 @@ install_config() {
   AlanVim | Allaman | CatNvim | Cpp | Go | Go2one | LunarIde | Insis | Knvim | LaTeX | LazyIde | LvimIde | Magidc | Nv | NV-IDE | Orange | Python | Rust | SaleVim | Shuvro | Webdev)
     lazyman ${darg} -L ${confname} -z -y -Q -q
     ;;
-  2k | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | KickstartPython | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
+  2k | AstroNvimV4 | AstroNvimStart | Barebones | Basic | Modern | pde | CodeArt | Cosmic | Ember | Fennel | JustinOhMy | Kabin | KickstartPython | Lamia | Micah | Normal | NvPak | HardHacker | Rohit | Scratch | SingleFile | StartBase | Opinion | StartLsp | StartMason | Modular | BasicLsp | BasicMason | Extralight | LspCmp | Minimal)
     lazyman ${darg} -x ${confname} -z -y -Q -q
     ;;
   Adib | Ahsan | Artur | ONNO | Charles | Chokerman | Craftzdog | Dillon | Daniel | JustinNvim | Kodo | LamarVim | Lukas | LvimAdib | Maddison | Metis | RNvim | Roiz | OnMyWay | Optixal | Plug | Jdhao | Kristijan | Heiker | SeniorMars | Simple | Beethoven | Brain | Elianiva | Elijah | Enrique | J4de | Josean | Orhun | Primeagen | Rafi | Slydragonn | Spider | Traap | Vimacs | Wuelner | xero | Xiao)
@@ -4633,6 +4633,11 @@ install_remove() {
       lazyman ${darg} -C https://github.com/2KAbhishek/nvim2k \
         -N nvim-2k ${quietflag} -z ${yesflag}
       action="Installing"
+      [ -d ${HOME}/.config/nvim-AstroNvimV4 ] && action="Updating"
+      printf "\n${action} AstroNvimV4 Neovim configuration"
+      lazyman ${darg} -C https://github.com/doctorfree/astronvim_v4 \
+        -4 -N nvim-AstroNvimV4 ${quietflag} -z ${yesflag}
+      action="Installing"
       [ -d ${HOME}/.config/nvim-AstroNvimStart ] && action="Updating"
       printf "\n${action} AstroNvimStart Neovim configuration"
       lazyman ${darg} -C https://github.com/doctorfree/AstroNvimStart \
@@ -4767,6 +4772,10 @@ install_remove() {
       AstroNvimStart)
         start_url="https://github.com/doctorfree/AstroNvimStart"
         start_opt="-J"
+        ;;
+      AstroNvimV4)
+        start_url="https://github.com/doctorfree/astronvim_v4"
+        start_opt="-4"
         ;;
       Barebones)
         start_url="https://github.com/Traap/barebones"
