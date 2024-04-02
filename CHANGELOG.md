@@ -6,6 +6,14 @@
 
 ### 🐞 Fixed
 
+## v3.1.5r1
+
+### ⚡️ Added
+
+### 🐞 Fixed
+
+- Pin all `AstroNvim` configuration initializations to `v3.45.3` for now
+
 ## v3.1.4r3
 
 ### ⚡️ Added

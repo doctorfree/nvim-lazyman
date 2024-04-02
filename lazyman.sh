@@ -959,13 +959,16 @@ clone_repo() {
   reponame="$1"
   repourl="$2"
   repodest="$3"
+  repotag="$4"
+  tagopts=
+  [ "${repotag}" ] && tagopts="--depth 1 --branch ${repotag}"
   [ -d "${HOME}/.config/$repodest" ] || {
     [ "$quiet" ] || {
       printf "\nCloning ${reponame} configuration into"
       printf "\n\t${HOME}/.config/${repodest}"
     }
     [ "$tellme" ] || {
-      git clone \
+      git clone ${tagopts} \
         https://github.com/"$repourl" \
         "${HOME}/.config/${repodest}" >/dev/null 2>&1
       add_nvimdirs_entry "$repodest"
@@ -1675,7 +1678,7 @@ show_status() {
 install_astronvim() {
   base_dir="$1"
   user_url="$2"
-  clone_repo AstroNvim AstroNvim/AstroNvim "$base_dir"
+  clone_repo AstroNvim AstroNvim/AstroNvim "$base_dir" "v3.45.3"
   [ "$quiet" ] || {
     printf "\nAdding user configuration into"
     printf "\n\t${HOME}/.config/${base_dir}/lua/user"
