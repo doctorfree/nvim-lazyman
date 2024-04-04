@@ -9,6 +9,7 @@ if settings.enable_obsidian then
   local obsidian_vault = settings.obsidian_vault
   obsidian = {
     "epwalsh/obsidian.nvim",
+    version = "*",
     lazy = true,
     event = { "BufReadPre " .. vim.fn.expand "~" .. "/" .. obsidian_vault .. "/**.md" },
     dependencies = {
