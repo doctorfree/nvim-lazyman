@@ -94,13 +94,6 @@ conf.enable_motion = "leap"
 conf.enable_notes = false
 -- If notes enabled, markdown preview to use (preview, peek, none)
 conf.markdown_preview = "peek"
--- If notes enabled, Neorg notes folders, multiple folders supported
-conf.neorg_notes = {
-  "~/Documents/Notes/Neorg", -- NEORG_NOTES
-  -- "XXXXX", -- NEORG_NOTES
-  -- "YYYYY", -- NEORG_NOTES
-  -- "ZZZZZ", -- NEORG_NOTES
-}
 -- Enable note making using Obsidian
 conf.enable_obsidian = false
 -- If Obsidian enabled, Obsidian vault folder (relative to HOME)
