@@ -505,7 +505,7 @@ if settings.enable_coding then
         "williamboman/mason-lspconfig.nvim",
         "jose-elias-alvarez/nvim-lsp-ts-utils",
         "nvim-lua/plenary.nvim",
-        "b0o/schemastore.nvim",
+        "b0o/SchemaStore.nvim",
         "folke/neodev.nvim",
       },
       event = { "BufReadPre", "BufNewFile" },

@@ -61,7 +61,7 @@ if settings.enable_coding then
         "jose-elias-alvarez/nvim-lsp-ts-utils",
         format_depend,
         "nvim-lua/plenary.nvim",
-        "b0o/schemastore.nvim",
+        "b0o/SchemaStore.nvim",
         "folke/neodev.nvim",
       },
       config = function()
