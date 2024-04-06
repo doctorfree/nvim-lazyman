@@ -725,6 +725,7 @@ remove_config() {
       remove_backups=
       [ "$removeall" ] && remove_backups="--remove-backups"
       ${USCP} ${remove_backups} --remove-config >/dev/null 2>&1
+      rm -f "/tmp/lvim-uninstall$$.sh"
     }
   fi
   [ -d "${HOME}/.config/$ndir" ] && {
