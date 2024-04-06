@@ -3,7 +3,7 @@
 # Install Bob Neovim version manager
 #
 
-export PATH=${HOME}/.local/bin:${PATH}
+export PATH=/opt/homebrew/bin:${HOME}/.local/bin:${PATH}
 
 if command -v bob >/dev/null 2>&1; then
   printf "\n\tUsing existing bob installation.\n"
@@ -12,7 +12,17 @@ fi
 
 have_brew=$(type -p brew)
 have_curl=$(type -p curl)
-[ "${have_brew}" ] && brew update --quiet >/dev/null 2>&1
+[ "${have_brew}" ] && {
+  brew update --quiet >/dev/null 2>&1
+  printf "\n\tInstalling bob with Homebrew, please be patient ..."
+  brew install --quiet "bob" >/dev/null 2>&1
+  have_bob=$(type -p bob)
+  [ "${have_bob}" ] && {
+    printf " done\n"
+    exit 0
+  }
+  printf " fail\n"
+}
 if command -v "cargo" >/dev/null 2>&1; then
   if [ "${have_brew}" ]; then
     printf "\n\tUpdating rust, please be patient ..."

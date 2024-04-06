@@ -1730,6 +1730,21 @@ install_bob() {
   if [ -x "${LMANDIR}/scripts/install_bob.sh" ]; then
     "${LMANDIR}"/scripts/install_bob.sh
   else
+    export PATH=/opt/homebrew/bin:${HOME}/.local/bin:${PATH}
+    have_brew=$(type -p brew)
+    [ "${have_brew}" ] && {
+      printf "\n\tUpdating Homebrew, please be patient ..."
+      brew update --quiet >/dev/null 2>&1
+      printf " done\n"
+      printf "\n\tInstalling bob with Homebrew ..."
+      brew install --quiet "bob" >/dev/null 2>&1
+      have_bob=$(type -p bob)
+      [ "${have_bob}" ] && {
+        printf " done\n"
+        return
+      }
+      printf " fail\n"
+    }
     if command -v "cargo" >/dev/null 2>&1; then
       printf "\n\tInstalling bob with cargo ..."
       cargo install bob >/dev/null 2>&1
