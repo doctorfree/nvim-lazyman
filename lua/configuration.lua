@@ -226,6 +226,7 @@ conf.lsp_installed = {
   "html",          -- LSP_SERVERS
   "lua_ls",        -- LSP_SERVERS
   "pylsp",         -- LSP_SERVERS
+  "tsserver",      -- LSP_SERVERS
   "vimls",         -- LSP_SERVERS
 }
 -- LSPs that should be installed by Mason-lspconfig
@@ -249,7 +250,6 @@ conf.lsp_servers = {
   "tailwindcss",   -- LSP_SERVERS
   "taplo",         -- LSP_SERVERS
   "texlab",        -- LSP_SERVERS
-  "tsserver",      -- LSP_SERVERS
   "vuels",         -- LSP_SERVERS
   "yamlls",        -- LSP_SERVERS
 }

@@ -1,10 +1,12 @@
 local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
+local lsp_installed = settings.lsp_installed
+local lsp_all = require("util").concat_tables(lsp_servers, lsp_installed)
 local formatters_linters = settings.formatters_linters
 local table_contains = require("util").table_contains
 local bashls_settings = {}
 
-if table_contains(lsp_servers, "bashls") then
+if table_contains(lsp_all, "bashls") then
   -- Enable/Disable shellcheck in bashls
   bashls_settings = {
     bashIde = {

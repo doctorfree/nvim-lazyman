@@ -489,10 +489,6 @@ init_neovim() {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
                   xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa 2>&1 | \
                     tee -a ${LOG}
-                  [ "${neodir}" == "nvim-AstroNvimV4" ] && {
-                    xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa 2>&1 | \
-                      tee -a ${LOG}
-                  }
                   [ "${neodir}" == "${nvchaddir}" ] ||
                     [ "${neodir}" == "nvim-Cpp" ] ||
                     [ "${neodir}" == "nvim-Go" ] ||

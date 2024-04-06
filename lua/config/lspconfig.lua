@@ -1,6 +1,7 @@
 local settings = require("configuration")
 local lsp_servers = settings.lsp_servers
 local lsp_installed = settings.lsp_installed
+local lsp_all = require("util").concat_tables(lsp_servers, lsp_installed)
 local formatters_linters = settings.formatters_linters
 local external_formatters = settings.external_formatters
 local showdiag = settings.show_diagnostics
@@ -253,7 +254,7 @@ if settings.enable_coding then
     ),
   }
 
-  if table_contains(lsp_servers, "tailwindcss") then
+  if table_contains(lsp_all, "tailwindcss") then
     lspconfig.tailwindcss.setup({
       capabilities = require("config.lsp.servers.tailwindcss").capabilities,
       filetypes = require("config.lsp.servers.tailwindcss").filetypes,
@@ -264,7 +265,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_installed, "cssls") then
+  if table_contains(lsp_all, "cssls") then
     lspconfig.cssls.setup({
       capabilities = capabilities,
       handlers = handlers,
@@ -273,7 +274,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_installed, "pylsp") then
+  if table_contains(lsp_all, "pylsp") then
     local venv_path = os.getenv('VIRTUAL_ENV')
     local py_path = nil
     -- decide which python executable to use for mypy
@@ -325,7 +326,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "vimls") then
+  if table_contains(lsp_all, "vimls") then
     lspconfig.vimls.setup {
       on_attach = custom_attach,
       flags = {
@@ -335,7 +336,7 @@ if settings.enable_coding then
     }
   end
 
-  if table_contains(lsp_servers, "vuels") then
+  if table_contains(lsp_all, "vuels") then
     lspconfig.vuels.setup({
       filetypes = require("config.lsp.servers.vuels").filetypes,
       handlers = handlers,
@@ -345,7 +346,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_installed, "jsonls") then
+  if table_contains(lsp_all, "jsonls") then
     lspconfig.jsonls.setup({
       capabilities = capabilities,
       handlers = handlers,
@@ -357,7 +358,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "eslint") then
+  if table_contains(lsp_all, "eslint") then
     lspconfig.eslint.setup({
       cmd = { "vscode-eslint-language-server", "--stdio" },
       capabilities = capabilities,
@@ -416,7 +417,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "tsserver") then
+  if table_contains(lsp_all, "tsserver") then
     if settings.typescript_server == "tsserver" then
       -- make sure to only run this once!
       local formatter_bin = "eslint_d"
@@ -488,7 +489,7 @@ if settings.enable_coding then
     "texlab",
   }
   for _, server in ipairs(check_servers_with_navic) do
-    if table_contains(lsp_servers, server) then
+    if table_contains(lsp_all, server) then
       table.insert(other_servers_with_navic, server)
     end
   end
@@ -503,7 +504,7 @@ if settings.enable_coding then
     end
   end
 
-  if table_contains(lsp_servers, "yamlls") then
+  if table_contains(lsp_all, "yamlls") then
     lspconfig.yamlls.setup({
       capabilities = capabilities,
       handlers = handlers,
@@ -567,7 +568,7 @@ if settings.enable_coding then
     end
   end
 
-  if table_contains(lsp_installed, "lua_ls") then
+  if table_contains(lsp_all, "lua_ls") then
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
       handlers = handlers,
@@ -622,7 +623,7 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "bashls") then
+  if table_contains(lsp_all, "bashls") then
     -- Enable/Disable shellcheck in bashls
     local bashls_settings = {
       bashIde = {
@@ -658,28 +659,28 @@ if settings.enable_coding then
     })
   end
 
-  if table_contains(lsp_servers, "emmet_ls") then
+  if table_contains(lsp_all, "emmet_ls") then
     lspconfig.emmet_ls.setup({
       capabilities = capabilities,
       handlers = handlers,
     })
   end
 
-  if table_contains(lsp_servers, "graphql") then
+  if table_contains(lsp_all, "graphql") then
     lspconfig.graphql.setup({
       capabilities = capabilities,
       handlers = handlers,
     })
   end
 
-  if table_contains(lsp_installed, "html") then
+  if table_contains(lsp_all, "html") then
     lspconfig.html.setup({
       capabilities = capabilities,
       handlers = handlers,
     })
   end
 
-  if table_contains(lsp_servers, "prismals") then
+  if table_contains(lsp_all, "prismals") then
     lspconfig.prismals.setup({
       capabilities = capabilities,
       handlers = handlers,
