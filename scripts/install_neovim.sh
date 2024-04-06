@@ -12,6 +12,9 @@ DOC_HOMEBREW="https://docs.brew.sh"
 BREW_EXE="brew"
 HOMEBREW_HOME=
 PYTHON=
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 # Use a Github API token if one is set
 [ "${GITHUB_TOKEN}" ] || {
@@ -334,19 +337,19 @@ install_homebrew() {
 
     if [ -f "${HOME}/.bashrc" ]; then
       grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.bashrc" >/dev/null || {
-        echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
-        echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+        echo 'if [ -x XXX ]; then' | ${SED} -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+        echo '  eval "$(XXX shellenv)"' | ${SED} -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
         echo 'fi' >>"${HOME}/.bashrc"
       }
     else
-      echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >"${HOME}/.bashrc"
-      echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
+      echo 'if [ -x XXX ]; then' | ${SED} -e "s%XXX%${BREW_EXE}%" >"${HOME}/.bashrc"
+      echo '  eval "$(XXX shellenv)"' | ${SED} -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.bashrc"
       echo 'fi' >>"${HOME}/.bashrc"
     fi
     [ -f "${HOME}/.zshrc" ] && {
       grep "eval \"\$(${BREW_EXE} shellenv)\"" "${HOME}/.zshrc" >/dev/null || {
-        echo 'if [ -x XXX ]; then' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
-        echo '  eval "$(XXX shellenv)"' | sed -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
+        echo 'if [ -x XXX ]; then' | ${SED} -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
+        echo '  eval "$(XXX shellenv)"' | ${SED} -e "s%XXX%${BREW_EXE}%" >>"${HOME}/.zshrc"
         echo 'fi' >>"${HOME}/.zshrc"
       }
     }
@@ -363,7 +366,7 @@ install_homebrew() {
   [ "$HOMEBREW_HOME" ] || {
     brewpath=$(command -v brew)
     if [ $? -eq 0 ]; then
-      HOMEBREW_HOME=$(dirname "$brewpath" | sed -e "s%/bin$%%")
+      HOMEBREW_HOME=$(dirname "$brewpath" | ${SED} -e "s%/bin$%%")
     else
       HOMEBREW_HOME="Unknown"
     fi
@@ -496,6 +499,9 @@ install_neovim_dependencies() {
   if [ "${use_homebrew}" ]; then
     brew_install clipboard
     brew_install gpatch
+    brew_install gnu-sed
+    have_gsed=$(type -p gsed)
+    [ "${have_gsed}" ] && SED="gsed"
   else
     platform_install wl-clipboard wl-copy
   fi
@@ -1124,7 +1130,7 @@ install_tools() {
         rm -f /tmp/rust-$$.sh
         curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
         [ -f /tmp/rust-$$.sh ] && {
-          cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
+          cat /tmp/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
           cp /tmp/ins$$ /tmp/rust-$$.sh
           rm -f /tmp/ins$$
         }
@@ -1617,7 +1623,7 @@ main() {
     else
       # Check if installed nvim is v0.9.0 or greater
       ver_head=$(nvim --version | head -1 | awk '{ print $2 }')
-      nvim_ver=$(echo ${ver_head} | awk -F '-' '{ print $1 }' | sed -e "s/^v//")
+      nvim_ver=$(echo ${ver_head} | awk -F '-' '{ print $1 }' | ${SED} -e "s/^v//")
       if [ "${nvim_ver}" ]; then
         compare_versions "${nvim_ver}" "0.9.0" >/dev/null 2>&1
         [ $? -eq 2 ] && {

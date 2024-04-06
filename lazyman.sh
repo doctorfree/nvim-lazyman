@@ -28,6 +28,10 @@ LOLCAT="lolcat"
 BOLD=$(tput bold 2>/dev/null)
 NORM=$(tput sgr0 2>/dev/null)
 LINE=$(tput smul 2>/dev/null)
+# We use GNU sed on macOS
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 # Use a Github API token if one is set
 [ "${GITHUB_TOKEN}" ] || {
@@ -211,7 +215,7 @@ fix_lvim_dir() {
       while read -r f; do
         echo "$f" | grep /.git/ >/dev/null && continue
         grep /lvim/ "$f" >/dev/null && {
-          cat "$f" | sed -e "s%/lvim/%/${fixlvimdir}/%g" >/tmp/lvim$$
+          cat "$f" | ${SED} -e "s%/lvim/%/${fixlvimdir}/%g" >/tmp/lvim$$
           cp /tmp/lvim$$ "$f"
           rm -f /tmp/lvim$$
         }
@@ -228,7 +232,7 @@ fix_nvim_dir() {
       while read -r f; do
         echo "$f" | grep /.git/ >/dev/null && continue
         grep /nvim/ "$f" >/dev/null && {
-          cat "$f" | sed -e "s%/nvim/%/${fixnvimdir}/%g" >/tmp/nvim$$
+          cat "$f" | ${SED} -e "s%/nvim/%/${fixnvimdir}/%g" >/tmp/nvim$$
           cp /tmp/nvim$$ "$f"
           rm -f /tmp/nvim$$
         }
@@ -240,7 +244,7 @@ fix_help_file() {
   helpfile="$1"
   [ -f "${helpfile}" ] && {
     grep help "${helpfile}" >/dev/null && {
-      cat "${helpfile}" | sed -e "s/\"help\",/\"vimdoc\",/" >/tmp/nvimhelp$$
+      cat "${helpfile}" | ${SED} -e "s/\"help\",/\"vimdoc\",/" >/tmp/nvimhelp$$
       cp /tmp/nvimhelp$$ "${helpfile}"
       rm -f /tmp/nvimhelp$$
     }
@@ -278,7 +282,7 @@ init_lvim() {
           cp ${LMANDIR}/scripts/lvim $HOME/.local/bin/lvim
         else
           cat ${LMANDIR}/scripts/lvim |
-            sed -e "s/nvim-LunarVim/${lvimdir}/" >$HOME/.local/bin/lvim
+            ${SED} -e "s/nvim-LunarVim/${lvimdir}/" >$HOME/.local/bin/lvim
         fi
         chmod 755 $HOME/.local/bin/lvim
       }
@@ -1025,7 +1029,7 @@ git_status() {
     shift
   }
   gpath="$1"
-  tpath=$(echo "${gpath}" | sed -e "s%${HOME}%~%")
+  tpath=$(echo "${gpath}" | ${SED} -e "s%${HOME}%~%")
   git -C "${gpath}" remote update >/dev/null 2>&1
   UPSTREAM=${2:-'@{u}'}
   LOCAL=$(git -C "${gpath}" rev-parse @)
@@ -1347,7 +1351,7 @@ show_health() {
   if [ -x ${HEALTHSC} ]; then
     checkdir="$1"
     ${HEALTHSC} "${checkdir}"
-    nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+    nvimconf=$(echo "${checkdir}" | ${SED} -e "s/^nvim-//")
     if [ -f ${LMANDIR}/info/health/${nvimconf}.md ]; then
       NVIM_APPNAME="${checkdir}" nvim ${LMANDIR}/info/health/${nvimconf}.md
     else
@@ -1458,7 +1462,7 @@ show_info() {
       fi
     }
   else
-    nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+    nvimconf=$(echo "${checkdir}" | ${SED} -e "s/^nvim-//")
     if [ -f ${LMANDIR}/info/html/${nvimconf}.html ]; then
       open_info "${nvimconf}"
     else
@@ -1998,7 +2002,7 @@ select_search() {
       done < <(echo "${match}")
       # Sort and remove duplicates
       matched=$(echo $(printf '%s\n' ${matched} | sort -u))
-      neocfg=$(echo "${cfg}" | sed -e "s%${LMANDIR}/info/%%" -e "s/\.md//")
+      neocfg=$(echo "${cfg}" | ${SED} -e "s%${LMANDIR}/info/%%" -e "s/\.md//")
       if [ -d "${HOME}/.config/nvim-${neocfg}" ]; then
         choices+=("${neocfg}  (Installed, Matches: ${matched})")
       else
@@ -2042,8 +2046,8 @@ show_vers_help() {
 show_vers_menu() {
   help=
   tput reset
-  readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
-  readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$ | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+  readarray -t bob_versions < <(bob list | awk ' { print $2 } ' | grep -v Version | grep -v ^$ | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
+  readarray -t bob_status < <(bob list | awk ' { print $4 } ' | grep -v Status | grep -v ^$ | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
   if [ "${have_rich}" ]; then
     rich "[b cyan]Lazyman Neovim Version Menu[/]" -p -a rounded -c -C
   else
@@ -2053,7 +2057,7 @@ show_vers_menu() {
   nveropts=()
   used_ver=
   for ind in "${!bob_versions[@]}"; do
-    spc_status=$(echo ${bob_status[$ind]} | sed -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
+    spc_status=$(echo ${bob_status[$ind]} | ${SED} -e 's/\x1B\[[0-9;]*[A-Za-z]//g')
     if [ "${spc_status}" == "Used" ]; then
       status="[Used]"
       used_ver="${bob_versions[$ind]}"
