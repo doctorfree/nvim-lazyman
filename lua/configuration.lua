@@ -204,7 +204,6 @@ conf.indentline_style = "mini"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
   "bash",
-  "c",
   "lua",
   "markdown",
   "markdown_inline",
@@ -212,7 +211,6 @@ conf.treesitter_ensure_installed = {
   "regex",
   "vim",
   "vimdoc",
-  "wing",
 }
 -- Enable clangd or ccls for C/C++ diagnostics
 -- Note: if enabled then the tool must be installed and in the execution path
