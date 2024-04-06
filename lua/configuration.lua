@@ -246,6 +246,7 @@ conf.lsp_servers = {
   "pyright",       -- LSP_SERVERS
   "sqlls",         -- LSP_SERVERS
   "tailwindcss",   -- LSP_SERVERS
+  "taplo",         -- LSP_SERVERS
   "texlab",        -- LSP_SERVERS
   "tsserver",      -- LSP_SERVERS
   "vimls",         -- LSP_SERVERS

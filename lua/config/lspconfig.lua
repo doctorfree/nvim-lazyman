@@ -478,7 +478,6 @@ if settings.enable_coding then
     "rust_analyzer",
     "ansiblels",
     "cmake",
-    "taplo",
   }
   local check_servers_with_navic = {
     "pyright",
