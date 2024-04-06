@@ -1161,6 +1161,24 @@ install_tools() {
       [ "$quiet" ] || printf " done"
     fi
   fi
+
+  [ "$quiet" ] || printf "\nInstalling stylua"
+
+  # Install stylua with Homebrew on macOS, cargo on Linux
+  if command -v stylua >/dev/null 2>&1; then
+    log "Using previously installed stylua"
+  else
+    if [ "${use_homebrew}" ]; then
+      brew_install stylua
+    else
+      if command -v "cargo" >/dev/null 2>&1; then
+        log "Installing stylua with cargo ..."
+        cargo install stylua >/dev/null 2>&1
+        [ "$quiet" ] || printf " done"
+      fi
+    fi
+  fi
+
   if ! command -v tldr >/dev/null 2>&1; then
     if [ "${use_homebrew}" ]; then
       brew_install tealdeer
