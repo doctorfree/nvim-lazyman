@@ -224,9 +224,9 @@ conf.lsp_installed = {
   "cssls",         -- LSP_SERVERS
   "denols",        -- LSP_SERVERS
   "html",          -- LSP_SERVERS
-  "jsonls",        -- LSP_SERVERS
   "lua_ls",        -- LSP_SERVERS
   "pylsp",         -- LSP_SERVERS
+  "vimls",         -- LSP_SERVERS
 }
 -- LSPs that should be installed by Mason-lspconfig
 -- Leave the 'LSP_SERVERS' trailing comment, it is used by lazyman
@@ -238,6 +238,7 @@ conf.lsp_servers = {
   -- "eslint",     -- LSP_SERVERS
   -- "gopls",      -- LSP_SERVERS
   "graphql",       -- LSP_SERVERS
+  "jsonls",        -- LSP_SERVERS
   "jdtls",         -- LSP_SERVERS
   "julials",       -- LSP_SERVERS
   "ltex",          -- LSP_SERVERS
@@ -249,7 +250,6 @@ conf.lsp_servers = {
   "taplo",         -- LSP_SERVERS
   "texlab",        -- LSP_SERVERS
   "tsserver",      -- LSP_SERVERS
-  "vimls",         -- LSP_SERVERS
   "vuels",         -- LSP_SERVERS
   "yamlls",        -- LSP_SERVERS
 }
