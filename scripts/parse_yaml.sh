@@ -29,8 +29,8 @@ parse_yaml() {
   fs="$(echo @ | tr @ '\034')"
 
   (
-    sed -e '/- [^\“]'"[^\']"'.*: /s|\([ ]*\)- \([[:space:]]*\)|\1-\'$'\n''  \1\2|g' |
-      sed -ne '/^--/s|--||g; s|\"|\\\"|g; s/[[:space:]]*$//g;' \
+    ${SED} -e '/- [^\“]'"[^\']"'.*: /s|\([ ]*\)- \([[:space:]]*\)|\1-\'$'\n''  \1\2|g' |
+      ${SED} -ne '/^--/s|--||g; s|\"|\\\"|g; s/[[:space:]]*$//g;' \
           -e 's/\$/\\\$/g' \
           -e "/#.*[\"\']/!s| #.*||g; /^#/s|#.*||g;" \
           -e "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
@@ -45,7 +45,7 @@ parse_yaml() {
             printf("%s%s%s%s=(\"%s\")\n", "'"$prefix"'",vn, $2, conj[indent-1], $3);
           }
         }' |
-      sed -e 's/_=/+=/g' |
+      ${SED} -e 's/_=/+=/g' |
       awk 'BEGIN {
           FS="=";
           OFS="="
@@ -64,7 +64,7 @@ unset_variables() {
   unset variables
   variables=()
   for variable in "${variable_string[@]}"; do
-    tmpvar=$(echo "$variable" | grep '=' | sed 's/=.*//' | sed 's/+.*//')
+    tmpvar=$(echo "$variable" | grep '=' | ${SED} 's/=.*//' | ${SED} 's/+.*//')
     variables+=("$tmpvar")
   done
   for variable in "${variables[@]}"; do
@@ -82,6 +82,10 @@ create_variables() {
   unset_variables "${yaml_string}"
   eval "${yaml_string}"
 }
+
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 # Execute parse_yaml() direct from command line
 

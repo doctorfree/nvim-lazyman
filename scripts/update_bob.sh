@@ -5,6 +5,10 @@
 
 export PATH=${HOME}/.local/bin:${PATH}
 
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
+
 have_brew=$(type -p brew)
 have_curl=$(type -p curl)
 [ "${have_brew}" ] && brew update --quiet >/dev/null 2>&1
@@ -27,7 +31,7 @@ else
       rm -f /tmp/rust-$$.sh
       curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
       [ -f /tmp/rust-$$.sh ] && {
-        cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
+        cat /tmp/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
         cp /tmp/ins$$ /tmp/rust-$$.sh
         rm -f /tmp/ins$$
       }

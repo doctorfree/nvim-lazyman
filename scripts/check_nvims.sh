@@ -11,6 +11,9 @@ LMANDIR="${CONFDIR}/nvim-Lazyman"
 CONFIG="${LMANDIR}/scripts/configrc"
 INFODIR="${LMANDIR}/info"
 HTMLDIR="${INFODIR}/html"
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 if [ -f "${CONFIG}" ]
 then
@@ -103,5 +106,5 @@ shift $(( OPTIND - 1 ))
 
 checkdir="nvim-Lazyman"
 [ "$1" ] && checkdir="$1"
-conf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+conf=$(echo "${checkdir}" | ${SED} -e "s/^nvim-//")
 check_info "${conf}"

@@ -54,6 +54,10 @@ lsp_enabled_table=()
 for_enabled_table=()
 neorg_notes_table=()
 
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
+
 usage() {
   printf "\nUsage: lazyman_config [-a] [-d] [-i] [-m menu] [-s name value] [-u]"
   printf "\nWhere:"
@@ -182,11 +186,11 @@ set_conf_value() {
     case ${confval} in
       true | false | [0-9])
         cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
         ;;
       *)
         cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
         ;;
     esac
     cp /tmp/nvim$$ "${NVIMCONF}"
@@ -224,11 +228,11 @@ set_conf_table() {
         case ${action} in
           disable)
             cat "${NVIMCONF}" \
-              | sed -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
             ;;
           enable)
             cat "${NVIMCONF}" \
-              | sed -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
             ;;
         esac
         cp /tmp/nvim$$ "${NVIMCONF}"
@@ -1105,7 +1109,7 @@ show_plugin_menu() {
                   esac
                   [ "${neorg_temp}" ] && {
                     cat "${NVIMCONF}" \
-                      | sed -e "s/${neorg_temp}/${notes}/" >/tmp/nvim$$
+                      | ${SED} -e "s/${neorg_temp}/${notes}/" >/tmp/nvim$$
                     cp /tmp/nvim$$ "${NVIMCONF}"
                     rm -f /tmp/nvim$$
                     set_conf_table "NEORG_NOTES" "${notes}" "enable"

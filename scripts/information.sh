@@ -14,6 +14,9 @@ PLURLS="${LMANDIR}/scripts/plugin_urls.txt"
 KEYMAP="${LMANDIR}/scripts/keymaps.sh"
 TBLCSS="${LMANDIR}/scripts/table.css"
 CONFIG="${LMANDIR}/scripts/configrc"
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 if [ -f "${CONFIG}" ]
 then
@@ -58,8 +61,8 @@ get_plugins() {
           echo "## Lazy managed plugins" >> "${outfile}"
           echo "" >> "${outfile}"
           grep ':' "${confdir}/lazy-lock.json" | awk -F ':' ' { print $1 } ' | \
-          sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | \
-          sed -e 's/"//g' -e "s/'//g" | while read plug
+          ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | \
+          ${SED} -e 's/"//g' -e "s/'//g" | while read plug
           do
             url=$(grep ${plug} ${PLURLS} | head -1)
             if [ "${url}" ]
@@ -70,15 +73,15 @@ get_plugins() {
               gitconf="${HOME}/.local/share/${nvimdir}/lazy/${plug}/.git/config"
               if [ -f ${gitconf} ]
               then
-                plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-                plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+                plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+                plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | ${SED} -e "s/\.git$//")
                 echo "- [${plugin}](${plugurl})" >> "${outfile}"
               else
                 gitconf="${HOME}/.local/share/${nvimdir}/site/pack/lazy/opt/${plug}/.git/config"
                 if [ -f ${gitconf} ]
                 then
-                  plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-                  plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+                  plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+                  plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | ${SED} -e "s/\.git$//")
                   echo "- [${plugin}](${plugurl})" >> "${outfile}"
                 else
                   echo "- ${plug}" >> "${outfile}"
@@ -96,8 +99,8 @@ get_plugins() {
             [ "${gitconf}" == "${HOME}/.local/share/${nvimdir}/site/pack/lazy/opt/*/.git/config" ] && continue
             if [ -f ${gitconf} ]
             then
-              plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-              plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+              plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+              plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | ${SED} -e "s/\.git$//")
               echo "- [${plugin}](${plugurl})" >> "${outfile}"
             fi
           done
@@ -109,8 +112,8 @@ get_plugins() {
         for gitconf in ${confdir}/.git/modules/*/config
         do
           [ "${gitconf}" == "${confdir}/.git/modules/*/config" ] && continue
-          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | ${SED} -e "s/\.git$//")
           echo "- [${plugin}](${plugurl})" >> "${outfile}"
         done
         ;;
@@ -119,8 +122,8 @@ get_plugins() {
         echo "" >> "${outfile}"
         find "${confdir}" -name packer_compiled.lua -print0 | \
         xargs -0 grep url | grep = | awk -F '=' ' { print $2 } ' | \
-        sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | \
-        sed -e 's/"//g' -e "s/'//g" | while read url
+        ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | \
+        ${SED} -e 's/"//g' -e "s/'//g" | while read url
         do
           plugin=$(echo ${url} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ')
           echo "- [${plugin}](${url})" >> "${outfile}"
@@ -132,8 +135,8 @@ get_plugins() {
         for gitconf in ${HOME}/.local/share/${nvimdir}/plugged/*/.git/config
         do
           [ "${gitconf}" == "${HOME}/.local/share/${nvimdir}/plugged/*/.git/config" ] && continue
-          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | ${SED} -e "s/\.git$//")
           echo "- [${plugin}](${plugurl})" >> "${outfile}"
         done
         ;;
@@ -143,8 +146,8 @@ get_plugins() {
         for gitconf in ${HOME}/.cache/vimfiles/repos/*/*/*/.git/config
         do
           [ "${gitconf}" == "${HOME}/.cache/vimfiles/repos/*/*/*/.git/config" ] && continue
-          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | sed -e "s/\.git$//")
+          plugurl=$(grep url "${gitconf}" | head -1 | awk -F '=' ' { print $2 } ' | ${SED} -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          plugin=$(echo ${plugurl} | awk -F '/' ' { print $(NF - 1)"/"$(NF) } ' | ${SED} -e "s/\.git$//")
           echo "- [${plugin}](${plugurl})" >> "${outfile}"
         done
         ;;

@@ -1,6 +1,10 @@
 #!/bin/bash
 #
 
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
+
 LOCAL=".local/kitty.app"
 printf "\n\tInstalling Kitty terminal emulator ..."
 curl --silent --location \
@@ -9,7 +13,7 @@ curl --silent --location \
   rm -f /tmp/kitty-$$.sh
   curl --insecure --silent --location \
     https://sw.kovidgoyal.net/kitty/installer.sh >/tmp/kitty-$$.sh
-  cat /tmp/kitty-$$.sh | sed -e "s/curl -/curl -k/" >/tmp/k$$
+  cat /tmp/kitty-$$.sh | ${SED} -e "s/curl -/curl -k/" >/tmp/k$$
   cp /tmp/k$$ /tmp/kitty-$$.sh
   rm -f /tmp/k$$
 }
@@ -72,10 +76,10 @@ if [ -s /tmp/kitty-$$.sh ]; then
   for desktop in "${HOME}"/.local/share/applications/kitty*.desktop; do
     [ "${desktop}" == "${HOME}/.local/share/applications/kitty*.desktop" ] && continue
     [ -f ${HOME}/${LOCAL}/share/icons/hicolor/256x256/apps/kitty.png ] && {
-      sed -i "s|Icon=kitty|Icon=${HOME}/${LOCAL}/share/icons/hicolor/256x256/apps/kitty.png|g" "${desktop}"
+      ${SED} -i "s|Icon=kitty|Icon=${HOME}/${LOCAL}/share/icons/hicolor/256x256/apps/kitty.png|g" "${desktop}"
     }
     [ -x ${HOME}/${LOCAL}/bin/kitty ] && {
-      sed -i "s|Exec=kitty|Exec=${HOME}/${LOCAL}/bin/kitty|g" "${desktop}"
+      ${SED} -i "s|Exec=kitty|Exec=${HOME}/${LOCAL}/bin/kitty|g" "${desktop}"
     }
   done
   printf " done!\n"

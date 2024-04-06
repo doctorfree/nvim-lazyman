@@ -11,10 +11,13 @@ CONFDIR="${HOME}/.config"
 LMANDIR="${CONFDIR}/nvim-Lazyman"
 HEALTHDIR="${LMANDIR}/info/health"
 [ -d "${HEALTHDIR}" ] || mkdir -p "${HEALTHDIR}"
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 checkdir="nvim-Lazyman"
 [ "$1" ] && checkdir="$1"
-nvimconf=$(echo "${checkdir}" | sed -e "s/^nvim-//")
+nvimconf=$(echo "${checkdir}" | ${SED} -e "s/^nvim-//")
 [ -d "${CONFDIR}/${checkdir}" ] || {
   if [ -d "${CONFDIR}/nvim-${checkdir}" ]
   then
@@ -32,8 +35,8 @@ nvim --headless "+checkhealth" "+w!${HEALTHDIR}/${HEALTH}" +qa \
   "${LMANDIR}"/README.md "${LMANDIR}"/init.lua >/dev/null 2>&1
 
 [ -f "${HEALTHDIR}/${HEALTH}" ] && {
-  sed -i "1s;^;# ${checkdir} Neovim health check\n;" "${HEALTHDIR}/${HEALTH}"
-  cat "${HEALTHDIR}/${HEALTH}" | sed -e "s/===.*/--------/" > /tmp/h$$
+  ${SED} -i "1s;^;# ${checkdir} Neovim health check\n;" "${HEALTHDIR}/${HEALTH}"
+  cat "${HEALTHDIR}/${HEALTH}" | ${SED} -e "s/===.*/--------/" > /tmp/h$$
   cp /tmp/h$$ "${HEALTHDIR}/${HEALTH}"
   rm -f /tmp/h$$
 }

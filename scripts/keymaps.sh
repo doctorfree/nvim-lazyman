@@ -18,6 +18,9 @@ debug=
 }
 CFNAME="$1"
 OUT="$2"
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 if [ -d "${HOME}/.config/nvim-${CFNAME}" ]
 then
@@ -63,9 +66,9 @@ fi
 echo "" >> "${OUT}"
 echo "## ${CFNAME} Keymaps" >> "${OUT}"
 
-cat "${KEYTMP}"/${CFNAME}.lua | sed -e "s/{ {$/\n{ {/" | \
-  sed -e "s/\[nvim-treesitter.*//" -e "s/|/\&#124;/" | \
-  sed -e "s/</\&lt;/g" -e "s/>/\&gt;/g" | \
+cat "${KEYTMP}"/${CFNAME}.lua | ${SED} -e "s/{ {$/\n{ {/" | \
+  ${SED} -e "s/\[nvim-treesitter.*//" -e "s/|/\&#124;/" | \
+  ${SED} -e "s/</\&lt;/g" -e "s/>/\&gt;/g" | \
   grep -v callback | grep -v "^\[" | grep -v ^Dep | grep -v ^Error | \
   grep -v ^Fail | grep -v ^Some | grep -v ^\& | grep -v ^sh | \
   grep -v ^Tele | grep -v ^Lua | grep -v ^Two | grep -i -v ^vim | \

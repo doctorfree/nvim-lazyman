@@ -33,6 +33,10 @@ lsp_enabled_table=()
 for_enabled_table=()
 neorg_notes_table=()
 
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
+
 usage() {
   printf "\nUsage: webdev_config [-d] [-i] [-u]"
   printf "\nWhere:"
@@ -84,11 +88,11 @@ set_conf_value() {
     case ${confval} in
       true | false | [0-9])
         cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
         ;;
       *)
         cat "${NVIMCONF}" \
-          | sed -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
         ;;
     esac
     cp /tmp/nvim$$ "${NVIMCONF}"
@@ -126,11 +130,11 @@ set_conf_table() {
         case ${action} in
           disable)
             cat "${NVIMCONF}" \
-              | sed -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
             ;;
           enable)
             cat "${NVIMCONF}" \
-              | sed -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
             ;;
         esac
         cp /tmp/nvim$$ "${NVIMCONF}"

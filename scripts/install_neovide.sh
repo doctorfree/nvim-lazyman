@@ -6,6 +6,9 @@
 # shellcheck disable=SC2181
 
 export PATH="$HOME/.local/bin:$PATH:$HOME/.cargo/bin"
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 have_brew=$(type -p brew)
 have_cargo=$(type -p cargo)
@@ -47,7 +50,7 @@ cargo_install() {
               rm -f /tmp/rust-$$.sh
               curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
               [ -f /tmp/rust-$$.sh ] && {
-                cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
+                cat /tmp/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
                 cp /tmp/ins$$ /tmp/rust-$$.sh
                 rm -f /tmp/ins$$
               }

@@ -2,6 +2,9 @@
 
 patchdir="${HOME}/.config/nvim-Lazyman/scripts/patches"
 have_patch=$(type -p patch)
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 [ "${have_patch}" ] || {
   printf "\n\nWARNING: Unable to apply patch for ${confname}"
@@ -22,7 +25,7 @@ do
     echo "Exiting"
     exit 1
   }
-  confname=$(basename ${patch} | sed -e "s/.patch//")
+  confname=$(basename ${patch} | ${SED} -e "s/.patch//")
   [ "${config}" ] && {
     [ "${config}" == "${confname}" ] || continue
   }

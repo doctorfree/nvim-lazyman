@@ -4,6 +4,9 @@
 #
 
 export PATH=/opt/homebrew/bin:${HOME}/.local/bin:${PATH}
+SED="sed"
+have_gsed=$(type -p gsed)
+[ "${have_gsed}" ] && SED="gsed"
 
 if command -v bob >/dev/null 2>&1; then
   printf "\n\tUsing existing bob installation.\n"
@@ -53,7 +56,7 @@ else
       rm -f /tmp/rust-$$.sh
       curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
       [ -f /tmp/rust-$$.sh ] && {
-        cat /tmp/rust-$$.sh | sed -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
+        cat /tmp/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
         cp /tmp/ins$$ /tmp/rust-$$.sh
         rm -f /tmp/ins$$
       }
