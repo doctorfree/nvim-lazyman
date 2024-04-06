@@ -6,6 +6,21 @@
 
 ### 🐞 Fixed
 
+## v3.1.5r3
+
+### ⚡️ Added
+
+- Add `AstroNvimV4` to `starters` in `configrc`
+- Use `pipx` on `macOS`
+
+### 🐞 Fixed
+
+- Initialize `AstroNvimV4` twice
+- Remove tmp uninstall script after executing
+- Reflect renamed `schemastore` repo `b0o/SchemaStore.nvim` in `lspconfig`
+- Remove `Neorg` from `free` namespace
+- Update `obsidian` plugin configuration
+
 ## v3.1.5r2
 
 ### ⚡️ Added
