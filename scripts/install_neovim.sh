@@ -97,6 +97,7 @@ get_platform() {
   platform=$(uname -s)
   if [ "$platform" == "Darwin" ]; then
     darwin=1
+    use_pip=
   else
     if [ -f /etc/os-release ]; then
       . /etc/os-release
@@ -160,6 +161,7 @@ get_platform() {
       fi
     fi
     # Ubuntu disabled pip installs of Python modules in 23.04 and above
+    # macOS as well
     have_lsb=$(type -p lsb_release)
     if [ "${have_lsb}" ]; then
       ubver=$(lsb_release -rs 2>/dev/null)
