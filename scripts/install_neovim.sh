@@ -1337,13 +1337,25 @@ install_tools() {
       "$PYTHON" -m pipx ensurepath >/dev/null 2>&1
       "$PYTHON" -m pip install ${PIPARGS} setuptools >/dev/null 2>&1
       "$PYTHON" -m pip install ${PIPARGS} wheel >/dev/null 2>&1
-      "$PYTHON" -m pip install ${PIPARGS} pynvim doq >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} pynvim >/dev/null 2>&1
+      "$PYTHON" -m pip install ${PIPARGS} doq >/dev/null 2>&1
     else
       platform_install pipx
       pipx ensurepath >/dev/null 2>&1
       pipx install setuptools >/dev/null 2>&1
       pipx install wheel >/dev/null 2>&1
-      pipx install pynvim doq >/dev/null 2>&1
+      have_pip3=$(type -p pip3)
+      if [ "${have_pip3}" ]; then
+        pip3 install pynvim >/dev/null 2>&1
+      else
+        have_pip=$(type -p pip)
+        if [ "${have_pip}" ]; then
+          pip install pynvim >/dev/null 2>&1
+        else
+          "$PYTHON" -m pip install ${PIPARGS} pynvim >/dev/null 2>&1
+        fi
+      fi
+      pipx install doq >/dev/null 2>&1
     fi
     [ "$quiet" ] || printf " done"
     log 'Installing black, beautysh, and ruff formatters/linters ...'
