@@ -3864,9 +3864,13 @@ getok() {
 install_remove() {
   cfg="$1"
   if [ "$remove" ]; then
-    remove_config "nvim-${cfg}"
+    remove_config "${cfg}"
   else
-    [ -d "${HOME}/.config/nvim-${cfg}" ] || install_config ${cfg}
+    if [ -d "${HOME}/.config/nvim-${cfg}" ]; then
+      [ "$update" ] && update_config ${cfg}
+    else
+      [ "$update" ] || install_config ${cfg}
+    fi
   fi
 }
 
@@ -3876,7 +3880,11 @@ install_remove() {
     if [ "$remove" ]; then
       printf "\nRemoving installed LazyVim configurations\n"
     else
-      printf "\nInstalling LazyVim configurations\n"
+      if [ "$update" ]; then
+        printf "\nUpdating LazyVim configurations\n"
+      else
+        printf "\nInstalling LazyVim configurations\n"
+      fi
     fi
     for nvimconfig in ${LAZYVIMCFGS}; do
       install_remove "${nvimconfig}"
@@ -3886,7 +3894,11 @@ install_remove() {
     if [ "$remove" ]; then
       printf "\nRemoving installed AstroNvim configurations\n"
     else
-      printf "\nInstalling AstroNvim configurations\n"
+      if [ "$update" ]; then
+        printf "\nUpdating AstroNvim configurations\n"
+      else
+        printf "\nInstalling AstroNvim configurations\n"
+      fi
     fi
     for nvimconfig in ${ASTROCFGS}; do
       install_remove "${nvimconfig}"
@@ -3896,7 +3908,11 @@ install_remove() {
     if [ "$remove" ]; then
       printf "\nRemoving installed Kickstart configurations\n"
     else
-      printf "\nInstalling Kickstart configurations\n"
+      if [ "$update" ]; then
+        printf "\nUpdating Kickstart configurations\n"
+      else
+        printf "\nInstalling Kickstart configurations\n"
+      fi
     fi
     for nvimconfig in ${KICKSTARTCFGS}; do
       install_remove "${nvimconfig}"
@@ -3906,7 +3922,11 @@ install_remove() {
     if [ "$remove" ]; then
       printf "\nRemoving installed LunarVim configurations\n"
     else
-      printf "\nInstalling LunarVim configurations\n"
+      if [ "$update" ]; then
+        printf "\nUpdating LunarVim configurations\n"
+      else
+        printf "\nInstalling LunarVim configurations\n"
+      fi
     fi
     for nvimconfig in ${LUNARVIMCFGS}; do
       install_remove "${nvimconfig}"
@@ -3916,7 +3936,11 @@ install_remove() {
     if [ "$remove" ]; then
       printf "\nRemoving installed NvChad configurations\n"
     else
-      printf "\nInstalling NvChad configurations\n"
+      if [ "$update" ]; then
+        printf "\nUpdating NvChad configurations\n"
+      else
+        printf "\nInstalling NvChad configurations\n"
+      fi
     fi
     for nvimconfig in ${NVCHADCFGS}; do
       install_remove "${nvimconfig}"
@@ -3926,7 +3950,11 @@ install_remove() {
     if [ "$remove" ]; then
       printf "\nRemoving installed Packer based configurations\n"
     else
-      printf "\nInstalling Packer based configurations\n"
+      if [ "$update" ]; then
+        printf "\nUpdating Packer based configurations\n"
+      else
+        printf "\nInstalling Packer based configurations\n"
+      fi
     fi
     for nvimconfig in ${PACKERCFGS}; do
       install_remove "${nvimconfig}"
@@ -3936,7 +3964,11 @@ install_remove() {
     if [ "$remove" ]; then
       printf "\nRemoving installed Plug based configurations\n"
     else
-      printf "\nInstalling Plug based configurations\n"
+      if [ "$update" ]; then
+        printf "\nUpdating Plug based configurations\n"
+      else
+        printf "\nInstalling Plug based configurations\n"
+      fi
     fi
     for nvimconfig in ${PLUGCFGS}; do
       install_remove "${nvimconfig}"
