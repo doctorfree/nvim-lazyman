@@ -6,6 +6,23 @@
 
 ### 🐞 Fixed
 
+## v3.1.5r4
+
+### ⚡️ Added
+
+- Install `stylua` in `install_neovim.sh`
+- Add `concat_tables` function, check both lsp tables in `lspconfig`
+- Install `taplo` with `mason-lspconfig`
+- Use `pip` to install `pynvim`
+- Use GNU sed on `macOS`
+- Use Homebrew to install `Bob` if available
+
+### 🐞 Fixed
+
+- Use temporary `astrolsp.lua` for `AstroNvimV4` initialization
+- Move `jsonls` out of installed lsp servers, move `vimls` in
+- Fix update categories, was installing all instead of updating installed
+
 ## v3.1.5r3
 
 ### ⚡️ Added
