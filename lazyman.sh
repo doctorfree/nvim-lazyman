@@ -5284,8 +5284,8 @@ fi
         esac
       }
       # Enable gopls if go is available except on macOS
-      have_go=$(type -p go)
-      [ "${have_go}" ] && ${SUBMENUS} -s lsp_servers gopls enable
+      # have_go=$(type -p go)
+      # [ "${have_go}" ] && ${SUBMENUS} -s lsp_servers gopls enable
     }
   else
     printf "\n${INSTNVIM} not executable"
