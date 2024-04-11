@@ -20,6 +20,7 @@ INSTNVIM="${SCRIPTSD}/install_neovim.sh"
 JAVADBUG="${SCRIPTSD}/java_debug.sh"
 KILLNVIM="${SCRIPTSD}/kill_all_neovim.sh"
 SUBMENUS="${SCRIPTSD}/lazyman_config.sh"
+ANVMV4="${SCRIPTSD}/anvmv4_config.sh"
 WEBDEV="${SCRIPTSD}/webdev_config.sh"
 LZYIDE="${SCRIPTSD}/lzyide_config.sh"
 FONTDIR="${SCRIPTSD}/figlet-fonts"
@@ -101,7 +102,7 @@ usage() {
   printf "\n    -f 'path' fix treesitter 'help' parser in config file 'path'"
   printf "\n    -F 'menu' indicates present the specified Lazyman menu"
   printf "\n       'menu' can be one of:"
-  printf "\n           'main', 'conf', 'lsp', 'format', 'plugin', 'lazyide', 'webdev'"
+  printf "\n           main, conf, lsp, format, plugin, anvmv4 lazyide, webdev"
   printf "\n    -G indicates no plugin manager, initialize with :TSUpdate"
   printf "\n    -g indicates install and initialize Abstract Neovim configuration"
   printf "\n    -j indicates install and initialize BasicIde Neovim configuration"
@@ -386,14 +387,19 @@ init_neovim() {
   }
 
   skipthis=
-  if [ "${neodir}" == "nvim-Webdev" ]; then
-    [ -x ${WEBDEV} ] && ${WEBDEV} -i
+  if [ "${neodir}" == "nvim-AstroNvimV4" ]; then
+    [ -x ${ANVMV4} ] && ${ANVMV4} -i
     custom_url=
   else
-    [ "${neodir}" == "nvim-LazyIde" ] && {
-      [ -x ${LZYIDE} ] && ${LZYIDE} -i
+    if [ "${neodir}" == "nvim-Webdev" ]; then
+      [ -x ${WEBDEV} ] && ${WEBDEV} -i
       custom_url=
-    }
+    else
+      [ "${neodir}" == "nvim-LazyIde" ] && {
+        [ -x ${LZYIDE} ] && ${LZYIDE} -i
+        custom_url=
+      }
+    fi
   fi
   [ "${custom_url}" ] && {
     [ "${neodir}" == "nvim-JustinOhMy" ] || {
@@ -2143,9 +2149,9 @@ show_main_help() {
   printf "\nEnter a menu option number or keywords to select an option."
   printf "\nKeywords include: ${BOLD}help, info, install, open, remove, search, update${NORM}"
   printf "\nAll shortcuts have single key support:"
-  printf "\n  'h' = help, 'I' = info, 'i' = install, 'o' = open, 'q' = quit"
-  printf "\n  'r' = remove, 's' = search, 'u' = update, 'c' = Lazyman Config menu"
-  printf "\n  'm' = main menu, 'L' = LazyIde Config menu, 'W' = Webdev Config menu"
+  printf "\n  'h' = help, 'I' = info, 'i' = install, 'o' = open, 'q' = quit, 'r' = remove,"
+  printf "\n  's' = search, 'u' = update, 'c' = Lazyman Config menu, 'm' = main menu,"
+  printf "\n  'A' = AstroNvimV4 menu, 'L' = LazyIde Config menu, 'W' = Webdev Config menu"
   printf "\nIn the fuzzy selection dialogs, enter a few letters to fuzzy select from the options"
   printf "\nor use the <Up-Arrow> and <Down-Arrow> keys to move through the options."
   printf "\nPress <Enter> to select the highlighted option.\n"
@@ -2177,6 +2183,7 @@ show_main_menu() {
     confmenu=
     lidemenu=
     versmenu=
+    anv4menu=
     wdevmenu=
     if [ -f "${LZYMANRC}" ]; then
       source "${LZYMANRC}"
@@ -2536,6 +2543,9 @@ show_main_menu() {
       [ -x ${KILLNVIM} ] && options+=("Kill All Nvim")
     }
     options+=("Lazyman Config")
+    [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
+      options+=("AstroNvimV4 Config")
+    }
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Config")
     }
@@ -3229,6 +3239,10 @@ show_main_menu() {
         [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && lidemenu=1
         break
         ;;
+      "AstroNvimV4 Config",* | *,"AstroNvimV4 Config" | "W",* | *,"W")
+        [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && anv4menu=1
+        break
+        ;;
       "Webdev Config",* | *,"Webdev Config" | "W",* | *,"W")
         [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && wdevmenu=1
         break
@@ -3278,12 +3292,21 @@ show_main_menu() {
       ${SUBMENUS} -m conf
       [ $? -eq 3 ] && exit 0
     }
+    [ "${anv4menu}" ] && {
+      exitstatus=0
+      ${ANVMV4}
+      exitstatus=$?
+      [ ${exitstatus} -eq 3 ] && exit 0
+      [ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
+      [ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
+    }
     [ "${lidemenu}" ] && {
       exitstatus=0
       ${LZYIDE}
       exitstatus=$?
       [ ${exitstatus} -eq 3 ] && exit 0
       [ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
+      [ ${exitstatus} -eq 6 ] && exec lazyman -F anvmv4
     }
     [ "${wdevmenu}" ] && {
       exitstatus=0
@@ -3291,6 +3314,7 @@ show_main_menu() {
       exitstatus=$?
       [ ${exitstatus} -eq 3 ] && exit 0
       [ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
+      [ ${exitstatus} -eq 6 ] && exec lazyman -F anvmv4
     }
     [ "${versmenu}" ] && show_vers_menu
   done
@@ -3522,6 +3546,9 @@ while getopts "49aAb:BcC:dD:eE:f:F:gGhHi:IjJkK:lL:mMnN:oO:pPqQrRsStTUvV:w:Wx:XyY
         ;;
       webd* | Webd* | wdev* | Wdev*)
         menu="wdevmenu"
+        ;;
+      anv* | Anv*)
+        menu="anv4menu"
         ;;
       *)
         menu="main"
@@ -5775,7 +5802,12 @@ exitstatus=0
                 ${WEBDEV}
                 exitstatus=$?
               else
-                show_main_menu
+                if [ "$menu" == "anv4menu" ]; then
+                  ${ANVMV4}
+                  exitstatus=$?
+                else
+                  show_main_menu
+                fi
               fi
             fi
           fi
@@ -5790,5 +5822,6 @@ exitstatus=0
 [ ${exitstatus} -eq 2 ] && exec lazyman
 [ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
 [ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
+[ ${exitstatus} -eq 6 ] && exec lazyman -F anvmv4
 
 exit 0

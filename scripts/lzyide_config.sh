@@ -215,6 +215,9 @@ select_theme_style() {
       [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
         options+=("Webdev Menu")
       }
+      [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
+        options+=("AstroNvimV4 Menu")
+      }
       options+=("Configuration Menu" "Main Menu" "Quit")
       select opt in "${options[@]}"; do
         case "$opt,$REPLY" in
@@ -364,6 +367,10 @@ select_theme_style() {
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
             exit 5
             ;;
+          "AstroNvimV4 Menu"*,* | *,"AstroNvimV4 Menu"* | "a",* | *,"a")
+            [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+            exit 6
+            ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
@@ -452,6 +459,9 @@ select_theme() {
       [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
         options+=("Webdev Menu")
       }
+      [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
+        options+=("AstroNvimV4 Menu")
+      }
       options+=("Configuration Menu" "Main Menu" "Quit")
       select opt in "${options[@]}"; do
         case "$opt,$REPLY" in
@@ -509,6 +519,10 @@ select_theme() {
           "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
             [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
             exit 5
+            ;;
+          "AstroNvimV4 Menu"*,* | *,"AstroNvimV4 Menu"* | "a",* | *,"a")
+            [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+            exit 6
             ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
@@ -684,6 +698,9 @@ show_conf_menu() {
     [ -d "${LIDEDIR}" ] && options+=("Open LazyIde")
     [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
       options+=("Webdev Menu")
+    }
+    [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
+      options+=("AstroNvimV4 Menu")
     }
     options+=("Lazyman Config" "Main Menu")
     options+=("Quit")
@@ -948,6 +965,10 @@ show_conf_menu() {
         "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
           [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
           exit 5
+          ;;
+        "AstroNvimV4 Menu"*,* | *,"AstroNvimV4 Menu"* | "a",* | *,"a")
+          [ "${pluginit}" ] && lazyman -N nvim-LazyIde init
+          exit 6
           ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
           [ "${pluginit}" ] && lazyman -N nvim-LazyIde init

@@ -11,6 +11,7 @@ LMANDIR="${HOME}/.config/${LAZYMAN}"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
 CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
+ANVMV4="${LMANDIR}/scripts/anvmv4_config.sh"
 WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
 LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
 FONTDIR="${LMANDIR}/scripts/figlet-fonts"
@@ -2328,6 +2329,7 @@ show_conf_menu() {
     plugmenu=
     lspmenu=
     formenu=
+    anv4menu=
     lidemenu=
     wdevmenu=
     [ -f ${GET_CONF} ] || {
@@ -2495,6 +2497,9 @@ show_conf_menu() {
     options+=("Formatters")
     options+=("LSP Servers")
     options+=("Plugins Menu")
+    [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
+      options+=("AstroNvimV4 Config")
+    }
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Config")
     }
@@ -2845,6 +2850,15 @@ show_conf_menu() {
             break
           fi
           ;;
+        "AstroNvimV4 Config",* | *,"AstroNvimV4 Config" | "A",* | *,"A")
+          if [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ]
+          then
+            anv4menu=1
+            break 2
+          else
+            break
+          fi
+          ;;
         "Webdev Config",* | *,"Webdev Config" | "W",* | *,"W")
           if [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ]
           then
@@ -2883,12 +2897,21 @@ show_conf_menu() {
     exitstatus=$?
     [ ${exitstatus} -eq 3 ] && exit 0
     [ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
+    [ ${exitstatus} -eq 6 ] && exec lazyman -F anvmv4
+  }
+  [ "${anv4menu}" ] && {
+    ${ANVMV4}
+    exitstatus=$?
+    [ ${exitstatus} -eq 3 ] && exit 0
+    [ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
+    [ ${exitstatus} -eq 5 ] && exec lazyman -F webdev
   }
   [ "${wdevmenu}" ] && {
     ${WEBDEV}
     exitstatus=$?
     [ ${exitstatus} -eq 3 ] && exit 0
     [ ${exitstatus} -eq 4 ] && exec lazyman -F lazyide
+    [ ${exitstatus} -eq 6 ] && exec lazyman -F anvmv4
   }
 }
 

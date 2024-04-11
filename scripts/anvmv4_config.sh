@@ -1,33 +1,31 @@
 #!/usr/bin/env bash
 #
-# webdev_config - configure the Webdev Neovim configurations
+# anvmv4_config - configure the AstroNvimV4 Neovim configurations
 #
-# Written by Ronald Record <ronaldrecord@gmail.com>, Summer 2023
+# Written by Ronald Record <ronaldrecord@gmail.com>, Spring 2024
 #
 # shellcheck disable=SC1090,SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
 
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
-WEBDEV="nvim-Webdev"
-WDEVDIR="${HOME}/.config/${WEBDEV}"
-NVIMCONF="${WDEVDIR}/lua/configuration.lua"
-CONFBACK="${WDEVDIR}/lua/configuration-orig.lua"
+ANVMV4="nvim-AstroNvimV4"
+ASTRDIR="${HOME}/.config/${ANVMV4}"
+NVIMCONF="${ASTRDIR}/lua/configuration.lua"
+CONFBACK="${ASTRDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
 FONTDIR="${LMANDIR}/scripts/figlet-fonts"
 LOLCAT="lolcat"
-BOLD=$(tput bold 2>/dev/null)
-NORM=$(tput sgr0 2>/dev/null)
+BOLD=$(tput bold 2> /dev/null)
+NORM=$(tput sgr0 2> /dev/null)
 
 PLEASE="Please enter your choice"
 USEGUI=
 # Array with font names
 fonts=("Slant" "Shadow" "Small" "Script" "Standard")
 # Supported themes
-themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra"
-        "onedarkpro" "everforest" "monokai-pro")
+themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" "everforest" "monokai-pro")
 # Themes with styles
-styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin"
-               "onedarkpro" "monokai-pro")
+styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "monokai-pro")
 
 lsp_enabled_table=()
 for_enabled_table=()
@@ -38,7 +36,7 @@ have_gsed=$(type -p gsed)
 [ "${have_gsed}" ] && SED="gsed"
 
 usage() {
-  printf "\nUsage: webdev_config [-d] [-i] [-u]"
+  printf "\nUsage: anvmv4_config [-d] [-i] [-u]"
   printf "\nWhere:"
   printf "\n    -d specifies debug mode"
   printf "\n    -i indicates initialize conditional plugin configurations and exit"
@@ -62,37 +60,37 @@ show_figlet() {
   if [ "$1" ]; then
     FIG_TEXT="$1"
   else
-    FIG_TEXT="Webdev"
+    FIG_TEXT="AstroNvimV4"
   fi
   # Seed random generator
   RANDOM=$$$(date +%s)
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
   [ "${USE_FONT}" ] || USE_FONT="standard"
   if [ "${have_lolcat}" ]; then
-    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | ${LOLCAT}
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2> /dev/null | ${LOLCAT}
   else
-    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2> /dev/null
   fi
 }
 
 get_conf_value() {
   confname="$1"
-  confval=$(NVIM_APPNAME="nvim-Webdev" nvim -l ${GET_CONF} ${confname} 2>&1)
+  confval=$(NVIM_APPNAME="nvim-AstroNvimV4" nvim -l ${GET_CONF} ${confname} 2>&1)
   echo "${confval}"
 }
 
 set_conf_value() {
   confname="$1"
   confval="$2"
-  grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
+  grep "conf.${confname} =" "${NVIMCONF}" > /dev/null && {
     case ${confval} in
       true | false | [0-9])
         cat "${NVIMCONF}" \
-          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" > /tmp/nvim$$
         ;;
       *)
         cat "${NVIMCONF}" \
-          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" > /tmp/nvim$$
         ;;
     esac
     cp /tmp/nvim$$ "${NVIMCONF}"
@@ -126,15 +124,15 @@ set_conf_table() {
       esac
       ;;
     *)
-      grep "${marker}" "${NVIMCONF}" | grep "${confval}" >/dev/null && {
+      grep "${marker}" "${NVIMCONF}" | grep "${confval}" > /dev/null && {
         case ${action} in
           disable)
             cat "${NVIMCONF}" \
-              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" > /tmp/nvim$$
             ;;
           enable)
             cat "${NVIMCONF}" \
-              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" > /tmp/nvim$$
             ;;
         esac
         cp /tmp/nvim$$ "${NVIMCONF}"
@@ -147,7 +145,7 @@ set_conf_table() {
 set_waka_opt() {
   waka="false"
   [ -f "${HOME}"/.wakatime.cfg ] && {
-    grep api_key "${HOME}"/.wakatime.cfg >/dev/null && waka="true"
+    grep api_key "${HOME}"/.wakatime.cfg > /dev/null && waka="true"
   }
   set_conf_value "enable_wakatime" "${waka}"
 }
@@ -160,9 +158,6 @@ select_theme_style() {
       ;;
     tokyonight)
       styles=("night" "storm" "day" "moon")
-      ;;
-    onedarkpro)
-      styles=("onedark" "onelight" "onedark_vivid" "onedark_dark")
       ;;
     catppuccin)
       styles=("latte" "frappe" "macchiato" "mocha" "custom")
@@ -214,8 +209,8 @@ select_theme_style() {
       [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
         options+=("LazyIde Menu")
       }
-      [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
-        options+=("AstroNvimV4 Menu")
+      [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+        options+=("Webdev Menu")
       }
       options+=("Lazyman Config")
       options+=("Configuration Menu" "Main Menu" "Quit")
@@ -259,20 +254,8 @@ select_theme_style() {
             theme_style="moon"
             break
             ;;
-          "onedark",* | *,"onedark")
-            theme_style="onedark"
-            break
-            ;;
           "onelight",* | *,"onelight")
             theme_style="onelight"
-            break
-            ;;
-          "onedark_vivid",* | *,"onedark_vivid")
-            theme_style="onedark_vivid"
-            break
-            ;;
-          "onedark_dark",* | *,"onedark_dark")
-            theme_style="onedark_dark"
             break
             ;;
           "latte",* | *,"latte")
@@ -360,28 +343,28 @@ select_theme_style() {
             break 2
             ;;
           "Lazyman Config"*,* | *,"Lazyman Config"* | "c",* | *,"c")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
             exec lazyman -F conf
             ;;
           "LazyIde Menu"*,* | *,"LazyIde Menu"* | "l",* | *,"l")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
             exit 4
             ;;
-          "AstroNvimV4 Menu"*,* | *,"AstroNvimV4 Menu"* | "a",* | *,"a")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
-            exit 6
+          "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            exit 5
             ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
             exit 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
-            printf "\nExiting Webdev Configuration Menu System\n\n"
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            printf "\nExiting AstroNvimV4 Configuration Menu System\n\n"
             exit 3
             ;;
         esac
@@ -399,9 +382,6 @@ set_default_style() {
       ;;
     tokyonight)
       set_conf_value "theme_style" "moon"
-      ;;
-    onedarkpro)
-      set_conf_value "theme_style" "onedark_dark"
       ;;
     catppuccin)
       set_conf_value "theme_style" "mocha"
@@ -458,8 +438,8 @@ select_theme() {
       [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
         options+=("LazyIde Menu")
       }
-      [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
-        options+=("AstroNvimV4 Menu")
+      [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+        options+=("Webdev Menu")
       }
       options+=("Lazyman Config")
       options+=("Configuration Menu" "Main Menu" "Quit")
@@ -495,10 +475,6 @@ select_theme() {
             theme="tundra"
             break
             ;;
-          "onedarkpro"*,* | *,"onedarkpro"*)
-            theme="onedarkpro"
-            break
-            ;;
           "everforest"*,* | *,"everforest"*)
             theme="everforest"
             break
@@ -513,28 +489,28 @@ select_theme() {
             break 2
             ;;
           "Lazyman Config"*,* | *,"Lazyman Config"* | "c",* | *,"c")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
             exec lazyman -F conf
             ;;
           "LazyIde Menu"*,* | *,"LazyIde Menu"* | "l",* | *,"l")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
             exit 4
             ;;
-          "AstroNvimV4 Menu"*,* | *,"AstroNvimV4 Menu"* | "a",* | *,"a")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
-            exit 6
+          "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            exit 5
             ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
             confmenu=1
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
             exit 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N nvim-Webdev init
-            printf "\nExiting Webdev Configuration Menu System\n\n"
+            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            printf "\nExiting AstroNvimV4 Configuration Menu System\n\n"
             exit 3
             ;;
         esac
@@ -551,14 +527,14 @@ show_conf_menu() {
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
-      printf "\nYou may need to update or re-install Webdev"
+      printf "\nYou may need to update or re-install AstroNvimV4"
       prompt_continue
       exit 2
     }
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]; then
-      rich "[b cyan]Webdev Configuration Menu[/]" -p -a rounded -c -C
-      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/nvim-Webdev[/]" -p -c
+      rich "[b cyan]AstroNvimV4 Configuration Menu[/]" -p -a rounded -c -C
+      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/nvim-AstroNvimV4[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "Config"
     fi
@@ -572,12 +548,6 @@ show_conf_menu() {
       use_transparent=""
     else
       use_transparent="✗"
-    fi
-    enable_codeium=$(get_conf_value enable_codeium)
-    if [ "${enable_codeium}" == "true" ]; then
-      use_codeium=""
-    else
-      use_codeium="✗"
     fi
     mapleader=$(get_conf_value mapleader)
     use_mapleader="${mapleader}"
@@ -595,35 +565,11 @@ show_conf_menu() {
     else
       use_relative_number="✗"
     fi
-    enable_global_statusline=$(get_conf_value global_statusline)
-    if [ "${enable_global_statusline}" == "true" ]; then
-      use_global_statusline=""
-    else
-      use_global_statusline="✗"
-    fi
-    enable_dashboard_header=$(get_conf_value enable_dashboard_header)
-    if [ "${enable_dashboard_header}" == "true" ]; then
-      use_dashboard_header=""
-    else
-      use_dashboard_header="✗"
-    fi
-    enable_terminal=$(get_conf_value enable_terminal)
-    if [ "${enable_terminal}" == "true" ]; then
-      use_terminal=""
-    else
-      use_terminal="✗"
-    fi
     enable_wakatime=$(get_conf_value enable_wakatime)
     if [ "${enable_wakatime}" == "true" ]; then
       use_wakatime=""
     else
       use_wakatime="✗"
-    fi
-    enable_smooth_scrolling=$(get_conf_value enable_smooth_scrolling)
-    if [ "${enable_smooth_scrolling}" == "true" ]; then
-      use_smooth_scrolling=""
-    else
-      use_smooth_scrolling="✗"
     fi
     showtabline=$(get_conf_value showtabline)
     use_showtabline="${showtabline}"
@@ -632,18 +578,6 @@ show_conf_menu() {
       use_list=""
     else
       use_list="✗"
-    fi
-    enable_statusline=$(get_conf_value enable_statusline)
-    if [ "${enable_statusline}" == "true" ]; then
-      use_statusline=""
-    else
-      use_statusline="✗"
-    fi
-    enable_tabline=$(get_conf_value enable_tabline)
-    if [ "${enable_tabline}" == "true" ]; then
-      use_tabline=""
-    else
-      use_tabline="✗"
     fi
     show_diagnostics=$(get_conf_value show_diagnostics)
     use_show_diagnostics="${show_diagnostics}"
@@ -661,32 +595,25 @@ show_conf_menu() {
       options+=(" Style [${use_theme_style}]")
     fi
     options+=(" Transparency [${use_transparent}]")
-    options+=("Codeium       [${use_codeium}]")
     options+=("Leader        [${use_mapleader}]")
     options+=("Local Leader  [${use_maplocalleader}]")
     options+=("Number Lines  [${use_number}]")
     options+=("Relative Nums [${use_relative_number}]")
     options+=("List Chars    [${use_list}]")
-    options+=("Global Status [${use_global_statusline}]")
-    options+=("Status Line   [${use_statusline}]")
-    options+=("Tab Line      [${use_tabline}]")
-    options+=(" Showtabline  [${use_showtabline}]")
-    options+=("Alpha Header  [${use_dashboard_header}]")
-    options+=("Smooth Scroll [${use_smooth_scrolling}]")
-    options+=("Terminal      [${use_terminal}]")
+    options+=("Show tabline  [${use_showtabline}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Zen Mode      [${use_zenmode}]")
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
-      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      diff ${CONFBACK} ${NVIMCONF} > /dev/null || options+=("Reset to Defaults")
     }
-    [ -d "${WDEVDIR}" ] && options+=("Open Webdev")
+    [ -d "${ASTRDIR}" ] && options+=("Open AstroNvimV4")
     [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Menu")
     }
-    [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
-      options+=("AstroNvimV4 Menu")
+    [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+      options+=("Webdev Menu")
     }
     options+=("Lazyman Config")
     options+=("Main Menu")
@@ -697,24 +624,6 @@ show_conf_menu() {
           [ "$debug" ] || tput reset
           printf "\n"
           man lazyman
-          break
-          ;;
-        "Status Line"*,* | *,"Status Line"*)
-          if [ "${enable_statusline}" == "true" ]; then
-            set_conf_value "enable_statusline" "false"
-          else
-            set_conf_value "enable_statusline" "true"
-          fi
-          pluginit=1
-          break
-          ;;
-        "Tab Line"*,* | *,"Tab Line"*)
-          if [ "${enable_tabline}" == "true" ]; then
-            set_conf_value "enable_tabline" "false"
-          else
-            set_conf_value "enable_tabline" "true"
-          fi
-          pluginit=1
           break
           ;;
         " Style"*,* | *," Style"*)
@@ -731,14 +640,6 @@ show_conf_menu() {
             set_conf_value "enable_transparent" "false"
           else
             set_conf_value "enable_transparent" "true"
-          fi
-          break
-          ;;
-        "Codeium"*,* | *,"Codeium"*)
-          if [ "${enable_codeium}" == "true" ]; then
-            set_conf_value "enable_codeium" "false"
-          else
-            set_conf_value "enable_codeium" "true"
           fi
           break
           ;;
@@ -782,14 +683,6 @@ show_conf_menu() {
           fi
           break
           ;;
-        "Global Status"*,* | *,"Global Status"*)
-          if [ "${enable_global_statusline}" == "true" ]; then
-            set_conf_value "global_statusline" "false"
-          else
-            set_conf_value "global_statusline" "true"
-          fi
-          break
-          ;;
         " Showtabline"*,* | *," Showtabline"*)
           choices=("0" "1" "2")
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Show tabline (0=never, 1=multiple tabs, 2=always)  " --layout=reverse --border --exit-0)
@@ -808,15 +701,6 @@ show_conf_menu() {
               set_conf_value "show_diagnostics" "${choice}"
             fi
           }
-          break
-          ;;
-        "Terminal"*,* | *,"Terminal"*)
-          if [ "${enable_terminal}" == "true" ]; then
-            set_conf_value "enable_terminal" "false"
-          else
-            set_conf_value "enable_terminal" "true"
-          fi
-          pluginit=1
           break
           ;;
         "WakaTime"*,* | *,"WakaTime"*)
@@ -848,24 +732,6 @@ show_conf_menu() {
           pluginit=1
           break
           ;;
-        "Smooth Scroll"*,* | *,"Smooth Scroll"*)
-          if [ "${enable_smooth_scrolling}" == "true" ]; then
-            set_conf_value "enable_smooth_scrolling" "false"
-          else
-            set_conf_value "enable_smooth_scrolling" "true"
-          fi
-          pluginit=1
-          break
-          ;;
-        "Alpha Header"*,* | *,"Alpha Header"*)
-          if [ "${enable_dashboard_header}" == "true" ]; then
-            set_conf_value "enable_dashboard_header" "false"
-          else
-            set_conf_value "enable_dashboard_header" "true"
-          fi
-          pluginit=1
-          break
-          ;;
         "Zen Mode"*,* | *,"Zen Mode"*)
           if [ "${enable_zenmode}" == "true" ]; then
             set_conf_value "enable_zenmode" "false"
@@ -878,13 +744,7 @@ show_conf_menu() {
         "Disable All"*,* | *,"Disable All"*)
           set_conf_value "number" "false"
           set_conf_value "relative_number" "false"
-          set_conf_value "global_statusline" "false"
-          set_conf_value "enable_statusline" "false"
-          set_conf_value "enable_tabline" "false"
-          set_conf_value "enable_dashboard_header" "false"
-          set_conf_value "enable_terminal" "false"
           set_conf_value "enable_wakatime" "false"
-          set_conf_value "enable_smooth_scrolling" "false"
           set_conf_value "enable_zenmode" "false"
           set_conf_value "showtabline" "0"
           set_conf_value "enable_transparent" "false"
@@ -896,17 +756,11 @@ show_conf_menu() {
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "number" "true"
           set_conf_value "relative_number" "true"
-          set_conf_value "global_statusline" "true"
-          set_conf_value "enable_statusline" "true"
-          set_conf_value "enable_tabline" "true"
           set_conf_value "showtabline" "2"
           set_conf_value "enable_transparent" "true"
           set_conf_value "show_diagnostics" "popup"
           set_conf_value "list" "true"
-          set_conf_value "enable_dashboard_header" "true"
-          set_conf_value "enable_terminal" "true"
           set_conf_value "enable_wakatime" "true"
-          set_conf_value "enable_smooth_scrolling" "true"
           pluginit=1
           break
           ;;
@@ -918,33 +772,29 @@ show_conf_menu() {
           }
           break
           ;;
-        "Open Webdev",* | *,"Open Webdev" | "o",* | *,"o")
+        "Open AstroNvimV4",* | *,"Open AstroNvimV4" | "o",* | *,"o")
           if [ "${USEGUI}" ]; then
-            NVIM_APPNAME="nvim-Webdev" neovide
+            NVIM_APPNAME="nvim-AstroNvimV4" neovide
           else
-            NVIM_APPNAME="nvim-Webdev" nvim
+            NVIM_APPNAME="nvim-AstroNvimV4" nvim
           fi
           break
           ;;
         "Lazyman Config"*,* | *,"Lazyman Config"* | "c",* | *,"c")
-          [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
           exec lazyman -F conf
           ;;
         "LazyIde Menu"*,* | *,"LazyIde Menu"* | "l",* | *,"l")
-          [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
           exit 4
           ;;
-        "AstroNvimV4 Menu"*,* | *,"AstroNvimV4 Menu"* | "a",* | *,"a")
-          [ "${pluginit}" ] && lazyman -N nvim-Webdev init
-          exit 6
-          ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-          [ "${pluginit}" ] && lazyman -N nvim-Webdev init
+          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
           exit 2
           ;;
         "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-          [ "${pluginit}" ] && lazyman -N nvim-Webdev init
-          printf "\nExiting Webdev Configuration Menu System\n\n"
+          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+          printf "\nExiting AstroNvimV4 Configuration Menu System\n\n"
           exit 3
           ;;
         *,*)
