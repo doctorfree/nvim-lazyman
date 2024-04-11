@@ -4043,7 +4043,7 @@ install_remove() {
       [ "$(getok nvim-Allaman)" == "ok" ] && {
         printf "\n${action} Allaman Neovim configuration"
         # The Allaman config uses a custom configuration file
-	[ -f ${HOME}/.nvim_config.lua ] || echo "return {}" > ${HOME}/.nvim_config.lua
+        [ -f ${HOME}/.nvim_config.lua ] || echo "return {}" > ${HOME}/.nvim_config.lua
         lazyman ${darg} -C https://github.com/Allaman/nvim \
           -N nvim-Allaman ${quietflag} -z ${yesflag}
       }
@@ -4157,7 +4157,7 @@ install_remove() {
         ;;
       Allaman)
         # The Allaman config uses a custom configuration file
-	[ -f ${HOME}/.nvim_config.lua ] || echo "return {}" > ${HOME}/.nvim_config.lua
+        [ -f ${HOME}/.nvim_config.lua ] || echo "return {}" > ${HOME}/.nvim_config.lua
         lang_url="-C https://github.com/Allaman/nvim"
         ;;
       CatNvim)
