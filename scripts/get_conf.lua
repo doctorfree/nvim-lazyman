@@ -58,23 +58,18 @@ if arg == "config_home" then
   io.write("NVIM_APPNAME = " .. app_name .. "\n")
 else
   local var_val = ""
-  if app_name == "nvim-Lazyman" then
-    local settings = require("configuration")
-    if arg == "list_names" then
-      for k,_ in pairs(settings) do
-        io.write(k .. "\n")
-      end
-    else
-      local entry = settings[arg]
-      if entry ~= nil then
-        print_var(entry)
-      else
-        var_val = get_var(arg, "")
-        print_var(var_val)
-      end
+  local settings = require("configuration")
+  if arg == "list_names" then
+    for k,_ in pairs(settings) do
+      io.write(k .. "\n")
     end
   else
-    var_val = get_var(arg, "")
-    print_var(var_val)
+    local entry = settings[arg]
+    if entry ~= nil then
+      print_var(entry)
+    else
+      var_val = get_var(arg, "")
+      print_var(var_val)
+    end
   end
 end
