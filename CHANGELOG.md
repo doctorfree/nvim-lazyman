@@ -6,6 +6,22 @@
 
 ### 🐞 Fixed
 
+## v3.1.6r1
+
+### ⚡️ Added
+
+- Customize `LSP` and `Formatters` menus in `AstroNvimV4` configure script
+- Customize `Plugins` menu in `AstroNvimV4` configure script
+- Add `LSP`, `Formatters`, and `Plugins` menus to `AstroNvimV4` configuration menu script
+- Extend `scripts/get_conf.lua` so it works with any `NVIM_APPNAME` not just `Lazyman`
+- Add configuration menu script for `AstroNvimV4` and add it to `Lazyman` menus
+
+### 🐞 Fixed
+
+- Fix setup and loading of `monokai-pro` colorscheme
+- Update `AstroNvimV4` info documents
+- Don't automatically enable `gopls`
+
 ## v3.1.5r4
 
 ### ⚡️ Added
