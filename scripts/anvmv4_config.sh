@@ -6,10 +6,10 @@
 #
 # shellcheck disable=SC1090,SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076
 
+ANVIMV4="nvim-AstroNvimV4"
+ASTRDIR="${HOME}/.config/${ANVIMV4}"
 LAZYMAN="nvim-Lazyman"
 LMANDIR="${HOME}/.config/${LAZYMAN}"
-ANVMV4="nvim-AstroNvimV4"
-ASTRDIR="${HOME}/.config/${ANVMV4}"
 NVIMCONF="${ASTRDIR}/lua/configuration.lua"
 CONFBACK="${ASTRDIR}/lua/configuration-orig.lua"
 GET_CONF="${LMANDIR}/scripts/get_conf.lua"
@@ -26,19 +26,22 @@ fonts=("Slant" "Shadow" "Small" "Script" "Standard")
 themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra" "everforest" "monokai-pro")
 # Themes with styles
 styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "monokai-pro")
-
 all_lsp_servers=("cssls" "denols" "html" "jsonls" "lua_ls" "pylsp" "bashls"
   "cssmodules_ls" "dockerls" "emmet_ls" "eslint" "gopls" "graphql"
   "jdtls" "julials" "ltex" "marksman" "prismals" "pyright" "sqlls"
-  "tailwindcss" "texlab" "tsserver" "vimls" "vuels" "yamlls")
+  "tailwindcss" "taplo" "texlab" "tsserver" "vimls" "vuels" "yamlls")
 have_ccls=$(type -p ccls)
 [ "${have_ccls}" ] && all_lsp_servers+=("ccls")
 have_clangd=$(type -p clangd)
-[ "${have_clangd}" ] && all_lsp_servers+=("clangd")
+[ "${have_clangd}" ] && {
+  all_lsp_servers+=("clangd")
+  all_lsp_servers+=("cmake")
+}
 
 all_formatters=("actionlint" "goimports" "golines" "golangci-lint" "gofumpt"
-  "google-java-format" "latexindent" "markdownlint" "prettier"
-  "sql-formatter" "shellcheck" "shfmt" "stylua" "tflint" "yamllint")
+  "debugpy" "isort" "json-lsp" "marksman" "php-debug-adapter" "php-cs-fixer"
+  "prettierd" "pyright" "google-java-format" "latexindent" "markdownlint"
+  "prettier" "sql-formatter" "shellcheck" "shfmt" "stylua" "tflint" "yamllint")
 have_beautysh=$(type -p beautysh)
 [ "${have_beautysh}" ] && all_formatters+=("beautysh")
 have_black=$(type -p black)
@@ -96,7 +99,7 @@ show_figlet() {
 
 get_conf_value() {
   confname="$1"
-  confval=$(NVIM_APPNAME="nvim-AstroNvimV4" nvim -l ${GET_CONF} ${confname} 2>&1)
+  confval=$(NVIM_APPNAME="${ANVIMV4}" nvim -l ${GET_CONF} ${confname} 2>&1)
   echo "${confval}"
 }
 
@@ -125,10 +128,10 @@ get_conf_table() {
     lsp_enabled_table=()
     while read -r val; do
       lsp_enabled_table+=("$val")
-    done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
+    done < <(NVIM_APPNAME="${ANVIMV4}" nvim -l ${GET_CONF} ${confname} 2>&1)
     while read -r val; do
       lsp_enabled_table+=("$val")
-    done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} lsp_installed 2>&1)
+    done < <(NVIM_APPNAME="${ANVIMV4}" nvim -l ${GET_CONF} lsp_installed 2>&1)
     enable_ccls=$(get_conf_value enable_ccls)
     if [ "${enable_ccls}" == "true" ]; then
       lsp_enabled_table+=("ccls")
@@ -142,16 +145,16 @@ get_conf_table() {
       for_enabled_table=()
       while read -r val; do
         for_enabled_table+=("$val")
-      done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
+      done < <(NVIM_APPNAME="${ANVIMV4}" nvim -l ${GET_CONF} ${confname} 2>&1)
       while read -r val; do
         for_enabled_table+=("$val")
-      done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} "external_formatters" 2>&1)
+      done < <(NVIM_APPNAME="${ANVIMV4}" nvim -l ${GET_CONF} "external_formatters" 2>&1)
     else
       if [ "${confname}" == "neorg_notes" ]; then
         neorg_notes_table=()
         while read -r val; do
           neorg_notes_table+=("$val")
-        done < <(NVIM_APPNAME="${LAZYMAN}" nvim -l ${GET_CONF} ${confname} 2>&1)
+        done < <(NVIM_APPNAME="${ANVIMV4}" nvim -l ${GET_CONF} ${confname} 2>&1)
       fi
     fi
   fi
@@ -402,15 +405,15 @@ select_theme_style() {
             break 2
             ;;
           "Lazyman Config"*,* | *,"Lazyman Config"* | "c",* | *,"c")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exec lazyman -F conf
             ;;
           "LazyIde Menu"*,* | *,"LazyIde Menu"* | "l",* | *,"l")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 4
             ;;
           "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 5
             ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
@@ -418,11 +421,11 @@ select_theme_style() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             printf "\nExiting AstroNvimV4 Configuration Menu System\n\n"
             exit 3
             ;;
@@ -548,15 +551,15 @@ select_theme() {
             break 2
             ;;
           "Lazyman Config"*,* | *,"Lazyman Config"* | "c",* | *,"c")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exec lazyman -F conf
             ;;
           "LazyIde Menu"*,* | *,"LazyIde Menu"* | "l",* | *,"l")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 4
             ;;
           "Webdev Menu"*,* | *,"Webdev Menu"* | "w",* | *,"w")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 5
             ;;
           "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
@@ -564,11 +567,11 @@ select_theme() {
             break 2
             ;;
           "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 2
             ;;
           "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-            [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+            [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             printf "\nExiting AstroNvimV4 Configuration Menu System\n\n"
             exit 3
             ;;
@@ -590,7 +593,7 @@ show_plug_help() {
   printf "\nEnabled plugins and plugin configurations are indicated with a []"
   printf "\nDisabled plugins and plugin configurations are indicated with a [✗]\n"
   printf "\nSettings in this menu only effect the AstroNvimV4 Neovim configuration in:"
-  printf "\n\t${HOME}/.config/nvim-AstroNvimV4\n"
+  printf "\n\t${HOME}/.config/${ANVIMV4}\n"
   prompt_continue
 }
 
@@ -612,7 +615,7 @@ show_plugin_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]; then
       rich "[b cyan]AstroNvimV4 Plugins Configuration Menu[/]" -p -a rounded -c -C
-      rich "[b green]Manage the Neovim plugins enabled in[/] [b yellow]~/.config/nvim-AstroNvimV4[/]" -p -c
+      rich "[b green]Manage the Neovim plugins enabled in[/] [b yellow]~/.config/${ANVIMV4}[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "Plugins"
     fi
@@ -867,7 +870,7 @@ show_lsp_help() {
   printf "\ncompletion, syntax highlighting and marking of warnings and errors,"
   printf "\nas well as refactoring routines.\n"
   printf "\nSettings in this menu only effect the AstroNvimV4 Neovim configuration in:"
-  printf "\n\t${HOME}/.config/nvim-AstroNvimV4\n"
+  printf "\n\t${HOME}/.config/${ANVIMV4}\n"
   prompt_continue
 }
 
@@ -890,20 +893,12 @@ show_lsp_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]; then
       rich "[cyan]AstroNvimV4 LSP Servers Menu[/cyan]" -p -a rounded -c -C
-      rich "[b green]Enable/Disable LSP servers used by[/] [b yellow]~/.config/nvim-AstroNvimV4[/]" -p -c
+      rich "[b green]Enable/Disable LSP servers used by[/] [b yellow]~/.config/${ANVIMV4}[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "LSP Menu"
     fi
     printf '\n'
     get_conf_table lsp_servers
-    namespace=$(get_conf_value namespace)
-    ts_server=$(get_conf_value typescript_server)
-    enable_lsp_timeout=$(get_conf_value enable_lsp_timeout)
-    if [ "${enable_lsp_timeout}" == "true" ]; then
-      lsp_timeout=""
-    else
-      lsp_timeout="✗"
-    fi
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     readarray -t lsp_sorted < <(printf '%s\0' "${all_lsp_servers[@]}" | sort -z | xargs -0n1)
@@ -917,30 +912,11 @@ show_lsp_menu() {
         ((numsp -= 1))
       done
       if echo "${lsp_enabled_table[@]}" | grep -qw "$lsp" > /dev/null; then
-        if [ "${lsp}" == "tsserver" ]; then
-          if [ "${namespace}" == "ecovim" ]; then
-            if [ "${ts_server}" == "tsserver" ]; then
-              options+=("${longlsp} []")
-            else
-              options+=("${longlsp} [✗]")
-            fi
-            options+=("typescript [${ts_server}]")
-          else
-            options+=("${longlsp} []")
-          fi
-        else
-          options+=("${longlsp} []")
-        fi
+        options+=("${longlsp} []")
       else
         options+=("${longlsp} [✗]")
-        [ "${lsp}" == "tsserver" ] && {
-          [ "${namespace}" == "ecovim" ] && {
-            options+=("typescript [${ts_server}]")
-          }
-        }
       fi
     done
-    options+=("LSP Timeout    [${lsp_timeout}]")
     options+=("Disable All")
     options+=("Enable All")
     options+=("Formatters Menu")
@@ -953,26 +929,6 @@ show_lsp_menu() {
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
           [ "$debug" ] || tput reset
           show_lsp_help
-          break
-          ;;
-        "typescript"*,* | *,"typescript"*)
-          choices=("tsserver" "tools" "none")
-          choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Select typescript server  " --layout=reverse --border --exit-0)
-          if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
-            [ "${choice}" == "${ts_server}" ] || {
-              set_conf_value "typescript_server" "${choice}"
-              pluginit=1
-            }
-          fi
-          break
-          ;;
-        "LSP Timeout"*,* | *,"LSP Timeout"*)
-          if [ "${enable_lsp_timeout}" == "true" ]; then
-            set_conf_value "enable_lsp_timeout" "false"
-          else
-            set_conf_value "enable_lsp_timeout" "true"
-          fi
-          pluginit=1
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
@@ -1020,20 +976,10 @@ show_lsp_menu() {
           fi
           grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" > /dev/null && enable=1
           if [ "${lspname}" == "tsserver" ]; then
-            if [ "${namespace}" == "ecovim" ]; then
-              if [ "${enable}" ]; then
-                set_conf_value "typescript_server" "tsserver"
-                set_conf_table "LSP_SERVERS" "${lspname}" "enable"
-              else
-                set_conf_value "typescript_server" "tools"
-                set_conf_table "LSP_SERVERS" "${lspname}" "disable"
-              fi
+            if [ "${enable}" ]; then
+              set_conf_table "LSP_SERVERS" "${lspname}" "enable"
             else
-              if [ "${enable}" ]; then
-                set_conf_table "LSP_SERVERS" "${lspname}" "enable"
-              else
-                set_conf_table "LSP_SERVERS" "${lspname}" "disable"
-              fi
+              set_conf_table "LSP_SERVERS" "${lspname}" "disable"
             fi
           else
             # Only one of pyright and pylsp
@@ -1088,7 +1034,7 @@ show_form_help() {
   printf "\nThese tools perform code formatting, static code analysis, and flag"
   printf "\nprogramming errors, bugs, stylistic errors and suspicious constructs.\n"
   printf "\nSettings in this menu only effect the AstroNvimV4 Neovim configuration in:"
-  printf "\n\t${HOME}/.config/nvim-AstroNvimV4\n"
+  printf "\n\t${HOME}/.config/${ANVIMV4}\n"
   prompt_continue
 }
 
@@ -1111,7 +1057,7 @@ show_formlint_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]; then
       rich "[cyan]AstroNvimV4 Formatters and Linters Menu[/cyan]" -p -a rounded -c -C
-      rich "[b green]Enable/Disable formatters and linters used by[/] [b yellow]~/.config/nvim-AstroNvimV4[/]" -p -c
+      rich "[b green]Enable/Disable formatters and linters used by[/] [b yellow]~/.config/${ANVIMV4}[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "Formatters"
     fi
@@ -1228,7 +1174,7 @@ show_conf_menu() {
     [ "$debug" ] || tput reset
     if [ "${have_rich}" ]; then
       rich "[b cyan]AstroNvimV4 Configuration Menu[/]" -p -a rounded -c -C
-      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/nvim-AstroNvimV4[/]" -p -c
+      rich "[b green]Manage the Neovim configuration in[/] [b yellow]~/.config/${ANVIMV4}[/]" -p -c
     else
       [ "${have_figlet}" ] && show_figlet "Config"
     fi
@@ -1471,14 +1417,14 @@ show_conf_menu() {
           ;;
         "Open AstroNvimV4",* | *,"Open AstroNvimV4" | "o",* | *,"o")
           if [ "${USEGUI}" ]; then
-            NVIM_APPNAME="nvim-AstroNvimV4" neovide
+            NVIM_APPNAME="${ANVIMV4}" neovide
           else
-            NVIM_APPNAME="nvim-AstroNvimV4" nvim
+            NVIM_APPNAME="${ANVIMV4}" nvim
           fi
           break
           ;;
         "Lazyman Config"*,* | *,"Lazyman Config"* | "c",* | *,"c")
-          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+          [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
           exec lazyman -F conf
           ;;
         "Formatters"*,* | *,"Formatters"* | "f",* | *,"f")
@@ -1494,15 +1440,15 @@ show_conf_menu() {
           break 2
           ;;
         "LazyIde Menu"*,* | *,"LazyIde Menu"* | "l",* | *,"l")
-          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+          [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
           exit 4
           ;;
         "Main Menu"*,* | *,"Main Menu"* | "m",* | *,"m")
-          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+          [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
           exit 2
           ;;
         "Quit"*,* | *,"Quit"* | "quit"*,* | *,"quit"* | "q",* | *,"q")
-          [ "${pluginit}" ] && lazyman -N nvim-AstroNvimV4 init
+          [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
           printf "\nExiting AstroNvimV4 Configuration Menu System\n\n"
           exit 3
           ;;
@@ -1641,7 +1587,7 @@ set_haves
 }
 
 [ "${listnames}" ] && {
-  NVIM_APPNAME="nvim-AstroNvimV4" nvim -l ${GET_CONF} list_names 2>&1
+  NVIM_APPNAME="${ANVIMV4}" nvim -l ${GET_CONF} list_names 2>&1
   exit 0
 }
 
