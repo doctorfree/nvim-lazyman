@@ -1115,7 +1115,7 @@ show_formlint_menu() {
     done
     options+=("Disable All")
     options+=("Enable All")
-    options+=("LSP Servers Menu")
+    options+=("LSP Servers")
     options+=("Plugins Menu")
     options+=("Config Menu")
     options+=("Main Menu")
