@@ -16,8 +16,8 @@ WEBDEV="${LMANDIR}/scripts/webdev_config.sh"
 LZYIDE="${LMANDIR}/scripts/lzyide_config.sh"
 FONTDIR="${LMANDIR}/scripts/figlet-fonts"
 LOLCAT="lolcat"
-BOLD=$(tput bold 2>/dev/null)
-NORM=$(tput sgr0 2>/dev/null)
+BOLD=$(tput bold 2> /dev/null)
+NORM=$(tput sgr0 2> /dev/null)
 
 PLEASE="Please enter your choice"
 USEGUI=
@@ -25,23 +25,23 @@ USEGUI=
 fonts=("Slant" "Shadow" "Small" "Script" "Standard")
 # Supported themes
 themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin" "tundra"
-        "onedarkpro" "everforest" "monokai-pro")
+  "onedarkpro" "everforest" "monokai-pro")
 # Themes with styles
 styled_themes=("nightfox" "tokyonight" "dracula" "kanagawa" "catppuccin"
-               "onedarkpro" "monokai-pro")
+  "onedarkpro" "monokai-pro")
 
 all_lsp_servers=("cssls" "denols" "html" "jsonls" "lua_ls" "pylsp" "bashls"
-                 "cssmodules_ls" "dockerls" "emmet_ls" "eslint" "gopls" "graphql"
-                 "jdtls" "julials" "ltex" "marksman" "prismals" "pyright" "sqlls"
-                 "tailwindcss" "texlab" "tsserver" "vimls" "vuels" "yamlls")
+  "cssmodules_ls" "dockerls" "emmet_ls" "eslint" "gopls" "graphql"
+  "jdtls" "julials" "ltex" "marksman" "prismals" "pyright" "sqlls"
+  "tailwindcss" "texlab" "tsserver" "vimls" "vuels" "yamlls")
 have_ccls=$(type -p ccls)
 [ "${have_ccls}" ] && all_lsp_servers+=("ccls")
 have_clangd=$(type -p clangd)
 [ "${have_clangd}" ] && all_lsp_servers+=("clangd")
 
 all_formatters=("actionlint" "goimports" "golines" "golangci-lint" "gofumpt"
-                "google-java-format" "latexindent" "markdownlint" "prettier"
-                "sql-formatter" "shellcheck" "shfmt" "stylua" "tflint" "yamllint")
+  "google-java-format" "latexindent" "markdownlint" "prettier"
+  "sql-formatter" "shellcheck" "shfmt" "stylua" "tflint" "yamllint")
 have_beautysh=$(type -p beautysh)
 [ "${have_beautysh}" ] && all_formatters+=("beautysh")
 have_black=$(type -p black)
@@ -106,9 +106,9 @@ show_figlet() {
   USE_FONT=${fonts[$RANDOM % ${#fonts[@]}]}
   [ "${USE_FONT}" ] || USE_FONT="standard"
   if [ "${have_lolcat}" ]; then
-    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null | ${LOLCAT}
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2> /dev/null | ${LOLCAT}
   else
-    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2>/dev/null
+    figlet -c -d "${FONTDIR}" -f "${USE_FONT}" -k -t ${FIG_TEXT} 2> /dev/null
   fi
 }
 
@@ -119,11 +119,9 @@ check_python_version() {
     return 3
   }
   major=$(python3 -c 'import sys; print(sys.version_info.major)')
-  if [ ${major} -eq 3 ]
-  then
+  if [ ${major} -eq 3 ]; then
     minor=$(python3 -c 'import sys; print(sys.version_info.minor)')
-    if [ ${minor} -ge 9 ]
-    then
+    if [ ${minor} -ge 9 ]; then
       echo "OK"
       return 0
     else
@@ -183,15 +181,15 @@ get_conf_value() {
 set_conf_value() {
   confname="$1"
   confval="$2"
-  grep "conf.${confname} =" "${NVIMCONF}" >/dev/null && {
+  grep "conf.${confname} =" "${NVIMCONF}" > /dev/null && {
     case ${confval} in
       true | false | [0-9])
         cat "${NVIMCONF}" \
-          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" > /tmp/nvim$$
         ;;
       *)
         cat "${NVIMCONF}" \
-          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" >/tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" > /tmp/nvim$$
         ;;
     esac
     cp /tmp/nvim$$ "${NVIMCONF}"
@@ -225,15 +223,15 @@ set_conf_table() {
       esac
       ;;
     *)
-      grep "${marker}" "${NVIMCONF}" | grep "${confval}" >/dev/null && {
+      grep "${marker}" "${NVIMCONF}" | grep "${confval}" > /dev/null && {
         case ${action} in
           disable)
             cat "${NVIMCONF}" \
-              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" > /tmp/nvim$$
             ;;
           enable)
             cat "${NVIMCONF}" \
-              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" >/tmp/nvim$$
+              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" > /tmp/nvim$$
             ;;
         esac
         cp /tmp/nvim$$ "${NVIMCONF}"
@@ -256,7 +254,7 @@ set_ranger_float() {
 set_waka_opt() {
   waka="false"
   [ -f "${HOME}"/.wakatime.cfg ] && {
-    grep api_key "${HOME}"/.wakatime.cfg >/dev/null && waka="true"
+    grep api_key "${HOME}"/.wakatime.cfg > /dev/null && waka="true"
   }
   set_conf_value "enable_wakatime" "${waka}"
 }
@@ -264,8 +262,7 @@ set_waka_opt() {
 set_code_explain() {
   if [ -f "${HOME}/.codeexplain/model.bin" ]; then
     pyver=$(check_python_version)
-    if [ "${pyver}" == "OK" ]
-    then
+    if [ "${pyver}" == "OK" ]; then
       set_conf_value "enable_codeexplain" "true"
     else
       set_conf_value "enable_codeexplain" "false"
@@ -1054,7 +1051,7 @@ show_plugin_menu() {
     options+=("Disable All")
     options+=("Enable All")
     [ -f ${CONFBACK} ] && {
-      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      diff ${CONFBACK} ${NVIMCONF} > /dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
     options+=("Formatters")
@@ -1092,10 +1089,9 @@ show_plugin_menu() {
                 break
                 ;;
               *)
-                if [ -d "${notes}" ]
-                then
+                if [ -d "${notes}" ]; then
                   case ${num_neorg_notes} in
-                    0|1)
+                    0 | 1)
                       neorg_temp="XXXXX"
                       ;;
                     2)
@@ -1110,7 +1106,7 @@ show_plugin_menu() {
                   esac
                   [ "${neorg_temp}" ] && {
                     cat "${NVIMCONF}" \
-                      | ${SED} -e "s/${neorg_temp}/${notes}/" >/tmp/nvim$$
+                      | ${SED} -e "s/${neorg_temp}/${notes}/" > /tmp/nvim$$
                     cp /tmp/nvim$$ "${NVIMCONF}"
                     rm -f /tmp/nvim$$
                     set_conf_table "NEORG_NOTES" "${notes}" "enable"
@@ -1137,8 +1133,7 @@ show_plugin_menu() {
                 break
                 ;;
               *)
-                if [ -d "${vault}" ]
-                then
+                if [ -d "${vault}" ]; then
                   set_conf_value "obsidian_vault" "${vault}"
                   break
                 else
@@ -1253,8 +1248,7 @@ show_plugin_menu() {
           ;;
         " Remove GPT"*,* | *," Remove GPT"*)
           rm -f "${HOME}/.codeexplain/model.bin"
-          for models in "${HOME}"/.codeexplain/*
-          do
+          for models in "${HOME}"/.codeexplain/*; do
             [ "${models}" == "${HOME}/.codeexplain/*" ] && {
               rmdir "${HOME}/.codeexplain"
             }
@@ -1488,16 +1482,16 @@ show_plugin_menu() {
           choice=$(printf "%s\n" "${choices[@]}" | fzf --prompt=" Neovim Motion Plugin  " --layout=reverse --border --exit-0)
           if [[ " ${choices[*]} " =~ " ${choice} " ]]; then
             case ${choice} in
-              Hop|hop)
+              Hop | hop)
                 set_conf_value "enable_motion" "hop"
                 ;;
-              Flash|flash)
+              Flash | flash)
                 set_conf_value "enable_motion" "flash"
                 ;;
-              Leap|leap)
+              Leap | leap)
                 set_conf_value "enable_motion" "leap"
                 ;;
-              None|none)
+              None | none)
                 set_conf_value "enable_motion" "none"
                 ;;
               *)
@@ -2027,7 +2021,7 @@ show_lsp_menu() {
         longlsp="${longlsp} "
         ((numsp -= 1))
       done
-      if echo "${lsp_enabled_table[@]}" | grep -qw "$lsp" >/dev/null; then
+      if echo "${lsp_enabled_table[@]}" | grep -qw "$lsp" > /dev/null; then
         if [ "${lsp}" == "tsserver" ]; then
           if [ "${namespace}" == "ecovim" ]; then
             if [ "${ts_server}" == "tsserver" ]; then
@@ -2129,7 +2123,7 @@ show_lsp_menu() {
           else
             lspname=$(echo "${REPLY}" | awk ' { print $1 } ')
           fi
-          grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" >/dev/null && enable=1
+          grep "LSP_SERVERS" "${NVIMCONF}" | grep "\-\- \"${lspname}" > /dev/null && enable=1
           if [ "${lspname}" == "tsserver" ]; then
             if [ "${namespace}" == "ecovim" ]; then
               if [ "${enable}" ]; then
@@ -2147,7 +2141,7 @@ show_lsp_menu() {
               fi
             fi
           else
-            # Only one of pyright and pylsp 
+            # Only one of pyright and pylsp
             case "${lspname}" in
               pylsp)
                 if [ "${enable}" ]; then
@@ -2240,7 +2234,7 @@ show_formlint_menu() {
         longform="${longform} "
         ((numsp -= 1))
       done
-      if echo "${for_enabled_table[@]}" | grep -qw "$form" >/dev/null; then
+      if echo "${for_enabled_table[@]}" | grep -qw "$form" > /dev/null; then
         options+=("${longform} []")
       else
         options+=("${longform} [✗]")
@@ -2303,7 +2297,7 @@ show_formlint_menu() {
           else
             forname=$(echo "${REPLY}" | awk ' { print $1 } ')
           fi
-          grep "FORMATTERS_LINTERS" "${NVIMCONF}" | grep "\-\- \"${forname}" >/dev/null && enable=1
+          grep "FORMATTERS_LINTERS" "${NVIMCONF}" | grep "\-\- \"${forname}" > /dev/null && enable=1
           if [ "${enable}" ]; then
             set_conf_table "FORMATTERS_LINTERS" "${forname}" "enable"
           else
@@ -2473,8 +2467,7 @@ show_conf_menu() {
         options+=("Convert SemHL [${convert_semantic_highlighting}]")
       }
     }
-    if [ "${use_winbar}" == "none" ]
-    then
+    if [ "${use_winbar}" == "none" ]; then
       options+=("Winbar     [${use_winbar}]")
     else
       options+=("Winbar [${use_winbar}]")
@@ -2491,7 +2484,7 @@ show_conf_menu() {
     options+=("Enable All")
     options+=("Minimal Config")
     [ -f ${CONFBACK} ] && {
-      diff ${CONFBACK} ${NVIMCONF} >/dev/null || options+=("Reset to Defaults")
+      diff ${CONFBACK} ${NVIMCONF} > /dev/null || options+=("Reset to Defaults")
     }
     [ -d "${LMANDIR}" ] && options+=("Open Lazyman")
     options+=("Formatters")
@@ -2842,8 +2835,7 @@ show_conf_menu() {
           break 2
           ;;
         "LazyIde Config",* | *,"LazyIde Config" | "L",* | *,"L")
-          if [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ]
-          then
+          if [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ]; then
             lidemenu=1
             break 2
           else
@@ -2851,8 +2843,7 @@ show_conf_menu() {
           fi
           ;;
         "AstroNvimV4 Config",* | *,"AstroNvimV4 Config" | "A",* | *,"A")
-          if [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ]
-          then
+          if [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ]; then
             anv4menu=1
             break 2
           else
@@ -2860,8 +2851,7 @@ show_conf_menu() {
           fi
           ;;
         "Webdev Config",* | *,"Webdev Config" | "W",* | *,"W")
-          if [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ]
-          then
+          if [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ]; then
             wdevmenu=1
             break 2
           else
@@ -2936,19 +2926,18 @@ while getopts "adim:stu" flag; do
       ;;
     m)
       menu="${OPTARG}"
-      if [ "${menu}" ]
-      then
+      if [ "${menu}" ]; then
         case "${menu}" in
-          conf*|Conf*)
+          conf* | Conf*)
             menu="confmenu"
             ;;
-          plug*|Plug*)
+          plug* | Plug*)
             menu="plugmenu"
             ;;
-          lsp*|Lsp*|LSP*)
+          lsp* | Lsp* | LSP*)
             menu="lspmenu"
             ;;
-          for*|For*|lint*|Lint*)
+          for* | For* | lint* | Lint*)
             menu="formenu"
             ;;
           *)
@@ -3051,13 +3040,11 @@ set_haves
   }
   table=
   [ "$3" ] && table="$3"
-  if [ "$1" == "get" ]
-  then
+  if [ "$1" == "get" ]; then
     get_conf_value "$2"
     exit 0
   else
-    if [ "${table}" == "disable" ] || [ "${table}" == "enable" ]
-    then
+    if [ "${table}" == "disable" ] || [ "${table}" == "enable" ]; then
       upper=$(echo "$1" | tr '[:lower:]' '[:upper:]')
       set_conf_table "${upper}" "$2" "$3"
     else
@@ -3079,23 +3066,23 @@ set_haves
 [ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
 
 if [ "$menu" ]; then
-  if [ "$menu" == "confmenu" ]; then
-    show_conf_menu
-  else
-    if [ "$menu" == "plugmenu" ]; then
+  case ${menu} in
+    confmenu)
+      show_conf_menu
+      ;;
+    plugmenu)
       show_plugin_menu
-    else
-      if [ "$menu" == "lspmenu" ]; then
-        show_lsp_menu
-      else
-        if [ "$menu" == "formenu" ]; then
-          show_formlint_menu
-        else
-          show_conf_menu
-        fi
-      fi
-    fi
-  fi
+      ;;
+    lspmenu)
+      show_lsp_menu
+      ;;
+    formenu)
+      show_formlint_menu
+      ;;
+    *)
+      show_conf_menu
+      ;;
+  esac
 else
   show_conf_menu
 fi

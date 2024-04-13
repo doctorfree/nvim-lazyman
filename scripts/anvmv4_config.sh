@@ -1502,7 +1502,7 @@ debug=
 confmenu=
 initplugs=
 listnames=
-menu="conf"
+menu="confmenu"
 pluginit=
 setconf=
 toggle=
@@ -1521,17 +1521,17 @@ while getopts "adim:stu" flag; do
       menu="${OPTARG}"
       if [ "${menu}" ]; then
         case "${menu}" in
-          conf* | Conf*)
-            menu="confmenu"
-            ;;
-          plug* | Plug*)
+          anvp* | Anvp*)
             menu="plugmenu"
             ;;
-          lsp* | Lsp* | LSP*)
+          anvl* | Anvl*)
             menu="lspmenu"
             ;;
-          for* | For* | lint* | Lint*)
+          anvf* | Anvf*)
             menu="formenu"
+            ;;
+          anv* | Anv*)
+            menu="confmenu"
             ;;
           *)
             menu="main"
@@ -1657,23 +1657,23 @@ set_haves
 [ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
 
 if [ "$menu" ]; then
-  if [ "$menu" == "confmenu" ]; then
-    show_conf_menu
-  else
-    if [ "$menu" == "plugmenu" ]; then
+  case ${menu} in
+    confmenu)
+      show_conf_menu
+      ;;
+    plugmenu)
       show_plugin_menu
-    else
-      if [ "$menu" == "lspmenu" ]; then
-        show_lsp_menu
-      else
-        if [ "$menu" == "formenu" ]; then
-          show_formlint_menu
-        else
-          show_conf_menu
-        fi
-      fi
-    fi
-  fi
+      ;;
+    lspmenu)
+      show_lsp_menu
+      ;;
+    formenu)
+      show_formlint_menu
+      ;;
+    *)
+      show_conf_menu
+      ;;
+  esac
 else
   show_conf_menu
 fi
