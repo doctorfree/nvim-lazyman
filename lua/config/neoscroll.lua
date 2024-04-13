@@ -11,10 +11,6 @@ require("neoscroll").setup({
   performance_mode = false, -- Disable "Performance Mode" on all buffers.
 })
 
-require("neoscroll").setup({
-  -- Set any options as needed
-})
-
 local t = {}
 -- Syntax: t[keys] = {function, {function arguments}}
 t["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
