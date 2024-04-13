@@ -626,6 +626,18 @@ show_plugin_menu() {
     else
       use_toggleterm="✗"
     fi
+    enable_cheatsheet=$(get_conf_value enable_cheatsheet)
+    if [ "${enable_cheatsheet}" == "true" ]; then
+      use_cheatsheet=""
+    else
+      use_cheatsheet="✗"
+    fi
+    enable_smooth_scrolling=$(get_conf_value enable_smooth_scrolling)
+    if [ "${enable_smooth_scrolling}" == "true" ]; then
+      use_smooth_scrolling=""
+    else
+      use_smooth_scrolling="✗"
+    fi
     enable_neotest=$(get_conf_value enable_neotest)
     if [ "${enable_neotest}" == "true" ]; then
       use_neotest=""
@@ -644,11 +656,13 @@ show_plugin_menu() {
     num_neorg_notes=${#neorg_notes_table[@]}
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
-    options+=("Toggle Term   [${use_toggleterm}]")
-    options+=(" Obsidian [${use_obsidian_vault}]")
+    options+=("Cheatsheets   [${use_cheatsheet}]")
     [ ${num_neorg_notes} -lt 4 ] && {
-      options+=(" Neorg Notes  [add]")
+      options+=("Neorg Notes  [add]")
     }
+    options+=("Obsidian [${use_obsidian_vault}]")
+    options+=("Smooth Scroll [${use_smooth_scrolling}]")
+    options+=("Toggle Term   [${use_toggleterm}]")
     options+=("Enable Tests  [${use_neotest}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Disable All")
@@ -669,7 +683,16 @@ show_plugin_menu() {
           show_plug_help
           break
           ;;
-        " Neorg Note"*,* | *," Neorg Note"*)
+        "Cheatsheets"*,* | *,"Cheatsheets"*)
+          if [ "${enable_cheatsheet}" == "true" ]; then
+            set_conf_value "enable_cheatsheet" "false"
+          else
+            set_conf_value "enable_cheatsheet" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "Neorg Note"*,* | *,"Neorg Note"*)
           printf "\n\nCurrent Neorg notes location(s):"
           for notedir in "${neorg_notes_table[@]}"; do
             printf "\n\t$notedir"
@@ -716,7 +739,7 @@ show_plugin_menu() {
           done
           break
           ;;
-        " Obsidian"*,* | *," Obsidian"*)
+        "Obsidian"*,* | *,"Obsidian"*)
           printf "\n\nCurrent Obsidian Vault location: ${obsidian_vault}"
           printf "\nEnter the full pathname to the Obsidian vault."
           printf "\nPress <Enter> to continue using existing vault.\n"
@@ -738,6 +761,15 @@ show_plugin_menu() {
                 ;;
             esac
           done
+          break
+          ;;
+        "Smooth Scroll"*,* | *,"Smooth Scroll"*)
+          if [ "${enable_smooth_scrolling}" == "true" ]; then
+            set_conf_value "enable_smooth_scrolling" "false"
+          else
+            set_conf_value "enable_smooth_scrolling" "true"
+          fi
+          pluginit=1
           break
           ;;
         "Toggle Term"*,* | *,"Toggle Term"*)
@@ -1156,7 +1188,6 @@ show_formlint_menu() {
   [ "${plugmenu}" ] && show_plugin_menu
   [ "${lspsmenu}" ] && show_lsp_menu
 }
-
 
 show_conf_menu() {
   set_haves
@@ -1646,6 +1677,5 @@ if [ "$menu" ]; then
 else
   show_conf_menu
 fi
-
 
 exit 0
