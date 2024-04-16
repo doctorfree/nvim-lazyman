@@ -1113,6 +1113,12 @@ show_formlint_menu() {
         options+=("${longform} [✗]")
       fi
     done
+    enable_autoformat=$(get_conf_value enable_autoformat)
+    if [ "${enable_autoformat}" == "true" ]; then
+      options+=("Auto Format         []")
+    else
+      options+=("Auto Format         [✗]")
+    fi
     options+=("Disable All")
     options+=("Enable All")
     options+=("LSP Servers")
@@ -1125,6 +1131,14 @@ show_formlint_menu() {
         "h",* | *,"h" | "H",* | *,"H" | "help",* | *,"help" | "Help",* | *,"Help")
           [ "$debug" ] || tput reset
           show_form_help
+          break
+          ;;
+        "Auto Format"*,* | *,"Auto Format"*)
+          if [ "${enable_autoformat}" == "true" ]; then
+            set_conf_value "enable_autoformat" "false"
+          else
+            set_conf_value "enable_autoformat" "true"
+          fi
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
