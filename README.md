@@ -20,13 +20,6 @@ by adding `https://doctorfree.github.io/kasm-registry/` as a
 [Kasm 3rd party registry](https://www.kasmweb.com/docs/latest/guide/workspace_registry.html)
 and installing the `Neovim` or `Deluxe` workspace in your Kasm instance.
 
-Lazyman is one of the [Neoman](https://neoman.dev) managed projects:
-
-| **Neoman**                                     |          **Managed**           |                               **Projects** |
-| :--------------------------------------------- | :----------------------------: | -----------------------------------------: |
-| [Asciiville](https://asciiville.dev)           | [Lazyman](https://lazyman.dev) | [MirrorCommand](https://mirrorcommand.dev) |
-| [MusicPlayerPlus](https://musicplayerplus.dev) |  [Neoman](https://neoman.dev)  | [RoonCommandLine](https://rooncommand.dev) |
-
 The Lazyman Neovim configuration management menu:
 
 <p float="center">
@@ -138,7 +131,9 @@ Lazyman requires Linux or macOS, git, and the Bash shell version 4 or later.
 - Unix/Linux/macOS
 - Neovim 0.9 (automatically installed if not found)
 - Bash version 4 or later (automatically installed if not found)
-- Git
+- Git version 2 or later
+
+**Note:** `CentOS 7` users should upgrade `git` and [macOS users](#macos-users) upgrade `bash`.
 
 To enable installation of language servers and treesitter syntax highlighting
 `gcc`, `node`, and `npm` are required. For example, to install these
