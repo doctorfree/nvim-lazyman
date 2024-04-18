@@ -416,7 +416,7 @@ select_theme_style() {
             [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 5
             ;;
-          "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
+          "Configuration Menu"*,* | *,"Configuration Menu"* | "C",* | *,"C")
             confmenu=1
             break 2
             ;;
@@ -562,7 +562,7 @@ select_theme() {
             [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
             exit 5
             ;;
-          "Configuration Menu"*,* | *,"Configuration Menu"* | "c",* | *,"c")
+          "Configuration Menu"*,* | *,"Configuration Menu"* | "C",* | *,"C")
             confmenu=1
             break 2
             ;;
@@ -913,7 +913,6 @@ show_lsp_menu() {
     confmenu=
     plugmenu=
     formmenu=
-    versmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -1077,7 +1076,6 @@ show_formlint_menu() {
     confmenu=
     plugmenu=
     lspsmenu=
-    versmenu=
     [ -f ${GET_CONF} ] || {
       printf "\n\nWARNING: missing ${GET_CONF}"
       printf "\nUnable to modify configuration from this menu"
@@ -1484,7 +1482,7 @@ show_conf_menu() {
           plugmenu=1
           break 2
           ;;
-        "LazyIde Menu"*,* | *,"LazyIde Menu"* | "l",* | *,"l")
+        "LazyIde Menu"*,* | *,"LazyIde Menu"* | "L",* | *,"L")
           [ "${pluginit}" ] && lazyman -N ${ANVIMV4} init
           exit 4
           ;;
