@@ -448,15 +448,6 @@ init_neovim() {
   }
 
   [ "${skipthis}" ] || {
-    [ "${neodir}" == "nvim-AstroNvimV4" ] && {
-      CFDIR="${HOME}/.config/${neodir}"
-      [ -f ${CFDIR}/lua/plugins/astrolsp.lua ] && {
-        [ -f ${CFDIR}/scripts/astrolsp.lua ] && {
-          cp ${CFDIR}/lua/plugins/astrolsp.lua /tmp/astro$$.lua
-          cp ${CFDIR}/scripts/astrolsp.lua ${CFDIR}/lua/plugins/astrolsp.lua
-        }
-      }
-    }
     if [ "$debug" ]; then
       LOG="${LMANDIR}/logs/${neodir}"
       [ "$quiet" ] || {
@@ -593,15 +584,6 @@ init_neovim() {
       }
       [ "$quiet" ] || printf "\n"
     fi
-    [ "${neodir}" == "nvim-AstroNvimV4" ] && {
-      CFDIR="${HOME}/.config/${neodir}"
-      [ -f /tmp/astro$$.lua ] && {
-        [ -d ${CFDIR}/lua/plugins ] && {
-          cp /tmp/astro$$.lua ${CFDIR}/lua/plugins/astrolsp.lua
-        }
-      }
-      rm -f /tmp/astro$$.lua
-    }
   }
   [ "${neodir}" == "${magicvimdir}" ] && packer=${oldpack}
   [ "${neodir}" == "${LAZYMAN}" ] && {
