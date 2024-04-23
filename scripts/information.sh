@@ -589,14 +589,6 @@ make_info() {
       C_DESC="Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)"
       C_INST="lazyman -w Josean"
       ;;
-    Daniel)
-      GH_URL="https://github.com/daniel-vera-g/lvim"
-      WS_URL="https://www.lunarvim.org"
-      CF_CAT="Personal"
-      CF_TYP="[LunarVim](https://www.lunarvim.org)"
-      C_DESC="'LunarVim' based config of Daniel Vera Gilliard"
-      C_INST="lazyman -w Daniel"
-      ;;
     Kodo)
       GH_URL="https://github.com/chadcat7/kodo"
       DF_URL="https://dotfyle.com/chadcat7/kodo"
