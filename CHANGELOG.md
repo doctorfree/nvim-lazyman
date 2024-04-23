@@ -4,7 +4,21 @@
 
 ### ⚡️ Added
 
+- Add enable/disable AstroNvim Community plugins to `anvmv4_config.sh`
+- Add `treesitter-context` to `AstroNvimV4` plugins menu
+- Update `AstroNvimV4` info documents, remove `astrolsp.lua` from `lazyman` initialization
+- Add note about upgrading `git` and `bash`
+- Add auto format to `AstroNvimV4` formatters configuration menu
+- Add arg processing for `AstroNvimV4` submenus from command line
+- Add `cheatsheet` and smooth scrolling plugins config to `AstroNvimV4` config script
+
 ### 🐞 Fixed
+
+- Remove `Daniel` LunarVim configuration from `Personals`
+- Fix `shellcheck` errors in `anvmv4_config.sh`
+- Remove `java_debug.sh` install script invocation from `lazyman.sh`
+- Check for `java` in `java_debug.sh`
+- Remove duplicate calls to setup in `neoscroll` config
 
 ## v3.1.6r1
 
