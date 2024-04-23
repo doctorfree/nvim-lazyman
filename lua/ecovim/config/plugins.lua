@@ -9,7 +9,7 @@ local formatters = {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "neovim/nvim-lspconfig",
-    "mason.nvim",
+    "williamboman/mason.nvim",
   },
   config = function()
     require("config.null-ls")

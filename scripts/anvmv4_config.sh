@@ -632,6 +632,12 @@ show_plugin_menu() {
     else
       use_cheatsheet="✗"
     fi
+    enable_context=$(get_conf_value enable_treesitter_context)
+    if [ "${enable_context}" == "true" ]; then
+      use_context=""
+    else
+      use_context="✗"
+    fi
     enable_smooth_scrolling=$(get_conf_value enable_smooth_scrolling)
     if [ "${enable_smooth_scrolling}" == "true" ]; then
       use_smooth_scrolling=""
@@ -664,6 +670,7 @@ show_plugin_menu() {
     options+=("Smooth Scroll [${use_smooth_scrolling}]")
     options+=("Toggle Term   [${use_toggleterm}]")
     options+=("Enable Tests  [${use_neotest}]")
+    options+=("Tree Context  [${use_context}]")
     options+=("WakaTime      [${use_wakatime}]")
     options+=("Disable All")
     options+=("Enable All")
@@ -790,6 +797,15 @@ show_plugin_menu() {
           pluginit=1
           break
           ;;
+        "Tree Context"*,* | *,"Tree Context"*)
+          if [ "${enable_context}" == "true" ]; then
+            set_conf_value "enable_treesitter_context" "false"
+          else
+            set_conf_value "enable_treesitter_context" "true"
+          fi
+          pluginit=1
+          break
+          ;;
         "WakaTime"*,* | *,"WakaTime"*)
           if [ "${enable_wakatime}" == "true" ]; then
             set_conf_value "enable_wakatime" "false"
@@ -823,12 +839,14 @@ show_plugin_menu() {
           set_conf_value "enable_toggleterm" "false"
           set_conf_value "enable_neotest" "false"
           set_conf_value "enable_wakatime" "false"
+          set_conf_value "enable_treesitter_context" "false"
           pluginit=1
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "enable_toggleterm" "true"
           set_conf_value "enable_neotest" "true"
+          set_conf_value "enable_treesitter_context" "true"
           [ -f "${HOME}"/.wakatime.cfg ] && set_conf_value "enable_wakatime" "true"
           pluginit=1
           break
