@@ -17,7 +17,6 @@ CONFIGRC="${SCRIPTSD}/configrc"
 HEALTHSC="${SCRIPTSD}/healthcheck.sh"
 INFOSCPT="${SCRIPTSD}/information.sh"
 INSTNVIM="${SCRIPTSD}/install_neovim.sh"
-JAVADBUG="${SCRIPTSD}/java_debug.sh"
 KILLNVIM="${SCRIPTSD}/kill_all_neovim.sh"
 SUBMENUS="${SCRIPTSD}/lazyman_config.sh"
 ANVMV4="${SCRIPTSD}/anvmv4_config.sh"
@@ -352,17 +351,6 @@ init_neovim() {
           "${BUILDER}" > /dev/null 2>&1
       }
     fi
-  }
-  [ "${neodir}" == "nvim-LunarIde" ] \
-    || [ "${neodir}" == "nvim-Shuvro" ] && {
-    [ -x ${JAVADBUG} ] && {
-      [ "$quiet" ] || printf "\nInstalled Java debug packages"
-      if [ "$debug" ]; then
-        ${JAVADBUG} "${neodir}"
-      else
-        ${JAVADBUG} "${neodir}" > /dev/null 2>&1
-      fi
-    }
   }
   [ "${neodir}" == "${lunarvimdir}" ] \
     || [ "${neodir}" == "nvim-LunarIde" ] \
