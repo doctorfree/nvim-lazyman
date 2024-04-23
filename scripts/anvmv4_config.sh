@@ -620,6 +620,12 @@ show_plugin_menu() {
       [ "${have_figlet}" ] && show_figlet "Plugins"
     fi
     printf '\n'
+    enable_community=$(get_conf_value enable_community)
+    if [ "${enable_community}" == "true" ]; then
+      use_community=""
+    else
+      use_community="✗"
+    fi
     enable_toggleterm=$(get_conf_value enable_toggleterm)
     if [ "${enable_toggleterm}" == "true" ]; then
       use_toggleterm=""
@@ -663,6 +669,7 @@ show_plugin_menu() {
     PS3="${BOLD}${PLEASE} (numeric or text, 'h' for help): ${NORM}"
     options=()
     options+=("Cheatsheets   [${use_cheatsheet}]")
+    options+=("Community     [${use_community}]")
     [ ${num_neorg_notes} -lt 4 ] && {
       options+=("Neorg Notes  [add]")
     }
@@ -695,6 +702,15 @@ show_plugin_menu() {
             set_conf_value "enable_cheatsheet" "false"
           else
             set_conf_value "enable_cheatsheet" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "Community"*,* | *,"Community"*)
+          if [ "${enable_community}" == "true" ]; then
+            set_conf_value "enable_community" "false"
+          else
+            set_conf_value "enable_community" "true"
           fi
           pluginit=1
           break
@@ -836,6 +852,7 @@ show_plugin_menu() {
           break
           ;;
         "Disable All"*,* | *,"Disable All"*)
+          set_conf_value "enable_community" "false"
           set_conf_value "enable_toggleterm" "false"
           set_conf_value "enable_neotest" "false"
           set_conf_value "enable_wakatime" "false"
@@ -844,6 +861,7 @@ show_plugin_menu() {
           break
           ;;
         "Enable All"*,* | *,"Enable All"*)
+          set_conf_value "enable_community" "true"
           set_conf_value "enable_toggleterm" "true"
           set_conf_value "enable_neotest" "true"
           set_conf_value "enable_treesitter_context" "true"
