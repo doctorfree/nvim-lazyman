@@ -7,7 +7,14 @@
 # shellcheck disable=SC1090,SC2001,SC2002,SC2016,SC2006,SC2086,SC2181,SC2129,SC2059,SC2076,SC2126
 
 LAZYMAN="nvim-Lazyman"
-LMANDIR="${HOME}/.config/${LAZYMAN}"
+ANVMMAN="nvim-AstroNvimV4"
+WEBDMAN="nvim-Webdev"
+LIDEMAN="nvim-LazyIde"
+DOTCONF="${HOME}/.config"
+LMANDIR="${DOTCONF}/${LAZYMAN}"
+ANVMDIR="${DOTCONF}/${ANVMMAN}"
+WEBDDIR="${DOTCONF}/${WEBDMAN}"
+LIDEDIR="${DOTCONF}/${LIDEMAN}"
 NVIMDIRS="${LMANDIR}/.nvimdirs"
 LZYMANRC="${LMANDIR}/.lazymanrc"
 NVIMCONF="${LMANDIR}/lua/configuration.lua"
@@ -23,7 +30,6 @@ ANVMV4="${SCRIPTSD}/anvmv4_config.sh"
 WEBDEV="${SCRIPTSD}/webdev_config.sh"
 LZYIDE="${SCRIPTSD}/lzyide_config.sh"
 FONTDIR="${SCRIPTSD}/figlet-fonts"
-# LOLCAT="lolcat --animate --speed=70.0"
 LOLCAT="lolcat"
 BOLD=$(tput bold 2> /dev/null)
 NORM=$(tput sgr0 2> /dev/null)
@@ -209,7 +215,7 @@ set_haves() {
 fix_lvim_dir() {
   fixlvimdir="$1"
   [ "${fixlvimdir}" == "${LAZYMAN}" ] || {
-    find "${HOME}/.config/${fixlvimdir}" \
+    find "${DOTCONF}/${fixlvimdir}" \
       -type f -a \( -name \*\.lua -o -name \*\.vim -o -name \*\.fnl \) \
       | while read -r f; do
         echo "$f" | grep /.git/ > /dev/null && continue
@@ -226,7 +232,7 @@ fix_lvim_dir() {
 fix_nvim_dir() {
   fixnvimdir="$1"
   [ "${fixnvimdir}" == "${LAZYMAN}" ] || {
-    find "${HOME}/.config/${fixnvimdir}" \
+    find "${DOTCONF}/${fixnvimdir}" \
       -type f -a \( -name \*\.lua -o -name \*\.vim -o -name \*\.fnl \) \
       | while read -r f; do
         echo "$f" | grep /.git/ > /dev/null && continue
@@ -265,11 +271,11 @@ init_lvim() {
   #export LUNARVIM_BASE_DIR="$HOME/.local/share/lunarvim/lvim"
   #export LUNARVIM_RUNTIME_DIR="$HOME/.local/share/lunarvim"
   export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-  export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+  export LUNARVIM_CONFIG_DIR="${DOTCONF}/${NVIM_APPNAME}"
   export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-  export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+  export LUNARVIM_BASE_DIR="${DOTCONF}/${NVIM_APPNAME}"
 
-  LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
+  LVIM_URL="https://raw.githubusercontent.com/LunarVim/LunarVim"
   LVIM_INSTALL="${LVIM_URL}/master/utils/installer/install.sh"
   [ "$quiet" ] || printf "\nCloning and initializing LunarVim"
   [ "$tellme" ] || {
@@ -299,7 +305,7 @@ init_lvim() {
 init_neovim() {
   neodir="$1"
   [ "${input_req}" ] && debug=1
-  [ -d "${HOME}/.config/${neodir}" ] || return
+  [ -d "${DOTCONF}/${neodir}" ] || return
   [ "${neodir}" == "${LAZYMAN}" ] || [ "${neodir}" == "${minivimdir}" ] && {
     oldpack=${packer}
     oldplug=${plug}
@@ -313,13 +319,13 @@ init_neovim() {
   export NVIM_APPNAME="${neodir}"
 
   [ "${neodir}" == "nvim-Nyoom" ] && {
-    [ -x ${HOME}/.config/nvim-Nyoom/bin/nyoom ] && {
+    [ -x ${DOTCONF}/nvim-Nyoom/bin/nyoom ] && {
       if [ "${debug}" ]; then
-        ${HOME}/.config/nvim-Nyoom/bin/nyoom install
-        ${HOME}/.config/nvim-Nyoom/bin/nyoom sync
+        ${DOTCONF}/nvim-Nyoom/bin/nyoom install
+        ${DOTCONF}/nvim-Nyoom/bin/nyoom sync
       else
-        ${HOME}/.config/nvim-Nyoom/bin/nyoom install > /dev/null 2>&1
-        ${HOME}/.config/nvim-Nyoom/bin/nyoom sync > /dev/null 2>&1
+        ${DOTCONF}/nvim-Nyoom/bin/nyoom install > /dev/null 2>&1
+        ${DOTCONF}/nvim-Nyoom/bin/nyoom sync > /dev/null 2>&1
       fi
     }
   }
@@ -391,11 +397,11 @@ init_neovim() {
     [ "${neodir}" == "nvim-JustinOhMy" ] || {
       # Check for wakatime plugin and use debug mode if found
       havewaka=
-      find "${HOME}"/.config/"${neodir}" -type f \
+      find "${DOTCONF}/${neodir}" -type f \
         -a \( -name \*\.lua -o -name \*\.vim -o -name \*\.fnl \) -print0 \
         | xargs -0 grep wakatime/vim-wakatime > /dev/null && {
         [ -f "${HOME}"/.wakatime.cfg ] && havewaka=1
-        wakafile=$(find "${HOME}"/.config/"${neodir}" -type f -print0 | xargs -0 grep wakatime/vim-wakatime | head -1 | awk -F ':' ' { print $1 } ')
+        wakafile=$(find "${DOTCONF}/${neodir}" -type f -print0 | xargs -0 grep wakatime/vim-wakatime | head -1 | awk -F ':' ' { print $1 } ')
         printf "\n\nThe ${neodir} Neovim configuration appears to use the WakaTime metrics plugin."
         printf "\nand cannot be automatically initialized as it requires user interaction."
         if [ "${havewaka}" ]; then
@@ -468,9 +474,9 @@ init_neovim() {
               || [ "${neodir}" == "nvim-LunarIde" ] && {
               export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-              export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+              export LUNARVIM_CONFIG_DIR="${DOTCONF}/${NVIM_APPNAME}"
               export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-              export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+              export LUNARVIM_BASE_DIR="${DOTCONF}/${NVIM_APPNAME}"
             }
             if [ "${treesitter}" ]; then
               xtimeout ${timeout} nvim --headless '+TSUpdate' +qa 2>&1 \
@@ -499,9 +505,9 @@ init_neovim() {
           fi
         fi
       fi
-      [ -d "${HOME}/.config/${neodir}/doc" ] && {
+      [ -d "${DOTCONF}/${neodir}/doc" ] && {
         xtimeout ${timeout} nvim --headless \
-          "+helptags ${HOME}/.config/${neodir}/doc" +qa 2>&1 | tee -a ${LOG}
+          "+helptags ${DOTCONF}/${neodir}/doc" +qa 2>&1 | tee -a ${LOG}
       }
       [ "$quiet" ] || printf "\n"
       calc_elapsed
@@ -533,9 +539,9 @@ init_neovim() {
               || [ "${neodir}" == "nvim-LunarIde" ] && {
               export NVIM_APPNAME="${neodir}"
               export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-              export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+              export LUNARVIM_CONFIG_DIR="${DOTCONF}/${NVIM_APPNAME}"
               export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-              export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+              export LUNARVIM_BASE_DIR="${DOTCONF}/${NVIM_APPNAME}"
             }
             if [ "${treesitter}" ]; then
               xtimeout ${timeout} nvim --headless '+TSUpdate' +qa > /dev/null 2>&1
@@ -563,9 +569,9 @@ init_neovim() {
           fi
         fi
       fi
-      [ -d "${HOME}/.config/${neodir}/doc" ] && {
+      [ -d "${DOTCONF}/${neodir}/doc" ] && {
         xtimeout ${timeout} nvim --headless \
-          "+helptags ${HOME}/.config/${neodir}/doc" +qa > /dev/null 2>&1
+          "+helptags ${DOTCONF}/${neodir}/doc" +qa > /dev/null 2>&1
       }
       [ "$quiet" ] || printf "\n"
     fi
@@ -610,14 +616,14 @@ remove_config() {
   ndir="$1"
   if [ "${ndir}" == "nvim" ]; then
     printf "\nYou have requested removal of the Neovim configuration at:"
-    printf "\n\t${HOME}/.config/nvim\n"
+    printf "\n\t${DOTCONF}/nvim\n"
     printf "\nLazyman will not modify the standard nvim folders in any way."
     printf "\nRemoval cancelled, press <Enter> to continue ... "
     read -r yn
     return
   fi
-  [ -d "${HOME}/.config/${ndir}" ] || {
-    [ -d "${HOME}/.config/nvim-${ndir}" ] && ndir="nvim-${ndir}"
+  [ -d "${DOTCONF}/${ndir}" ] || {
+    [ -d "${DOTCONF}/nvim-${ndir}" ] && ndir="nvim-${ndir}"
   }
 
   remove_lazyman=
@@ -628,7 +634,7 @@ remove_config() {
       numinst=0
     fi
     printf "\nYou have requested removal of the Lazyman Neovim configuration at:"
-    printf "\n\t${HOME}/.config/nvim-Lazyman\n"
+    printf "\n\t${DOTCONF}/nvim-Lazyman\n"
     if [ ${numinst} -gt 0 ]; then
       printf "\nThis will remove Lazyman and ${numinst} Neovim configurations installed with lazyman."
       printf "\nConfirm removal of Lazyman and ${numinst} Neovim configuratioins\n"
@@ -657,7 +663,7 @@ remove_config() {
   fi
   [ "$proceed" ] || {
     printf "\nYou have requested removal of the Neovim configuration at:"
-    printf "\n\t${HOME}/.config/${ndir}\n"
+    printf "\n\t${DOTCONF}/${ndir}\n"
     printf "\nConfirm removal of the Neovim ${ndir} configuration\n"
     while true; do
       read -r -p "Remove ${ndir} ? (y/n) " yn
@@ -711,21 +717,21 @@ remove_config() {
     [ "$tellme" ] || {
       export NVIM_APPNAME="${lunarvimdir}"
       export LUNARVIM_RUNTIME_DIR="${HOME}/.local/share/${NVIM_APPNAME}"
-      export LUNARVIM_CONFIG_DIR="${HOME}/.config/${NVIM_APPNAME}"
+      export LUNARVIM_CONFIG_DIR="${DOTCONF}/${NVIM_APPNAME}"
       export LUNARVIM_CACHE_DIR="${HOME}/.cache/${NVIM_APPNAME}"
-      export LUNARVIM_BASE_DIR="${HOME}/.config/${NVIM_APPNAME}"
+      export LUNARVIM_BASE_DIR="${DOTCONF}/${NVIM_APPNAME}"
       remove_backups=
       [ "$removeall" ] && remove_backups="--remove-backups"
       ${USCP} ${remove_backups} --remove-config > /dev/null 2>&1
       rm -f "/tmp/lvim-uninstall$$.sh"
     }
   fi
-  [ -d "${HOME}/.config/$ndir" ] && {
+  [ -d "${DOTCONF}/$ndir" ] && {
     [ "$quiet" ] || {
-      printf "\nRemoving existing ${ndir} config at ${HOME}/.config/${ndir}"
+      printf "\nRemoving existing ${ndir} config at ${DOTCONF}/${ndir}"
     }
     [ "$tellme" ] || {
-      rm -rf "${HOME}/.config/$ndir"
+      rm -rf "${DOTCONF}/$ndir"
     }
   }
   [ "$removeall" ] && {
@@ -733,8 +739,8 @@ remove_config() {
       printf "\nRemoving any ${ndir} config backups"
     }
     [ "$tellme" ] || {
-      rm -rf "${HOME}/.config/$ndir"-bak*
-      rm -rf "${HOME}/.config/$ndir".old
+      rm -rf "${DOTCONF}/$ndir"-bak*
+      rm -rf "${DOTCONF}/$ndir".old
     }
   }
 
@@ -818,7 +824,7 @@ update_config() {
   ndir="$1"
   GITDIR=".config/${ndir}"
   [ -d "${HOME}/${GITDIR}" ] || {
-    [ -d "${HOME}/.config/nvim-${ndir}" ] && {
+    [ -d "${DOTCONF}/nvim-${ndir}" ] && {
       ndir="nvim-${ndir}"
       GITDIR=".config/${ndir}"
     }
@@ -826,7 +832,10 @@ update_config() {
   [ -d "${HOME}/${GITDIR}" ] && {
     printf "\nUpdating existing ${ndir} config at ${HOME}/${GITDIR}"
     [ "$tellme" ] || {
-      [ "${ndir}" == "${LAZYMAN}" ] && {
+      [ "${ndir}" == "${LAZYMAN}" ] \
+        || [ "${ndir}" == "${ANVMMAN}" ] \
+        || [ "${ndir}" == "${WEBDMAN}" ] \
+        || [ "${ndir}" == "${LIDEMAN}" ] && {
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
           cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
         }
@@ -838,7 +847,29 @@ update_config() {
     [ "$tellme" ] || add_nvimdirs_entry "${ndir}"
   }
   [ "$tellme" ] || {
-    [ "${ndir}" == "${LAZYMAN}" ] && {
+    if [ "${ndir}" == "${LAZYMAN}" ]; then
+      NVIMCONF="${LMANDIR}/lua/configuration.lua"
+      CONFBACK="${LMANDIR}/lua/configuration-orig.lua"
+    else
+      if [ "${ndir}" == "${ANVMMAN}" ]; then
+        NVIMCONF="${ANVMDIR}/lua/configuration.lua"
+        CONFBACK="${ANVMDIR}/lua/configuration-orig.lua"
+      else
+        if [ "${ndir}" == "${WEBDMAN}" ]; then
+          NVIMCONF="${WEBDDIR}/lua/configuration.lua"
+          CONFBACK="${WEBDDIR}/lua/configuration-orig.lua"
+        else
+          if [ "${ndir}" == "${LIDEMAN}" ]; then
+            NVIMCONF="${LIDEDIR}/lua/configuration.lua"
+            CONFBACK="${LIDEDIR}/lua/configuration-orig.lua"
+          else
+            NVIMCONF=
+            CONFBACK=
+          fi
+        fi
+      fi
+    fi
+    [ -f "${NVIMCONF}" ] && {
       cp ${NVIMCONF} ${CONFBACK}
       [ -f /tmp/lazyconf$$ ] && {
         restore_config=
@@ -894,7 +925,7 @@ update_config() {
         cdir="lua/custom"
       fi
       [ -d "${HOME}/${GITDIR}/${cdir}" ] && {
-        printf "\nUpdating existing add-on config at ${HOME}/.config/${ndir}/${cdir}"
+        printf "\nUpdating existing add-on config at ${DOTCONF}/${ndir}/${cdir}"
         [ "$tellme" ] || {
           git -C "${HOME}/${GITDIR}/${cdir}" stash > /dev/null 2>&1
           git -C "${HOME}/${GITDIR}"/${cdir} reset --hard > /dev/null 2>&1
@@ -923,7 +954,7 @@ update_config() {
       || [ "${ndir}" == "nvim-Shuvro" ] && fix_lvim_dir "${ndir}"
     apply_patch "${ndir}"
     [ "${ndir}" == "${latexvimdir}" ] && {
-      fix_help_file "${HOME}/.config/${ndir}/${fix_latex}"
+      fix_help_file "${DOTCONF}/${ndir}/${fix_latex}"
     }
   }
 }
@@ -956,15 +987,15 @@ clone_repo() {
   repotag="$4"
   tagopts=
   [ "${repotag}" ] && tagopts="--depth 1 --branch ${repotag}"
-  [ -d "${HOME}/.config/$repodest" ] || {
+  [ -d "${DOTCONF}/$repodest" ] || {
     [ "$quiet" ] || {
       printf "\nCloning ${reponame} configuration into"
-      printf "\n\t${HOME}/.config/${repodest}"
+      printf "\n\t${DOTCONF}/${repodest}"
     }
     [ "$tellme" ] || {
       git clone ${tagopts} \
         https://github.com/"$repourl" \
-        "${HOME}/.config/${repodest}" > /dev/null 2>&1
+        "${DOTCONF}/${repodest}" > /dev/null 2>&1
       add_nvimdirs_entry "$repodest"
       # Replace references to /nvim/ with /$repodest/
       fix_nvim_dir "${repodest}"
@@ -1468,7 +1499,7 @@ check_updates() {
   }
   readarray -t sorted < <(printf '%s\0' "${ndirs[@]}" | sort -z | xargs -0n1)
   for neovim in "${sorted[@]}"; do
-    configpath="${HOME}/.config/${neovim}"
+    configpath="${DOTCONF}/${neovim}"
     twiddlpath="~/.config/${neovim}"
     if [ -d "${configpath}/.git" ]; then
       # Check if updates are available
@@ -1672,10 +1703,10 @@ install_astronvim() {
   clone_repo AstroNvim AstroNvim/AstroNvim "$base_dir" "${astro_version}"
   [ "$quiet" ] || {
     printf "\nAdding user configuration into"
-    printf "\n\t${HOME}/.config/${base_dir}/lua/user"
+    printf "\n\t${DOTCONF}/${base_dir}/lua/user"
   }
   [ "$tellme" ] || {
-    if [ -d "${HOME}/.config/$base_dir"/lua/user ]; then
+    if [ -d "${DOTCONF}/$base_dir"/lua/user ]; then
       update_config "$base_dir"
     else
       if [ "${subdir}" ]; then
@@ -1693,13 +1724,13 @@ install_astronvim() {
         echo "${subdir}" >> .git/info/sparse-checkout
         git pull origin ${branch} > /dev/null 2>&1
         cd || exit
-        mv "/tmp/lazyman$$/${subdir}" "${HOME}/.config/${base_dir}/lua/user"
+        mv "/tmp/lazyman$$/${subdir}" "${DOTCONF}/${base_dir}/lua/user"
         rm -rf "/tmp/lazyman$$"
       else
         git clone ${user_url} \
-          "${HOME}/.config/$base_dir"/lua/user > /dev/null 2>&1
+          "${DOTCONF}/$base_dir"/lua/user > /dev/null 2>&1
         [ "$branch" ] && {
-          git -C "${HOME}/.config/${base_dir}/lua/user" checkout "$branch" > /dev/null 2>&1
+          git -C "${DOTCONF}/${base_dir}/lua/user" checkout "$branch" > /dev/null 2>&1
         }
       fi
     fi
@@ -1979,7 +2010,7 @@ select_search() {
       # Sort and remove duplicates
       matched=$(echo $(printf '%s\n' ${matched} | sort -u))
       neocfg=$(echo "${cfg}" | ${SED} -e "s%${LMANDIR}/info/%%" -e "s/\.md//")
-      if [ -d "${HOME}/.config/nvim-${neocfg}" ]; then
+      if [ -d "${DOTCONF}/nvim-${neocfg}" ]; then
         choices+=("${neocfg}  (Installed, Matches: ${matched})")
       else
         choices+=("${neocfg}  (Uninstalled, Matches: ${matched})")
@@ -2503,13 +2534,13 @@ show_main_menu() {
       [ -x ${KILLNVIM} ] && options+=("Kill All Nvim")
     }
     options+=("Lazyman Config")
-    [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && {
+    [ -f ${DOTCONF}/nvim-AstroNvimV4/lua/configuration.lua ] && {
       options+=("AstroNvimV4 Config")
     }
-    [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && {
+    [ -f ${DOTCONF}/nvim-LazyIde/lua/configuration.lua ] && {
       options+=("LazyIde Config")
     }
-    [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && {
+    [ -f ${DOTCONF}/nvim-Webdev/lua/configuration.lua ] && {
       options+=("Webdev Config")
     }
     options+=("Lazyman Manual" "Status Report" "Check for Updates")
@@ -3107,14 +3138,14 @@ show_main_menu() {
           else
             nvimconf=$(echo ${REPLY} | awk ' { print $2 } ')
           fi
-          if [ -d "${HOME}/.config/nvim-${nvimconf}" ]; then
+          if [ -d "${DOTCONF}/nvim-${nvimconf}" ]; then
             if [ "${USEGUI}" ]; then
               runconfig "nvim-${nvimconf}" "neovide"
             else
               runconfig "nvim-${nvimconf}"
             fi
           else
-            if [ -d "${HOME}/.config/${nvimconf}" ]; then
+            if [ -d "${DOTCONF}/${nvimconf}" ]; then
               if [ "${USEGUI}" ]; then
                 runconfig "nvim-${nvimconf}" "neovide"
               else
@@ -3196,15 +3227,21 @@ show_main_menu() {
           break
           ;;
         "LazyIde Config",* | *,"LazyIde Config" | "L",* | *,"L")
-          [ -f ${HOME}/.config/nvim-LazyIde/lua/configuration.lua ] && lidemenu=1
+          [ -f ${DOTCONF}/nvim-LazyIde/lua/configuration.lua ] && {
+            lidemenu=1
+          }
           break
           ;;
         "AstroNvimV4 Config",* | *,"AstroNvimV4 Config" | "W",* | *,"W")
-          [ -f ${HOME}/.config/nvim-AstroNvimV4/lua/configuration.lua ] && anvmenu=1
+          [ -f ${DOTCONF}/nvim-AstroNvimV4/lua/configuration.lua ] && {
+            anvmenu=1
+          }
           break
           ;;
         "Webdev Config",* | *,"Webdev Config" | "W",* | *,"W")
-          [ -f ${HOME}/.config/nvim-Webdev/lua/configuration.lua ] && wdevmenu=1
+          [ -f ${DOTCONF}/nvim-Webdev/lua/configuration.lua ] && {
+            wdevmenu=1
+          }
           break
           ;;
         "Check for Updates",* | *,"Check for Updates")
@@ -3791,7 +3828,7 @@ set_haves
     neovimdir=()
     ignoredir=()
     for base_dir in "${basenvimdirs[@]}"; do
-      if [ -d "${HOME}/.config/${base_dir}" ]; then
+      if [ -d "${DOTCONF}/${base_dir}" ]; then
         if [ "${update}" ]; then
           neovimdir+=("${base_dir}")
         else
@@ -3844,7 +3881,7 @@ set_haves
 
 getok() {
   okdir="$1"
-  if [ -d "${HOME}/.config/${okdir}" ]; then
+  if [ -d "${DOTCONF}/${okdir}" ]; then
     if [ "${update}" ]; then
       echo "ok"
     else
@@ -3864,7 +3901,7 @@ install_remove() {
   if [ "$remove" ]; then
     remove_config "${cfg}"
   else
-    if [ -d "${HOME}/.config/nvim-${cfg}" ]; then
+    if [ -d "${DOTCONF}/nvim-${cfg}" ]; then
       [ "$update" ] && update_config ${cfg}
     else
       [ "$update" ] || install_config ${cfg}
@@ -4668,51 +4705,51 @@ install_remove() {
         set_starter_branch "${neovim}"
         [ "${startbranch}" ] || usage
         action="Installing"
-        [ -d ${HOME}/.config/nvim-${neovim} ] && action="Updating"
+        [ -d ${DOTCONF}/nvim-${neovim} ] && action="Updating"
         printf "\n${action} nvim-starter ${neovim} Neovim configuration"
         lazyman ${darg} -C https://github.com/VonHeikemen/nvim-starter \
           -N nvim-${neovim} -b ${startbranch} ${quietflag} -z ${yesflag}
       done
       action="Installing"
-      [ -d ${HOME}/.config/nvim-2k ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-2k ] && action="Updating"
       printf "\n${action} nvim2k Neovim configuration"
       lazyman ${darg} -C https://github.com/2KAbhishek/nvim2k \
         -N nvim-2k ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-AstroNvimV4 ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-AstroNvimV4 ] && action="Updating"
       printf "\n${action} AstroNvimV4 Neovim configuration"
       lazyman ${darg} -C https://github.com/doctorfree/astronvim_v4 \
         -4 -N nvim-AstroNvimV4 ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-AstroNvimStart ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-AstroNvimStart ] && action="Updating"
       printf "\n${action} AstroNvimStart Neovim configuration"
       lazyman ${darg} -C https://github.com/doctorfree/AstroNvimStart \
         -J -N nvim-AstroNvimStart ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Barebones ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Barebones ] && action="Updating"
       printf "\n${action} Barebones Neovim configuration"
       lazyman ${darg} -C https://github.com/Traap/barebones \
         -N nvim-Barebones ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Basic ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Basic ] && action="Updating"
       printf "\n${action} Basic Neovim configuration"
       lazyman ${darg} -C https://github.com/NvChad/basic-config \
         -N nvim-Basic ${quietflag} -z ${yesflag}
       updflag=
-      [ -d ${HOME}/.config/nvim-Kickstart ] && updflag="-U"
+      [ -d ${DOTCONF}/nvim-Kickstart ] && updflag="-U"
       lazyman ${darg} -k ${quietflag} -z ${yesflag} ${updflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-CodeArt ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-CodeArt ] && action="Updating"
       printf "\n${action} CodeArt Neovim configuration"
       lazyman ${darg} -C https://github.com/artart222/CodeArt \
         -N nvim-CodeArt -P ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Cosmic ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Cosmic ] && action="Updating"
       printf "\n${action} Cosmic Neovim configuration"
       updcosmic=
       lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
         -N nvim-Cosmic ${quietflag} -z ${yesflag}
-      CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
+      CMICDIR="${DOTCONF}"/nvim-Cosmic/lua/cosmic/config
       [ -f "${CMICDIR}"/config.lua ] || {
         [ -f "${CMICDIR}"/examples/config.lua ] && {
           cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
@@ -4729,77 +4766,77 @@ install_remove() {
         lazyman ${darg} -N nvim-Cosmic -U ${quietflag} -z ${yesflag}
       }
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Ember ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Ember ] && action="Updating"
       printf "\n${action} Ember Neovim configuration"
       lazyman ${darg} -b main -C https://github.com/danlikestocode/embervim \
         -D nvim -N nvim-Ember ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Fennel ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Fennel ] && action="Updating"
       printf "\n${action} Fennel Neovim configuration"
       lazyman ${darg} -C https://github.com/jhchabran/nvim-config \
         -N nvim-Fennel -P ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-JustinOhMy ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-JustinOhMy ] && action="Updating"
       printf "\n${action} JustinOhMy Neovim configuration"
       lazyman ${darg} -C https://github.com/justinsgithub/Oh-My-LazyVim \
         -N nvim-JustinOhMy ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-KickstartPython ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-KickstartPython ] && action="Updating"
       printf "\n${action} KickstartPython Neovim configuration"
       lazyman ${darg} -C https://github.com/doctorfree/kickstart-python.nvim \
         -N nvim-KickstartPython ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Micah ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Micah ] && action="Updating"
       printf "\n${action} Micah Neovim configuration"
       lazyman ${darg} -C https://code.mehalter.com/AstroNvim_user \
         -J -N nvim-Micah ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Kabin ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Kabin ] && action="Updating"
       printf "\n${action} Kabin Neovim configuration"
       lazyman ${darg} -C https://github.com/kabinspace/AstroNvim_user \
         -J -N nvim-Kabin ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Lamia ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Lamia ] && action="Updating"
       printf "\n${action} Lamia Neovim configuration"
       lazyman ${darg} -C https://github.com/A-Lamia/AstroNvim-conf \
         -J -N nvim-Lamia ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Normal ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Normal ] && action="Updating"
       printf "\n${action} Normal Neovim configuration"
       lazyman ${darg} -C https://github.com/NormalNvim/NormalNvim \
         -N nvim-Normal ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-NvPak ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-NvPak ] && action="Updating"
       printf "\n${action} NvPak Neovim configuration"
       lazyman ${darg} -C https://github.com/Pakrohk-DotFiles/NvPak.git \
         -N nvim-NvPak ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-HardHacker ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-HardHacker ] && action="Updating"
       printf "\n${action} HardHacker Neovim configuration"
       lazyman ${darg} -C https://github.com/hardhackerlabs/oh-my-nvim \
         -N nvim-HardHacker ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Modern ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Modern ] && action="Updating"
       printf "\n${action} Modern Neovim configuration"
       lazyman ${darg} -C https://github.com/alpha2phi/modern-neovim \
         -N nvim-Modern ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-pde ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-pde ] && action="Updating"
       printf "\n${action} PDE Neovim configuration"
       lazyman ${darg} -C https://github.com/alpha2phi/neovim-pde \
         -N nvim-pde ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Rohit ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Rohit ] && action="Updating"
       printf "\n${action} Rohit Neovim configuration"
       lazyman ${darg} -C https://github.com/rohit-kumar-j/nvim \
         -N nvim-Rohit ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-Scratch ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-Scratch ] && action="Updating"
       printf "\n${action} Scratch Neovim configuration"
       lazyman ${darg} -C https://github.com/ngscheurich/nvim-from-scratch \
         -N nvim-Scratch ${quietflag} -z ${yesflag}
       action="Installing"
-      [ -d ${HOME}/.config/nvim-SingleFile ] && action="Updating"
+      [ -d ${DOTCONF}/nvim-SingleFile ] && action="Updating"
       printf "\n${action} SingleFile Neovim configuration"
       lazyman ${darg} -C https://github.com/creativenull/nvim-oneconfig \
         -N nvim-SingleFile -P ${quietflag} -z ${yesflag}
@@ -4831,7 +4868,7 @@ install_remove() {
           ;;
         Kickstart)
           action="Installing"
-          [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
+          [ -d ${DOTCONF}/nvim-${nvimstarter} ] && action="Updating"
           printf "\n${action} ${nvimstarter} Neovim configuration"
           lazyman ${darg} -k ${quietflag} -z ${yesflag}
           finish=
@@ -4842,12 +4879,12 @@ install_remove() {
           ;;
         Cosmic)
           action="Installing"
-          [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
+          [ -d ${DOTCONF}/nvim-${nvimstarter} ] && action="Updating"
           printf "\n${action} ${nvimstarter} Neovim configuration"
           updcosmic=
           lazyman ${darg} -C https://github.com/CosmicNvim/CosmicNvim \
             -N nvim-Cosmic ${quietflag} -z ${yesflag}
-          CMICDIR="${HOME}"/.config/nvim-Cosmic/lua/cosmic/config
+          CMICDIR="${DOTCONF}"/nvim-Cosmic/lua/cosmic/config
           [ -f "${CMICDIR}"/config.lua ] || {
             [ -f "${CMICDIR}"/examples/config.lua ] && {
               cp "${CMICDIR}"/examples/config.lua "${CMICDIR}"/config.lua
@@ -4927,7 +4964,7 @@ install_remove() {
       esac
       [ "${finish}" ] && {
         action="Installing"
-        [ -d ${HOME}/.config/nvim-${nvimstarter} ] && action="Updating"
+        [ -d ${DOTCONF}/nvim-${nvimstarter} ] && action="Updating"
         printf "\n${action} ${nvimstarter} Neovim configuration"
         lazyman ${darg} -C ${start_url} -N nvim-${nvimstarter} ${start_dir} \
           ${start_opt} ${help_opt} ${quietflag} ${runflag} ${yesflag}
@@ -4950,7 +4987,7 @@ install_remove() {
     case ${nvimsupport} in
       Nyoom)
         action="Installing"
-        [ -d ${HOME}/.config/nvim-Nyoom ] && action="Updating"
+        [ -d ${DOTCONF}/nvim-Nyoom ] && action="Updating"
         printf "\n${action} Nyoom Neovim configuration"
         lazyman ${darg} -C https://github.com/nyoom-engineering/nyoom.nvim.git \
           -N nvim-Nyoom ${quietflag} -z ${yesflag}
@@ -5120,7 +5157,7 @@ install_remove() {
       ndir="$invoke"
       ;;
   esac
-  [ -d "${HOME}/.config/${ndir}" ] || {
+  [ -d "${DOTCONF}/${ndir}" ] || {
     printf "\nNeovim configuration for ${ndir} not found"
     printf "\nExiting\n"
     exit 1
@@ -5282,7 +5319,7 @@ fi
       echo "${TEST_SRC} ${SOURCE}" >> "${HOME}/.$shinit"
     done
     # Append sourcing of .nvimsbind to shell initialization files
-    [ -f "${HOME}/.config/${LAZYMAN}"/.nvimsbind ] && {
+    [ -f "${DOTCONF}/${LAZYMAN}"/.nvimsbind ] && {
       for shinit in bashrc zshrc; do
         [ -f "${HOME}/.$shinit" ] || continue
         grep nvimsbind "${HOME}/.$shinit" > /dev/null && continue
@@ -5334,23 +5371,23 @@ set_brew
   [ "$quiet" ] || {
     printf "done"
     printf "\nAdding LunarVim custom configuration into"
-    printf "\n\t${HOME}/.config/${lunarvimdir}/lua/user"
+    printf "\n\t${DOTCONF}/${lunarvimdir}/lua/user"
   }
   [ "$tellme" ] || {
-    [ -d "${HOME}/.config/${lunarvimdir}"/lua/user ] || {
+    [ -d "${DOTCONF}/${lunarvimdir}"/lua/user ] || {
       git clone https://github.com/IfCodingWereNatural/minimal-nvim \
-        "${HOME}/.config/${lunarvimdir}"/tmp$$ > /dev/null 2>&1
-      [ -d "${HOME}/.config/${lunarvimdir}"/tmp$$ ] && {
-        git -C "${HOME}/.config/${lunarvimdir}"/tmp$$ \
+        "${DOTCONF}/${lunarvimdir}"/tmp$$ > /dev/null 2>&1
+      [ -d "${DOTCONF}/${lunarvimdir}"/tmp$$ ] && {
+        git -C "${DOTCONF}/${lunarvimdir}"/tmp$$ \
           checkout lunarvim > /dev/null 2>&1
         for folder in ftplugin lsp-settings plugin snippets lua/user; do
-          cp -a "${HOME}/.config/${lunarvimdir}"/tmp$$/lvim/${folder} \
-            "${HOME}/.config/${lunarvimdir}"/${folder}
+          cp -a "${DOTCONF}/${lunarvimdir}"/tmp$$/lvim/${folder} \
+            "${DOTCONF}/${lunarvimdir}"/${folder}
         done
-        cp "${HOME}/.config/${lunarvimdir}"/tmp$$/lvim/config.lua \
-          "${HOME}/.config/${lunarvimdir}"/config.lua
+        cp "${DOTCONF}/${lunarvimdir}"/tmp$$/lvim/config.lua \
+          "${DOTCONF}/${lunarvimdir}"/config.lua
       }
-      rm -rf "${HOME}/.config/${lunarvimdir}"/tmp$$
+      rm -rf "${DOTCONF}/${lunarvimdir}"/tmp$$
     }
   }
   # Replace references to /nvim/ with /$lunarvimdir/
@@ -5359,15 +5396,15 @@ set_brew
   fix_lvim_dir "${lunarvimdir}"
 }
 [ "$magicvim" ] && {
-  [ -d "${HOME}/.config/$magicvimdir" ] || {
+  [ -d "${DOTCONF}/$magicvimdir" ] || {
     [ "$quiet" ] || {
       printf "\nCloning MagicVim configuration into"
-      printf "\n\t${HOME}/.config/${magicvimdir}"
+      printf "\n\t${DOTCONF}/${magicvimdir}"
     }
     [ "$tellme" ] || {
       git clone \
         https://gitlab.com/GitMaster210/magicvim \
-        "${HOME}/.config/${magicvimdir}" > /dev/null 2>&1
+        "${DOTCONF}/${magicvimdir}" > /dev/null 2>&1
       add_nvimdirs_entry "$magicvimdir"
       # Replace references to /nvim/ with /$magicvimdir/
       fix_nvim_dir "${magicvimdir}"
@@ -5375,47 +5412,47 @@ set_brew
   }
 }
 [ "$minivim" ] && {
-  [ -d "${HOME}/.config/$minivimdir" ] || {
+  [ -d "${DOTCONF}/$minivimdir" ] || {
     [ "$quiet" ] || {
       printf "\nCloning Mini configuration into"
-      printf "\n\t${HOME}/.config/${minivimdir}"
+      printf "\n\t${DOTCONF}/${minivimdir}"
     }
     [ "$tellme" ] || {
       git clone \
         https://github.com/echasnovski/nvim \
-        "${HOME}/.config/${minivimdir}" > /dev/null 2>&1
+        "${DOTCONF}/${minivimdir}" > /dev/null 2>&1
       # Replace references to /nvim/ with /$minivimdir/
       fix_nvim_dir "${minivimdir}"
-      git -C "${HOME}/.config/${minivimdir}" submodule update \
+      git -C "${DOTCONF}/${minivimdir}" submodule update \
         --init --recursive > /dev/null 2>&1
       add_nvimdirs_entry "$minivimdir"
     }
   }
 }
 [ "$nvchad" ] && {
-  [ -d "${HOME}/.config/$nvchaddir" ] || {
+  [ -d "${DOTCONF}/$nvchaddir" ] || {
     [ "$quiet" ] || {
       printf "\nCloning NvChad configuration into"
-      printf "\n\t${HOME}/.config/${nvchaddir}"
+      printf "\n\t${DOTCONF}/${nvchaddir}"
     }
     [ "$tellme" ] || {
       git clone https://github.com/NvChad/NvChad \
-        "${HOME}/.config/${nvchaddir}" --depth 1 > /dev/null 2>&1
+        "${DOTCONF}/${nvchaddir}" --depth 1 > /dev/null 2>&1
       # Replace references to /nvim/ with /$nvchaddir/
       fix_nvim_dir "${nvchaddir}"
       add_nvimdirs_entry "$nvchaddir"
     }
     [ "$quiet" ] || {
       printf "\nAdding custom configuration into"
-      printf "\n\t${HOME}/.config/${nvchaddir}/lua/custom"
+      printf "\n\t${DOTCONF}/${nvchaddir}/lua/custom"
     }
   }
   [ "$tellme" ] || {
-    if [ -d "${HOME}/.config/$nvchaddir"/lua/custom ]; then
+    if [ -d "${DOTCONF}/$nvchaddir"/lua/custom ]; then
       update_config "$nvchaddir"
     else
       git clone https://github.com/doctorfree/NvChad-custom \
-        "${HOME}/.config/$nvchaddir"/lua/custom > /dev/null 2>&1
+        "${DOTCONF}/$nvchaddir"/lua/custom > /dev/null 2>&1
     fi
   }
 }
@@ -5450,21 +5487,21 @@ set_brew
   fi
 }
 [ "$custom_url" ] && {
-  if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
+  if [ -d "${DOTCONF}/${neovimdir[0]}" ]; then
     [ "$quiet" ] || {
-      printf "\nThe directory ${HOME}/.config/${neovimdir[0]} already exists"
+      printf "\nThe directory ${DOTCONF}/${neovimdir[0]} already exists"
     }
   else
     [ "$quiet" ] || {
       printf "\nCloning ${custom_url} into"
-      printf "\n\t${HOME}/.config/${neovimdir[0]}"
+      printf "\n\t${DOTCONF}/${neovimdir[0]}"
     }
     [ "$tellme" ] || {
       [ "${neovimdir[0]}" == "nvim-LvimAdib" ] \
         || [ "${neovimdir[0]}" == "nvim-Shuvro" ] \
         || [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
         init_lvim "${neovimdir[0]}"
-        mv ${HOME}/.config/${neovimdir[0]} /tmp/lvim$$
+        mv ${DOTCONF}/${neovimdir[0]} /tmp/lvim$$
       }
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
@@ -5481,35 +5518,35 @@ set_brew
         echo "${subdir}" >> .git/info/sparse-checkout
         git pull origin ${branch} > /dev/null 2>&1
         cd || exit
-        mv "/tmp/lazyman$$/${subdir}" "${HOME}/.config/${neovimdir[0]}"
+        mv "/tmp/lazyman$$/${subdir}" "${DOTCONF}/${neovimdir[0]}"
         rm -rf "/tmp/lazyman$$"
       else
         git clone \
-          "${custom_url}" "${HOME}/.config/${neovimdir[0]}" > /dev/null 2>&1
+          "${custom_url}" "${DOTCONF}/${neovimdir[0]}" > /dev/null 2>&1
         [ "$branch" ] && {
-          git -C "${HOME}/.config/${neovimdir[0]}" checkout "$branch" > /dev/null 2>&1
+          git -C "${DOTCONF}/${neovimdir[0]}" checkout "$branch" > /dev/null 2>&1
         }
       fi
-      [ -f ${HOME}/.config/${neovimdir[0]}/lua/user/env.sample ] && {
-        [ -f ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua ] || {
-          cp ${HOME}/.config/${neovimdir[0]}/lua/user/env.sample \
-            ${HOME}/.config/${neovimdir[0]}/lua/user/env.lua
+      [ -f ${DOTCONF}/${neovimdir[0]}/lua/user/env.sample ] && {
+        [ -f ${DOTCONF}/${neovimdir[0]}/lua/user/env.lua ] || {
+          cp ${DOTCONF}/${neovimdir[0]}/lua/user/env.sample \
+            ${DOTCONF}/${neovimdir[0]}/lua/user/env.lua
         }
       }
       [ "${neovimdir[0]}" == "nvim-LvimAdib" ] \
         || [ "${neovimdir[0]}" == "nvim-Shuvro" ] \
         || [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
-        [ -f ${HOME}/.config/${neovimdir[0]}/init.lua ] || {
-          cp /tmp/lvim$$/init.lua ${HOME}/.config/${neovimdir[0]}
+        [ -f ${DOTCONF}/${neovimdir[0]}/init.lua ] || {
+          cp /tmp/lvim$$/init.lua ${DOTCONF}/${neovimdir[0]}
         }
-        [ -d ${HOME}/.config/${neovimdir[0]}/snapshots ] || {
-          cp -a /tmp/lvim$$/snapshots ${HOME}/.config/${neovimdir[0]}
+        [ -d ${DOTCONF}/${neovimdir[0]}/snapshots ] || {
+          cp -a /tmp/lvim$$/snapshots ${DOTCONF}/${neovimdir[0]}
         }
-        [ -d ${HOME}/.config/${neovimdir[0]}/utils ] || {
-          cp -a /tmp/lvim$$/utils ${HOME}/.config/${neovimdir[0]}
+        [ -d ${DOTCONF}/${neovimdir[0]}/utils ] || {
+          cp -a /tmp/lvim$$/utils ${DOTCONF}/${neovimdir[0]}
         }
-        [ -d ${HOME}/.config/${neovimdir[0]}/lua/lvim ] || {
-          cp -a /tmp/lvim$$/lua/lvim ${HOME}/.config/${neovimdir[0]}/lua
+        [ -d ${DOTCONF}/${neovimdir[0]}/lua/lvim ] || {
+          cp -a /tmp/lvim$$/lua/lvim ${DOTCONF}/${neovimdir[0]}/lua
         }
         rm -rf /tmp/lvim$$
       }
@@ -5520,18 +5557,18 @@ set_brew
   fi
 }
 [ "$nvchadcustom" ] && {
-  if [ -d "${HOME}/.config/${neovimdir[0]}" ]; then
+  if [ -d "${DOTCONF}/${neovimdir[0]}" ]; then
     [ "$quiet" ] || {
-      printf "\nThe directory ${HOME}/.config/${neovimdir[0]} already exists"
+      printf "\nThe directory ${DOTCONF}/${neovimdir[0]} already exists"
     }
   else
     [ "$quiet" ] || {
       printf "\nCloning ${nvchadcustom} into"
-      printf "\n\t${HOME}/.config/${neovimdir[0]}"
+      printf "\n\t${DOTCONF}/${neovimdir[0]}"
     }
     [ "$tellme" ] || {
       git clone https://github.com/NvChad/NvChad \
-        "${HOME}/.config/${neovimdir[0]}" --depth 1 > /dev/null 2>&1
+        "${DOTCONF}/${neovimdir[0]}" --depth 1 > /dev/null 2>&1
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
         # Perform some git tricks here to retrieve a repo subdirectory
@@ -5542,13 +5579,13 @@ set_brew
         [ -d /tmp/lazyman$$/.git/info ] || mkdir -p /tmp/lazyman$$/.git/info
         echo "${subdir}" >> /tmp/lazyman$$/.git/info/sparse-checkout
         git -C /tmp/lazyman$$ pull origin ${branch} > /dev/null 2>&1
-        mv "/tmp/lazyman$$/${subdir}" "${HOME}/.config/${neovimdir[0]}"/lua/custom
+        mv "/tmp/lazyman$$/${subdir}" "${DOTCONF}/${neovimdir[0]}"/lua/custom
         rm -rf "/tmp/lazyman$$"
       else
         git clone "${nvchadcustom}" \
-          "${HOME}/.config/${neovimdir[0]}"/lua/custom > /dev/null 2>&1
+          "${DOTCONF}/${neovimdir[0]}"/lua/custom > /dev/null 2>&1
         [ "$branch" ] && {
-          git -C "${HOME}/.config/${neovimdir[0]}/lua/custom" \
+          git -C "${DOTCONF}/${neovimdir[0]}/lua/custom" \
             checkout "$branch" > /dev/null 2>&1
         }
       fi
@@ -5563,7 +5600,7 @@ set_brew
 apply_patch "${neovimdir[0]}"
 
 [ "${fix_help}" ] && {
-  fix_help_file "${HOME}/.config/${patchdir}/${fix_help}"
+  fix_help_file "${DOTCONF}/${patchdir}/${fix_help}"
 }
 
 [ "${interactive}" ] || {
