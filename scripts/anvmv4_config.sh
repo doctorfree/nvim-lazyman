@@ -623,8 +623,99 @@ show_plugin_menu() {
     enable_community=$(get_conf_value enable_community)
     if [ "${enable_community}" == "true" ]; then
       use_community=""
+      enable_community_rust=$(get_conf_value enable_community_rust)
+      if [ "${enable_community_rust}" == "true" ]; then
+        use_community_rust=""
+      else
+        use_community_rust="✗"
+      fi
+      enable_community_markdown=$(get_conf_value enable_community_markdown)
+      if [ "${enable_community_markdown}" == "true" ]; then
+        use_community_markdown=""
+      else
+        use_community_markdown="✗"
+      fi
+      enable_community_json=$(get_conf_value enable_community_json)
+      if [ "${enable_community_json}" == "true" ]; then
+        use_community_json=""
+      else
+        use_community_json="✗"
+      fi
+      enable_community_yaml=$(get_conf_value enable_community_yaml)
+      if [ "${enable_community_yaml}" == "true" ]; then
+        use_community_yaml=""
+      else
+        use_community_yaml="✗"
+      fi
+      enable_community_ps1=$(get_conf_value enable_community_ps1)
+      if [ "${enable_community_ps1}" == "true" ]; then
+        use_community_ps1=""
+      else
+        use_community_ps1="✗"
+      fi
+      enable_community_lua=$(get_conf_value enable_community_lua)
+      if [ "${enable_community_lua}" == "true" ]; then
+        use_community_lua=""
+      else
+        use_community_lua="✗"
+      fi
+      enable_community_python_ruff=$(get_conf_value enable_community_python_ruff)
+      if [ "${enable_community_python_ruff}" == "true" ]; then
+        use_community_python_ruff=""
+      else
+        use_community_python_ruff="✗"
+      fi
+      enable_community_bash=$(get_conf_value enable_community_bash)
+      if [ "${enable_community_bash}" == "true" ]; then
+        use_community_bash=""
+      else
+        use_community_bash="✗"
+      fi
+      enable_community_html_css=$(get_conf_value enable_community_html_css)
+      if [ "${enable_community_html_css}" == "true" ]; then
+        use_community_html_css=""
+      else
+        use_community_html_css="✗"
+      fi
+      enable_community_typescript=$(get_conf_value enable_community_typescript)
+      if [ "${enable_community_typescript}" == "true" ]; then
+        use_community_typescript=""
+      else
+        use_community_typescript="✗"
+      fi
+      enable_community_angular=$(get_conf_value enable_community_angular)
+      if [ "${enable_community_angular}" == "true" ]; then
+        use_community_angular=""
+      else
+        use_community_angular="✗"
+      fi
+      enable_community_cpp=$(get_conf_value enable_community_cpp)
+      if [ "${enable_community_cpp}" == "true" ]; then
+        use_community_cpp=""
+      else
+        use_community_cpp="✗"
+      fi
+      enable_community_cmake=$(get_conf_value enable_community_cmake)
+      if [ "${enable_community_cmake}" == "true" ]; then
+        use_community_cmake=""
+      else
+        use_community_cmake="✗"
+      fi
     else
       use_community="✗"
+      use_community_rust="✗"
+      use_community_markdown="✗"
+      use_community_json="✗"
+      use_community_yaml="✗"
+      use_community_ps1="✗"
+      use_community_lua="✗"
+      use_community_python_ruff="✗"
+      use_community_bash="✗"
+      use_community_html_css="✗"
+      use_community_typescript="✗"
+      use_community_angular="✗"
+      use_community_cpp="✗"
+      use_community_cmake="✗"
     fi
     enable_toggleterm=$(get_conf_value enable_toggleterm)
     if [ "${enable_toggleterm}" == "true" ]; then
@@ -670,6 +761,21 @@ show_plugin_menu() {
     options=()
     options+=("Cheatsheets   [${use_cheatsheet}]")
     options+=("Community     [${use_community}]")
+    [ "${enable_community}" == "true" ] && {
+      options+=("  Angular     [${use_community_angular}]")
+      options+=("  Bash        [${use_community_bash}]")
+      options+=("  Cmake       [${use_community_cmake}]")
+      options+=("  Cpp         [${use_community_cpp}]")
+      options+=("  Html CSS    [${use_community_html_css}]")
+      options+=("  Json        [${use_community_json}]")
+      options+=("  Lua         [${use_community_lua}]")
+      options+=("  Markdown    [${use_community_markdown}]")
+      options+=("  PS1         [${use_community_ps1}]")
+      options+=("  Python Ruff [${use_community_python_ruff}]")
+      options+=("  Rust        [${use_community_rust}]")
+      options+=("  Typescript  [${use_community_typescript}]")
+      options+=("  Yaml        [${use_community_yaml}]")
+    }
     [ ${num_neorg_notes} -lt 4 ] && {
       options+=("Neorg Notes  [add]")
     }
@@ -711,6 +817,123 @@ show_plugin_menu() {
             set_conf_value "enable_community" "false"
           else
             set_conf_value "enable_community" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Angular"*,* | *,"  Angular"*)
+          if [ "${enable_community_angular}" == "true" ]; then
+            set_conf_value "enable_community_angular" "false"
+          else
+            set_conf_value "enable_community_angular" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Bash"*,* | *,"  Bash"*)
+          if [ "${enable_community_bash}" == "true" ]; then
+            set_conf_value "enable_community_bash" "false"
+          else
+            set_conf_value "enable_community_bash" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Cmake"*,* | *,"  Cmake"*)
+          if [ "${enable_community_cmake}" == "true" ]; then
+            set_conf_value "enable_community_cmake" "false"
+          else
+            set_conf_value "enable_community_cmake" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Cpp"*,* | *,"  Cpp"*)
+          if [ "${enable_community_cpp}" == "true" ]; then
+            set_conf_value "enable_community_cpp" "false"
+          else
+            set_conf_value "enable_community_cpp" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Html CSS"*,* | *,"  Html CSS"*)
+          if [ "${enable_community_html_css}" == "true" ]; then
+            set_conf_value "enable_community_html_css" "false"
+          else
+            set_conf_value "enable_community_html_css" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Json"*,* | *,"  Json"*)
+          if [ "${enable_community_json}" == "true" ]; then
+            set_conf_value "enable_community_json" "false"
+          else
+            set_conf_value "enable_community_json" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Lua"*,* | *,"  Lua"*)
+          if [ "${enable_community_lua}" == "true" ]; then
+            set_conf_value "enable_community_lua" "false"
+          else
+            set_conf_value "enable_community_lua" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Markdown"*,* | *,"  Markdown"*)
+          if [ "${enable_community_markdown}" == "true" ]; then
+            set_conf_value "enable_community_markdown" "false"
+          else
+            set_conf_value "enable_community_markdown" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  PS1"*,* | *,"  PS1"*)
+          if [ "${enable_community_ps1}" == "true" ]; then
+            set_conf_value "enable_community_ps1" "false"
+          else
+            set_conf_value "enable_community_ps1" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Python Ruff"*,* | *,"  Python Ruff"*)
+          if [ "${enable_community_python_ruff}" == "true" ]; then
+            set_conf_value "enable_community_python_ruff" "false"
+          else
+            set_conf_value "enable_community_python_ruff" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Rust"*,* | *,"  Rust"*)
+          if [ "${enable_community_rust}" == "true" ]; then
+            set_conf_value "enable_community_rust" "false"
+          else
+            set_conf_value "enable_community_rust" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Typescript"*,* | *,"  Typescript"*)
+          if [ "${enable_community_typescript}" == "true" ]; then
+            set_conf_value "enable_community_typescript" "false"
+          else
+            set_conf_value "enable_community_typescript" "true"
+          fi
+          pluginit=1
+          break
+          ;;
+        "  Yaml"*,* | *,"  Yaml"*)
+          if [ "${enable_community_yaml}" == "true" ]; then
+            set_conf_value "enable_community_yaml" "false"
+          else
+            set_conf_value "enable_community_yaml" "true"
           fi
           pluginit=1
           break
@@ -862,6 +1085,19 @@ show_plugin_menu() {
           ;;
         "Enable All"*,* | *,"Enable All"*)
           set_conf_value "enable_community" "true"
+          set_conf_value "enable_community_rust" "true"
+          set_conf_value "enable_community_markdown" "true"
+          set_conf_value "enable_community_json" "true"
+          set_conf_value "enable_community_yaml" "true"
+          set_conf_value "enable_community_ps1" "true"
+          set_conf_value "enable_community_lua" "true"
+          set_conf_value "enable_community_python_ruff" "true"
+          set_conf_value "enable_community_bash" "true"
+          set_conf_value "enable_community_html_css" "true"
+          set_conf_value "enable_community_typescript" "true"
+          set_conf_value "enable_community_angular" "true"
+          set_conf_value "enable_community_cpp" "true"
+          set_conf_value "enable_community_cmake" "true"
           set_conf_value "enable_toggleterm" "true"
           set_conf_value "enable_neotest" "true"
           set_conf_value "enable_treesitter_context" "true"
