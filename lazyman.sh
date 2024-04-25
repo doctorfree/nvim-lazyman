@@ -586,6 +586,15 @@ init_neovim() {
     packer=${oldpack}
     plug=${oldplug}
   }
+  # Backup original configuration.lua for managed configurations
+  [ "${neodir}" == "nvim-AstroNvimV4" ] \
+    || [ "${neodir}" == "nvim-LazyIde" ] \
+    || [ "${neodir}" == "nvim-Webdev" ] && {
+    [ -f "${DOTCONF}/${neodir}/lua/configuration.lua" ] && {
+      cp "${DOTCONF}/${neodir}/lua/configuration.lua" \
+         "${DOTCONF}/${neodir}/lua/configuration-orig.lua"
+    }
+  }
 }
 
 add_nvimdirs_entry() {
