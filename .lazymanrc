@@ -97,7 +97,7 @@ command -v nvim > /dev/null && {
       nvim-Beethoven|nvim-Cosmic|nvim-Fennel|nvim-Opinion|nvim-Optixal|nvim-Orange|nvim-Xiao)
         explore="NvimTreeOpen"
         ;;
-      nvim-Basic|nvim-Cpp|nvim-Go|nvim-Kristijan|nvim-Metis|nvim-Modular|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason)
+      nvim-Basic|nvim-Cpp|nvim-Go|nvim-Kristijan|nvim-Metis|nvim-Modular|nvim-NvChad|nvim-Python|nvim-Rust|nvim-Scratch|nvim-StartLsp|nvim-StartMason|nvim-Vimacs)
         explore="NvimTreeToggle"
         ;;
       nvim-3rd)
