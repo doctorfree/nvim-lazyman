@@ -171,7 +171,7 @@ Configs:
     opt: ""
     dir: ""
   - name: NvChad
-    url: https://github.com/NvChad/NvChad
+    url: https://github.com/NvChad/starter
     opt: ""
     dir: ""
   - name: NvPak

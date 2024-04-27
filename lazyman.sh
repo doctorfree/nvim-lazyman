@@ -491,6 +491,7 @@ init_neovim() {
                     || [ "${neodir}" == "nvim-Go" ] \
                     || [ "${neodir}" == "nvim-LazyIde" ] \
                     || [ "${neodir}" == "nvim-Rust" ] \
+                    || [ "${neodir}" == "nvim-Vimacs" ] \
                     || [ "${neodir}" == "nvim-Python" ] && {
                     xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa 2>&1 \
                       | tee -a ${LOG}
@@ -555,6 +556,7 @@ init_neovim() {
                     || [ "${neodir}" == "nvim-Go" ] \
                     || [ "${neodir}" == "nvim-LazyIde" ] \
                     || [ "${neodir}" == "nvim-Rust" ] \
+                    || [ "${neodir}" == "nvim-Vimacs" ] \
                     || [ "${neodir}" == "nvim-Python" ] && {
                     xtimeout ${timeout} nvim --headless \
                       "+MasonInstallAll" +qa > /dev/null 2>&1
@@ -926,6 +928,7 @@ update_config() {
       || [ "${ndir}" == "nvim-Cpp" ] \
       || [ "${ndir}" == "nvim-Go" ] \
       || [ "${ndir}" == "nvim-Rust" ] \
+      || [ "${ndir}" == "nvim-Vimacs" ] \
       || [ "${ndir}" == "nvim-Python" ] \
       || [ "${customastro}" ] && {
       if [ "${ndir}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
@@ -1566,6 +1569,7 @@ check_updates() {
       || [ "${ndir}" == "nvim-Cpp" ] \
       || [ "${ndir}" == "nvim-Go" ] \
       || [ "${ndir}" == "nvim-Rust" ] \
+      || [ "${ndir}" == "nvim-Vimacs" ] \
       || [ "${neovim}" == "nvim-Python" ] \
       || [ "${customastro}" ] && {
       if [ "${neovim}" == "${astronvimdir}" ] || [ "${customastro}" ]; then
@@ -5445,7 +5449,7 @@ set_brew
       printf "\n\t${DOTCONF}/${nvchaddir}"
     }
     [ "$tellme" ] || {
-      git clone https://github.com/NvChad/NvChad \
+      git clone https://github.com/NvChad/starter \
         "${DOTCONF}/${nvchaddir}" --depth 1 > /dev/null 2>&1
       # Replace references to /nvim/ with /$nvchaddir/
       fix_nvim_dir "${nvchaddir}"
@@ -5576,7 +5580,7 @@ set_brew
       printf "\n\t${DOTCONF}/${neovimdir[0]}"
     }
     [ "$tellme" ] || {
-      git clone https://github.com/NvChad/NvChad \
+      git clone https://github.com/NvChad/starter \
         "${DOTCONF}/${neovimdir[0]}" --depth 1 > /dev/null 2>&1
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
