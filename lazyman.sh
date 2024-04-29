@@ -484,14 +484,15 @@ init_neovim() {
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
-                  xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa 2>&1 \
-                    | tee -a ${LOG}
+                  [ "${neodir}" == "nvim-Vimacs" ] || {
+                    xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa 2>&1 \
+                      | tee -a ${LOG}
+                  }
                   [ "${neodir}" == "${nvchaddir}" ] \
                     || [ "${neodir}" == "nvim-Cpp" ] \
                     || [ "${neodir}" == "nvim-Go" ] \
                     || [ "${neodir}" == "nvim-LazyIde" ] \
                     || [ "${neodir}" == "nvim-Rust" ] \
-                    || [ "${neodir}" == "nvim-Vimacs" ] \
                     || [ "${neodir}" == "nvim-Python" ] && {
                     xtimeout ${timeout} nvim --headless "+MasonInstallAll" +qa 2>&1 \
                       | tee -a ${LOG}
@@ -549,14 +550,15 @@ init_neovim() {
             else
               [ "${neodir}" == "${minivimdir}" ] || {
                 [ "${neodir}" == "nvim-Nyoom" ] || {
-                  xtimeout ${timeout} nvim --headless \
-                    "+Lazy! sync" +qa > /dev/null 2>&1
+                  [ "${neodir}" == "nvim-Vimacs" ] || {
+                    xtimeout ${timeout} nvim --headless \
+                      "+Lazy! sync" +qa > /dev/null 2>&1
+                  }
                   [ "${neodir}" == "${nvchaddir}" ] \
                     || [ "${neodir}" == "nvim-Cpp" ] \
                     || [ "${neodir}" == "nvim-Go" ] \
                     || [ "${neodir}" == "nvim-LazyIde" ] \
                     || [ "${neodir}" == "nvim-Rust" ] \
-                    || [ "${neodir}" == "nvim-Vimacs" ] \
                     || [ "${neodir}" == "nvim-Python" ] && {
                     xtimeout ${timeout} nvim --headless \
                       "+MasonInstallAll" +qa > /dev/null 2>&1
