@@ -1472,7 +1472,6 @@ return {
       "nvim-tree/nvim-web-devicons",
       "echasnovski/mini.bufremove",
     },
-    version = "*",
     config = function()
       require("ecovim.plugins.bufferline")
     end,

@@ -15,9 +15,16 @@ local handlers = {
   ),
   ["textDocument/definition"] = function(err, result, method, ...)
     P(result)
-    if vim.tbl_islist(result) and #result > 1 then
-      local filtered_result = filter(result, filterReactDTS)
-      return baseDefinitionHandler(err, filtered_result, method, ...)
+    if vim.fn.has("nvim-0.10") then
+      if vim.islist(result) and #result > 1 then
+        local filtered_result = filter(result, filterReactDTS)
+        return baseDefinitionHandler(err, filtered_result, method, ...)
+      end
+    else
+      if vim.tbl_islist(result) and #result > 1 then
+        local filtered_result = filter(result, filterReactDTS)
+        return baseDefinitionHandler(err, filtered_result, method, ...)
+      end
     end
 
     baseDefinitionHandler(err, result, method, ...)
