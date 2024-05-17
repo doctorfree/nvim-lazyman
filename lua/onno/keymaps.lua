@@ -42,10 +42,12 @@ keymap("n", "<c-k>", "<c-w>k", opts)
 -------------------- Navigate buffers --------------------------
 -- keymap("n", "<S-l>", ":bnext<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<A-S-l>", ":BufferLineMoveNext<CR>", opts)
-keymap("n", "<A-S-h>", ":BufferLineMovePrev<CR>", opts)
+if Util.has("bufferline.nvim") then
+  keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+  keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+  keymap("n", "<A-S-l>", ":BufferLineMoveNext<CR>", opts)
+  keymap("n", "<A-S-h>", ":BufferLineMovePrev<CR>", opts)
+end
 
 -------------------- Press jk fast to enter --------------------
 keymap("i", "jk", "<ESC>", opts)
@@ -84,15 +86,17 @@ keymap("i", "<A-S-k>", "<ESC>:m .-2<CR>==gi", opts)
 keymap("n", ";", ":noh<CR>", opts)
 
 -------------------- Go to buffer quickly ----------------------
-keymap("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
-keymap("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
-keymap("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
-keymap("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", opts)
-keymap("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", opts)
-keymap("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
-keymap("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
-keymap("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
-keymap("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
+if Util.has("bufferline.nvim") then
+  keymap("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
+  keymap("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
+  keymap("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
+  keymap("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", opts)
+  keymap("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", opts)
+  keymap("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
+  keymap("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
+  keymap("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
+  keymap("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
+end
 
 -------------------- split window ------------------------------
 keymap("n", "<leader>\\", ":vsplit<CR>", opts)
