@@ -95,7 +95,7 @@ local signature = {}
 local lspsaga = {}
 local snippet = {}
 local session = {}
-if vim.fn.has("nvim-0.10") then
+if vim.fn.has('nvim-0.10') == 1 then
   session = {
     "Shatur/neovim-session-manager",
     lazy = false,

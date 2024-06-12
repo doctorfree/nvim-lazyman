@@ -15,7 +15,7 @@ local handlers = {
   ),
   ["textDocument/definition"] = function(err, result, method, ...)
     P(result)
-    if vim.fn.has("nvim-0.10") then
+    if vim.fn.has("nvim-0.10") == 1 then
       if vim.islist(result) and #result > 1 then
         local filtered_result = filter(result, filterReactDTS)
         return baseDefinitionHandler(err, filtered_result, method, ...)
@@ -33,7 +33,7 @@ local handlers = {
 
 require("typescript-tools").setup({
   on_attach = function(client, bufnr)
-    if vim.fn.has("nvim-0.10") then
+    if vim.fn.has("nvim-0.10") == 1 then
       -- Enable inlay hints
       vim.lsp.inlay_hint(bufnr, true)
     end

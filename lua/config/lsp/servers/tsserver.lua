@@ -31,7 +31,7 @@ local handlers = {
     { virtual_text = false }
   ),
   ["textDocument/definition"] = function(err, result, method, ...)
-    if vim.fn.has("nvim-0.10") then
+    if vim.fn.has("nvim-0.10") == 1 then
       if vim.islist(result) and #result > 1 then
         local filtered_result = filter(result, filterReactDTS)
         return vim.lsp.handlers["textDocument/definition"](err, filtered_result, method, ...)
