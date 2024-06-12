@@ -24,6 +24,8 @@
 ### 🐞 Fixed
 
 - Several configurations switched from `Packer` to `Lazy.nvim`
+- Fixed checks for Neovim 0.10
+- Enable `neovim-session-manager` only if Neovim 0.10 is in use
 - Remove `bufferline.nvim` from `onno` namespace
 - Disable `read:scope` warning from `octo.nvim`
 - Plugin configuration changes for 0.10.0 support
