@@ -354,7 +354,6 @@ make_info() {
       NC_URL="http://neovimcraft.com/plugin/nshen/InsisVim"
       DF_URL="https://dotfyle.com/nshen/insisvim"
       CF_CAT="Language"
-      PL_MAN="Packer"
       C_DESC="An out-of-the-box Neovim IDE solution with simple development environment setup"
       C_INST="lazyman -L Insis"
       ;;
@@ -377,7 +376,6 @@ make_info() {
       NC_URL="http://neovimcraft.com/plugin/benbrastmckie/.config"
       YT_URL="https://www.youtube.com/@benbrastmckie"
       CF_CAT="Language"
-      PL_MAN="Packer"
       C_DESC="Neovim configuration optimized for writing in LaTeX. Personal Neovim configuration of [Benjamin Brast-McKie](http://www.benbrastmckie.com). Keymaps and more described in the configuration [Cheatsheet](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md). Blog article by the author detailing [tools used by his configuration](http://www.benbrastmckie.com/tools#access). [Video playlist](https://www.youtube.com/watch?v=_Ct2S65kpjQ&list=PLBYZ1xfnKeDRhCoaM4bTFrjCl3NKDBvqk) of tutorials on using this config for writing LaTeX in Neovim"
       C_INST="lazyman -L LaTeX"
       ;;

@@ -4116,7 +4116,7 @@ install_remove() {
       [ "$(getok nvim-Insis)" == "ok" ] && {
         printf "\n${action} Insis Neovim configuration"
         lazyman ${darg} -C https://github.com/nshen/InsisVim \
-          -N nvim-Insis -P ${quietflag} -z ${yesflag}
+          -N nvim-Insis ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-Knvim)" == "ok" ] && {
         printf "\n${action} Knvim Neovim configuration"
@@ -4126,7 +4126,7 @@ install_remove() {
       [ "$(getok nvim-LaTeX)" == "ok" ] && {
         printf "\n${action} LaTeX Neovim configuration"
         lazyman ${darg} -C https://github.com/benbrastmckie/.config -D nvim \
-          -N nvim-LaTeX -f "${fix_latex}" -P ${quietflag} -z ${yesflag}
+          -N nvim-LaTeX -f "${fix_latex}" ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-LvimIde)" == "ok" ] && {
         printf "\n${action} LvimIde Neovim configuration"
@@ -4220,14 +4220,12 @@ install_remove() {
           ;;
         Insis)
           lang_url="-C https://github.com/nshen/InsisVim"
-          lang_opt="-P"
           ;;
         Knvim)
           lang_url="-C https://github.com/knmac/knvim"
           ;;
         LaTeX)
           lang_url="-C https://github.com/benbrastmckie/.config"
-          lang_opt="-P"
           lang_dir="-D nvim"
           help_opt="-f ${fix_latex}"
           ;;
