@@ -4,7 +4,16 @@
 
 ### ⚡️ Added
 
+### 🐞 Fixed
+
+## v3.1.6r2
+
+### ⚡️ Added
+
+- Add security policy
+- Add `Vimacs` to `Personal`
 - Add enable/disable AstroNvim Community plugins to `anvmv4_config.sh`
+- Add community modules enable/disable to `AstroNvimV4` plugins menu
 - Add `treesitter-context` to `AstroNvimV4` plugins menu
 - Update `AstroNvimV4` info documents, remove `astrolsp.lua` from `lazyman` initialization
 - Add note about upgrading `git` and `bash`
@@ -14,6 +23,14 @@
 
 ### 🐞 Fixed
 
+- Several configurations switched from `Packer` to `Lazy.nvim`
+- Remove `bufferline.nvim` from `onno` namespace
+- Disable `read:scope` warning from `octo.nvim`
+- Plugin configuration changes for 0.10.0 support
+- Do not initialize `Vimacs` during installation
+- Use new starter URL for `NvChad` based configs
+- Backup original `configuration.lua` for managed configurations during initialization
+- Preserve customized `configuration.lua` over updates to `AstroNvimV4`, `Webdev`, and `LazyIde`
 - Remove `Daniel` LunarVim configuration from `Personals`
 - Fix `shellcheck` errors in `anvmv4_config.sh`
 - Remove `java_debug.sh` install script invocation from `lazyman.sh`
