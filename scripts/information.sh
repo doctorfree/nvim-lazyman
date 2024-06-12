@@ -12,7 +12,7 @@
 LMANDIR="${HOME}/.config/nvim-Lazyman"
 PLURLS="${LMANDIR}/scripts/plugin_urls.txt"
 KEYMAP="${LMANDIR}/scripts/keymaps.sh"
-TBLCSS="${LMANDIR}/scripts/table.css"
+TBLCSS="../../scripts/table.css"
 CONFIG="${LMANDIR}/scripts/configrc"
 SED="sed"
 have_gsed=$(type -p gsed)

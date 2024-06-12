@@ -19,7 +19,7 @@ do
   echo "Generating HTML from $i"
   pandoc -t html --standalone \
          --metadata title="$j" \
-         --css="${HOME}"/.config/nvim-Lazyman/scripts/table.css \
+         --css=../../scripts/table.css \
          -o html/${j}.html $i
 done
 exit 0
