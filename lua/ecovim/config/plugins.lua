@@ -94,6 +94,23 @@ local inlayhints = {}
 local signature = {}
 local lspsaga = {}
 local snippet = {}
+local session = {}
+if vim.fn.has("nvim-0.10") then
+  session = {
+    "Shatur/neovim-session-manager",
+    lazy = false,
+    config = function()
+      require("ecovim.plugins.session-manager")
+    end,
+    keys = {
+      { "<Leader>/sc", "<cmd>SessionManager load_session<CR>", desc = "choose session" },
+      { "<Leader>/sr", "<cmd>SessionManager delete_session<CR>", desc = "remove session" },
+      { "<Leader>/sd", "<cmd>SessionManager load_current_dir_session<CR>", desc = "load current dir session" },
+      { "<Leader>/sl", "<cmd>SessionManager load_last_session<CR>", desc = "load last session" },
+      { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>", desc = "save session" },
+    },
+  }
+end
 
 -- Some colorschemes do not yet support the NotifyBackground highlight group
 local notify_bg = "NotifyBackground"
@@ -1594,20 +1611,7 @@ return {
       vim.g.rooter_resolve_links = 1
     end,
   },
-  {
-    "Shatur/neovim-session-manager",
-    lazy = false,
-    config = function()
-      require("ecovim.plugins.session-manager")
-    end,
-    keys = {
-      { "<Leader>/sc", "<cmd>SessionManager load_session<CR>", desc = "choose session" },
-      { "<Leader>/sr", "<cmd>SessionManager delete_session<CR>", desc = "remove session" },
-      { "<Leader>/sd", "<cmd>SessionManager load_current_dir_session<CR>", desc = "load current dir session" },
-      { "<Leader>/sl", "<cmd>SessionManager load_last_session<CR>", desc = "load last session" },
-      { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>", desc = "save session" },
-    },
-  },
+  session,
   {
     "kylechui/nvim-surround",
     lazy = false,
