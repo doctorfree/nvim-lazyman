@@ -1,0 +1,13 @@
+--- lua/josean/plugins/bufferline.lua.00	2024-06-11 19:20:10
++++ lua/josean/plugins/bufferline.lua	2024-06-11 19:20:22
+@@ -1,10 +0,0 @@
+-return {
+-  "akinsho/bufferline.nvim",
+-  dependencies = { "nvim-tree/nvim-web-devicons" },
+-  version = "*",
+-  opts = {
+-    options = {
+-      mode = "tabs",
+-    },
+-  },
+-}

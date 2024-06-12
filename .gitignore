@@ -69,6 +69,7 @@ scripts/patches/*
 !scripts/patches/nvim-Beethoven.patch
 !scripts/patches/nvim-Cosmic.patch
 !scripts/patches/nvim-Enrique.patch
+!scripts/patches/nvim-Josean.patch
 !scripts/patches/nvim-JustinLvim.patch
 !scripts/patches/nvim-JustinNvim.patch
 !scripts/patches/nvim-JustinOhMy.patch
