@@ -4101,7 +4101,7 @@ install_remove() {
       [ "$(getok nvim-Go2one)" == "ok" ] && {
         printf "\n${action} Go2one Neovim configuration"
         lazyman ${darg} -b main -C https://github.com/leoluz/go2one \
-          -D nvim -N nvim-Go2one -P ${quietflag} -z ${yesflag}
+          -D nvim -N nvim-Go2one ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-LazyIde)" == "ok" ] && {
         printf "\n${action} LazyIde Neovim configuration"
@@ -4209,7 +4209,7 @@ install_remove() {
           ;;
         Go2one)
           lang_url="-C https://github.com/leoluz/go2one"
-          lang_opt="-b main -P"
+          lang_opt="-b main"
           lang_dir="-D nvim"
           ;;
         LazyIde)

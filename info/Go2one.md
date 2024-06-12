@@ -5,7 +5,7 @@ Neovim Go development environment that does not touch standard Neovim configurat
 - Install and initialize: **`lazyman -L Go2one`**
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
-- Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Go2one`**
 
 ## Git repository
@@ -16,8 +16,53 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | :----: | :----: | :-----: |
 | [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
 
-## Packer managed plugins
+## Lazy managed plugins
 
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [aaronhallaert/advanced-git-search.nvim](https://github.com/aaronhallaert/advanced-git-search.nvim.git)
+- [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+- [catppuccin/nvim](https://github.com/catppuccin/nvim)
+- [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [hrsh7th/cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
+- [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
+- [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim.git)
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+- [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
+- [chentoast/marks.nvim](https://github.com/chentoast/marks.nvim)
+- [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
+- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
+- [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [nvim-neotest/nvim-nio](https://github.com/nvim-neotest/nvim-nio.git)
+- [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [nvim-treesitter/playground](https://github.com/nvim-treesitter/playground)
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [ahmedkhalf/project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+- [nvim-telescope/telescope-github.nvim](https://github.com/nvim-telescope/telescope-github.nvim)
+- [gbrlsnchs/telescope-lsp-handlers.nvim](https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim)
+- [cljoly/telescope-repo.nvim](https://github.com/cljoly/telescope-repo.nvim)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [leoluz/testo.nvim](https://github.com/leoluz/testo.nvim.git)
+- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 
 ## Go2one Keymaps
 
@@ -27,6 +72,11 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | :---- | :---- |
 | **Left hand side** | <code> t</code> |
 | **Right hand side** | <code>:lua require'testo'.test_nearest()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> fp</code> |
+| **Right hand side** | <code>:lua print(vim.api.nvim_buf_get_name(0))&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -100,23 +150,8 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> /</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code> y</code> |
 | **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> q</code> |
-| **Right hand side** | <code>:NvimTreeToggle&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> db</code> |
-| **Right hand side** | <code>:lua require'dap'.toggle_breakpoint()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -125,17 +160,12 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> do</code> |
-| **Right hand side** | <code>:lua require'dap'.step_over()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code> di</code> |
 | **Right hand side** | <code>:lua require'dap'.step_into()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> dc</code> |
+| **Left hand side** | <code> db</code> |
 | **Right hand side** | <code>:lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))&lt;CR&gt;</code> |
 
 | **Description** | |
@@ -147,6 +177,66 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | :---- | :---- |
 | **Left hand side** | <code> i</code> |
 | **Right hand side** | <code>:lua require'dapui'.eval()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> dc</code> |
+| **Right hand side** | <code>:DiffviewClose&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> do</code> |
+| **Right hand side** | <code>:DiffviewOpen master...HEAD&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 9</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 9&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 8</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 8&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 7</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 7&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 6</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 6&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 5</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 5&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 4</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 4&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 3</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 3&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 2</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 2&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> 1</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 1&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code> /</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_current)</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -215,11 +305,6 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> fp</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code> ff</code> |
 | **Right hand side** | |
 
@@ -240,48 +325,8 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> 9</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 9&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 8</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 8&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 7</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 7&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 6</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 6&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 5</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 5&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 4</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 4&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 3</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 3&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 2</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 2&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> 1</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;BufferLineGoToBuffer 1&lt;CR&gt;</code> |
+| **Left hand side** | <code> q</code> |
+| **Right hand side** | <code>:NvimTreeToggle&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -345,13 +390,13 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>dm-</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_line()&lt;CR&gt;</code> |
+| **Left hand side** | <code>dm=</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>dm=</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark()&lt;CR&gt;</code> |
+| **Left hand side** | <code>dm</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -360,13 +405,23 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>dm4</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark4()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>dm2</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark2()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>dm4</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark4()&lt;CR&gt;</code> |
+| **Left hand side** | <code>dm5</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark5()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>dm6</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark6()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -377,11 +432,6 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | :---- | :---- |
 | **Left hand side** | <code>dm7</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark7()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>dm6</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark6()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -400,18 +450,13 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>dm5</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark5()&lt;CR&gt;</code> |
+| **Left hand side** | <code>dm-</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_line()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>dm9</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete_bookmark9()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>dm</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.delete()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -480,23 +525,8 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>m4</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark4()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m[</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.prev()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m3</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark3()&lt;CR&gt;</code> |
+| **Left hand side** | <code>m]</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.next()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -505,8 +535,18 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>m9</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark9()&lt;CR&gt;</code> |
+| **Left hand side** | <code>m}</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.next_bookmark()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>m[</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.prev()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>m{</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.prev_bookmark()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -515,8 +555,23 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>m6</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark6()&lt;CR&gt;</code> |
+| **Left hand side** | <code>m4</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark4()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>m3</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark3()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>m9</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark9()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>m</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -530,33 +585,13 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>m;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.toggle()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>m7</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark7()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m0</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark0()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m}</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.next_bookmark()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m]</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.next()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m{</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.prev_bookmark()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>m5</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark5()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -565,18 +600,23 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>m;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.toggle()&lt;CR&gt;</code> |
+| **Left hand side** | <code>m0</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark0()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>m6</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark6()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>m5</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;lua require'marks'.set_bookmark5()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>t</code> |
 | **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>y&lt;C-G&gt;</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -602,6 +642,11 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | :---- | :---- |
 | **Left hand side** | <code>ys</code> |
 | **Right hand side** | <code>&lt;Plug&gt;Ysurround</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>y&lt;C-G&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call setreg(v:register, fugitive#Object(@%))&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -958,6 +1003,56 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | **Left hand side** | <code>&lt;Plug&gt;(Marks-set)</code> |
 | **Right hand side** | <code>&lt;Cmd&gt; lua require'marks'.set()&lt;CR&gt;</code> |
 
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F11&gt;</code> |
+| **Right hand side** | <code>:lua require'dap'.step_out()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F10&gt;</code> |
+| **Right hand side** | <code>:lua require'dap'.step_into()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F9&gt;</code> |
+| **Right hand side** | <code>:lua require'dap'.step_over()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F8&gt;</code> |
+| **Right hand side** | <code>:lua require'dap'.continue()&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F7&gt;</code> |
+| **Right hand side** | <code>:lua require'dap'.toggle_breakpoint()&lt;CR&gt;</code> |
+
+| **Description** | LuaSnip: Repeat last node expansion |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | LuaSnip: Removes current snippet from jumplist |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | <code>:BufferLineMovePrev&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | <code>:BufferLineMoveNext&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+
 | **Description** | Comment toggle blockwise with count |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_count)</code> |
@@ -990,43 +1085,43 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;YSurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;14_opfunc2('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;Ysurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;14_opfunc('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F11&gt;</code> |
-| **Right hand side** | <code>:lua require'dap'.step_out()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;YSsurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;14_opfunc2('setup').'_'</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F10&gt;</code> |
-| **Right hand side** | <code>:lua require'dap'.step_into()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;Yssurround</code> |
+| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;14_opfunc('setup').'g_'</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F9&gt;</code> |
-| **Right hand side** | <code>:lua require'dap'.step_over()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;CSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;14_changesurround(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F8&gt;</code> |
-| **Right hand side** | <code>:lua require'dap'.continue()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;Csurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;14_changesurround()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;F7&gt;</code> |
-| **Right hand side** | <code>:lua require'dap'.toggle_breakpoint()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;Dsurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;14_dosurround(&lt;SNR&gt;14_inputtarget())&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;SurroundRepeat</code> |
+| **Right hand side** | <code>.</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -1040,58 +1135,8 @@ Neovim Go development environment that does not touch standard Neovim configurat
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;YSurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;7_opfunc2('setup')</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Ysurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;7_opfunc('setup')</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;YSsurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;7_opfunc2('setup').'_'</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Yssurround</code> |
-| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;7_opfunc('setup').'g_'</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;CSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_changesurround(1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Csurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_changesurround()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Dsurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_dosurround(&lt;SNR&gt;7_inputtarget())&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SurroundRepeat</code> |
-| **Right hand side** | <code>.</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-J&gt;</code> |
-| **Right hand side** | <code>:BufferLineMovePrev&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-K&gt;</code> |
-| **Right hand side** | <code>:BufferLineMoveNext&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-H&gt;</code> |
-| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -1241,20 +1286,20 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
 | **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
 
+| **Description** | LuaSnip: Repeat last node expansion |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;VgSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;21_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;16_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;VSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;21_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;16_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
 
 
 ### Operator mode keymaps
@@ -1329,7 +1374,7 @@ Neovim Go development environment that does not touch standard Neovim configurat
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
 
-| **Description** | |
+| **Description** | LuaSnip: Repeat last node expansion |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
 | **Right hand side** | |

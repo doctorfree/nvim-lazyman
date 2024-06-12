@@ -28,43 +28,44 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua)
+- [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp.git)
+- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
 - [stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [onsails/lspkind.nvim](https://github.com/onsails/lspkind.nvim)
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+- [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
-- [nvim-neo-tree/neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [folke/neodev.nvim](https://github.com/folke/neodev.nvim)
-- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
-- [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
-- [catppuccin/nvim](https://github.com/catppuccin/nvim)
+- [nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim.git)
+- [Abstract-IDE/penvim](https://github.com/Abstract-IDE/penvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [antosha417/nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [nvim-pack/nvim-spectre](https://github.com/nvim-pack/nvim-spectre.git)
+- [alexghergh/nvim-tmux-navigation](https://github.com/alexghergh/nvim-tmux-navigation)
 - [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
-- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
-- [s1n7ax/nvim-window-picker](https://github.com/s1n7ax/nvim-window-picker)
-- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
+- [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim.git)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
 - [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [dmmulroy/tsc.nvim](https://github.com/dmmulroy/tsc.nvim)
 - [RRethy/vim-illuminate](https://github.com/RRethy/vim-illuminate)
-- [dmmulroy/vim-kitty-navigator](https://github.com/dmmulroy/vim-kitty-navigator)
 - [szw/vim-maximizer](https://github.com/szw/vim-maximizer)
-- [tpope/vim-surround](https://github.com/tpope/vim-surround)
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
 - [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim)
 
 ## Dillon Keymaps
@@ -116,11 +117,6 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | **Left hand side** | <code> sg</code> |
 | **Right hand side** | |
 
-| **Description** | [S]earch current [W]ord |
-| :---- | :---- |
-| **Left hand side** | <code> sw</code> |
-| **Right hand side** | |
-
 | **Description** | [S]earch [H]elp |
 | :---- | :---- |
 | **Left hand side** | <code> sh</code> |
@@ -139,6 +135,11 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | **Description** | [?] Find recently opened files |
 | :---- | :---- |
 | **Left hand side** | <code> ?</code> |
+| **Right hand side** | |
+
+| **Description** | Search [G]it [F]iles |
+| :---- | :---- |
+| **Left hand side** | <code> gf</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -251,15 +252,20 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | **Left hand side** | <code> no</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;noh&lt;CR&gt;</code> |
 
+| **Description** | [S]earch current [W]ord |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
+
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> E</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Neotree action=focus&lt;CR&gt;</code> |
+| **Left hand side** | <code> S</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code> e</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Neotree toggle&lt;CR&gt;</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
@@ -276,6 +282,11 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | **Left hand side** | <code> w</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;w&lt;CR&gt;</code> |
 
+| **Description** | Switch to last buffer |
+| :---- | :---- |
+| **Left hand side** | <code> '</code> |
+| **Right hand side** | <code>&lt;C-^&gt;</code> |
+
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>#</code> |
@@ -284,7 +295,7 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>%zz</code> |
 
 | **Description** | Nvim builtin |
 | :---- | :---- |
@@ -295,6 +306,21 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | :---- | :---- |
 | **Left hand side** | <code>*</code> |
 | **Right hand side** | <code>*zz</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>/</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>:</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>?</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
@@ -333,11 +359,6 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>[%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>[w</code> |
 | **Right hand side** | |
 
@@ -353,8 +374,8 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>]%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Left hand side** | <code>[%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -370,6 +391,11 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | :---- | :---- |
 | **Left hand side** | <code>]d</code> |
 | **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>]%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -423,11 +449,6 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>g%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>gx</code> |
 | **Right hand side** | <code>:sil !open &lt;lt&gt;cWORD&gt;&lt;CR&gt;</code> |
 
@@ -435,6 +456,11 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | :---- | :---- |
 | **Left hand side** | <code>gg</code> |
 | **Right hand side** | <code>ggzz</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -468,6 +494,16 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>zM</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zR</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>{</code> |
 | **Right hand side** | <code>{zz</code> |
 
@@ -475,76 +511,6 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | :---- | :---- |
 | **Left hand side** | <code>}</code> |
 | **Right hand side** | <code>}zz</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;YSurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;48_opfunc2('setup')</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Ysurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;48_opfunc('setup')</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;YSsurround</code> |
-| **Right hand side** | <code>&lt;SNR&gt;48_opfunc2('setup').'_'</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Yssurround</code> |
-| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;48_opfunc('setup').'g_'</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;CSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;48_changesurround(1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Csurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;48_changesurround()&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;Dsurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;48_dosurround(&lt;SNR&gt;48_inputtarget())&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;SurroundRepeat</code> |
-| **Right hand side** | <code>.</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;F3&gt;</code> |
-| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;</code> |
-
-| **Description** | Move to previous reference |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-p&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | Move to next reference |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-n&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
-| **Right hand side** | |
 
 | **Description** | Comment toggle blockwise with count |
 | :---- | :---- |
@@ -578,6 +544,51 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
+| **Left hand side** | <code>&lt;C-O&gt;</code> |
+| **Right hand side** | <code>&lt;C-O&gt;zz</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-I&gt;</code> |
+| **Right hand side** | <code>&lt;Tab&gt;zz</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-D&gt;</code> |
+| **Right hand side** | <code>&lt;C-D&gt;zz</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-U&gt;</code> |
+| **Right hand side** | <code>&lt;C-U&gt;zz</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-K&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-J&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Move to previous reference |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-p&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | Move to next reference |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-n&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
 
@@ -598,43 +609,53 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-O&gt;</code> |
-| **Right hand side** | <code>&lt;C-O&gt;zz</code> |
+| **Left hand side** | <code>&lt;Plug&gt;YSurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;13_opfunc2('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-I&gt;</code> |
-| **Right hand side** | <code>&lt;Tab&gt;zz</code> |
+| **Left hand side** | <code>&lt;Plug&gt;Ysurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;13_opfunc('setup')</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-D&gt;</code> |
-| **Right hand side** | <code>&lt;C-D&gt;zz</code> |
+| **Left hand side** | <code>&lt;Plug&gt;YSsurround</code> |
+| **Right hand side** | <code>&lt;SNR&gt;13_opfunc2('setup').'_'</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-U&gt;</code> |
-| **Right hand side** | <code>&lt;C-U&gt;zz</code> |
-
-| **Description** | Switch to last buffer |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-'&gt;</code> |
-| **Right hand side** | <code>&lt;C-^&gt;</code> |
+| **Left hand side** | <code>&lt;Plug&gt;Yssurround</code> |
+| **Right hand side** | <code>'^'.v:count1.&lt;SNR&gt;13_opfunc('setup').'g_'</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-H&gt;</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;CSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;13_changesurround(1)&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-K&gt;</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;Csurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;13_changesurround()&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-J&gt;</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>&lt;Plug&gt;Dsurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;13_dosurround(&lt;SNR&gt;13_inputtarget())&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;SurroundRepeat</code> |
+| **Right hand side** | <code>.</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;F3&gt;</code> |
+| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -648,6 +669,11 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | :---- | :---- |
 | **Left hand side** | <code> p</code> |
 | **Right hand side** | <code>"_dP</code> |
+
+| **Description** | Search current word |
+| :---- | :---- |
+| **Left hand side** | <code> sw</code> |
+| **Right hand side** | |
 
 | **Description** | Nvim builtin |
 | :---- | :---- |
@@ -663,6 +689,16 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | :---- | :---- |
 | **Left hand side** | <code>*</code> |
 | **Right hand side** | <code>y/\V&lt;C-R&gt;"&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;lt&gt;&lt;lt&gt;</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&gt;&gt;</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
@@ -706,43 +742,13 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>gS</code> |
-| **Right hand side** | <code>&lt;Plug&gt;VgSurround</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>gx</code> |
-| **Right hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>g%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;VgSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;48_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;VSurround</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;48_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;F3&gt;</code> |
-| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;gv</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;M-i&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
+| **Left hand side** | <code>gS</code> |
+| **Right hand side** | <code>&lt;Plug&gt;VgSurround</code> |
 
 | **Description** | Comment toggle blockwise (visual) |
 | :---- | :---- |
@@ -756,8 +762,18 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;NetrwBrowseXVis</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call netrw#BrowseXVis()&lt;CR&gt;</code> |
+| **Left hand side** | <code>&lt;M-k&gt;</code> |
+| **Right hand side** | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-j&gt;</code> |
+| **Right hand side** | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;M-i&gt;</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
@@ -786,13 +802,18 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-k&gt;</code> |
-| **Right hand side** | <code>:m '&lt;lt&gt;-2&lt;CR&gt;gv=gv</code> |
+| **Left hand side** | <code>&lt;F3&gt;</code> |
+| **Right hand side** | <code>:MaximizerToggle&lt;CR&gt;gv</code> |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;M-j&gt;</code> |
-| **Right hand side** | <code>:m '&gt;+1&lt;CR&gt;gv=gv</code> |
+| **Left hand side** | <code>&lt;Plug&gt;VgSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;VSurround</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call &lt;SNR&gt;7_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)&lt;CR&gt;</code> |
 
 
 ### Operator mode keymaps
@@ -820,11 +841,6 @@ Author of [tsc.nvim](https://github.com/dmmulroy/tsc.nvim), asynchronous TypeScr
 | **Description** | |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;M-i&gt;</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
 | **Right hand side** | |
 
 | **Description** | |
