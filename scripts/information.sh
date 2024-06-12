@@ -597,12 +597,6 @@ make_info() {
       C_DESC="Personal Neovim configuration of Cassio Lamarck"
       C_INST="lazyman -w LamarVim"
       ;;
-    Lukas)
-      GH_URL="https://github.com/lukas-reineke/dotfiles"
-      CF_CAT="Personal"
-      C_DESC="Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim plugins. Requires an externally installed \`lua-language-server\` and \`efm-langserver\`"
-      C_INST="lazyman -w Lukas"
-      ;;
     LvimAdib)
       GH_URL="https://github.com/adibhanna/lvim-config"
       WS_URL="https://www.lunarvim.org"
