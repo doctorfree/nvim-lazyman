@@ -1,13 +1,12 @@
 ## Lazyman Release Notes
 
-## AstroNvim temporary fix
-
 This release addresses the breaking change in `AstroNvim` v4, released `01-Apr-2024`. Version 4 `AstroNvim` configurations can be installed with `lazyman -4 ...` and version 3 `AstroNvim` configurations can be installed with `lazyman -J ...`. Several `Lazyman` supported configurations switched from `Packer` to `Lazy.nvim` and this release addresses those changes.
 
 In addition, an example `AstroNvim v4` configuration is included in the `lazyman` supported `Starter` configurations and can be installed with `lazyman -x AstroNvimV4`. The `AstroNvimV4` configuration can be managed using an interactive menu interface with `lazyman -F anvmv4`.
 
 ## New Features
 
+- Support for Neovim 0.10
 - Support for Ubuntu 23.04 and greater
 - Use `fzf` and `lsd` to provide a preview in `nvims` shell function
 
