@@ -4557,7 +4557,7 @@ install_remove() {
           ;;
         Slydragonn)
           prsnl_url="-C https://github.com/slydragonn/dotfiles"
-          prsnl_opt="-P"
+          prsnl_opt="-b main -P"
           prsnl_dir="-D .config/nvim"
           ;;
         Traap)
