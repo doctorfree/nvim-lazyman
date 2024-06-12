@@ -4324,7 +4324,7 @@ install_remove() {
       [ "$(getok nvim-Dillon)" == "ok" ] && {
         printf "\n${action} Dillon Neovim configuration"
         lazyman ${darg} -b main -C https://github.com/dmmulroy/dotfiles \
-          -D .config/nvim -N nvim-Dillon -P ${quietflag} -z ${yesflag}
+          -D .config/nvim -N nvim-Dillon ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-JustinNvim)" == "ok" ] && {
         printf "\n${action} JustinNvim Neovim configuration"
@@ -4603,7 +4603,7 @@ install_remove() {
           ;;
         Dillon)
           prsnl_url="-C https://github.com/dmmulroy/dotfiles"
-          prsnl_opt="-b main -P"
+          prsnl_opt="-b main"
           prsnl_dir="-D .config/nvim"
           ;;
         JustinNvim)
