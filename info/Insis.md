@@ -5,7 +5,7 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 - Install and initialize: **`lazyman -L Insis`**
 - Configuration category: [Language](https://lazyman.dev/configurations/#language-configurations)
 - Base configuration:     Custom
-- Plugin manager:         [Packer](https://github.com/wbthomason/packer.nvim)
+- Plugin manager:         [Lazy](https://github.com/folke/lazy.nvim)
 - Installation location:  **`~/.config/nvim-Insis`**
 
 ## Git repository
@@ -24,7 +24,7 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | :----: | :----: | :-----: |
 | [Normal mode keymaps](#normal-mode-keymaps) | [Visual mode keymaps](#visual-mode-keymaps) | [Operator mode keymaps](#operator-mode-keymaps) |
 
-## Packer managed plugins
+## Lazy managed plugins
 
 - [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -33,37 +33,40 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 - [hrsh7th/cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 - [hrsh7th/cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 - [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
+- [hrsh7th/cmp-nvim-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git)
 - [hrsh7th/cmp-path](https://github.com/hrsh7th/cmp-path)
 - [hrsh7th/cmp-vsnip](https://github.com/hrsh7th/cmp-vsnip)
 - [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-- [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp)
-- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua)
+- [jcdickinson/codeium.nvim](https://github.com/jcdickinson/codeium.nvim)
+- [zbirenbaum/copilot-cmp](https://github.com/zbirenbaum/copilot-cmp.git)
+- [zbirenbaum/copilot.lua](https://github.com/zbirenbaum/copilot.lua.git)
 - [Mofiqul/dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 - [j-hui/fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)
 - [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 - [onsails/lspkind-nvim](https://github.com/onsails/lspkind-nvim)
 - [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [rktjmp/lush.nvim](https://github.com/rktjmp/lush.nvim)
+- [rktjmp/lush.nvim](https://github.com/rktjmp/lush.nvim.git)
 - [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- [WhoIsSethDaniel/mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
-- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
-- [jakewvincent/mkdnflow.nvim](https://github.com/jakewvincent/mkdnflow.nvim)
+- [WhoIsSethDaniel/mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim.git)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
+- [jakewvincent/mkdnflow.nvim](https://github.com/jakewvincent/mkdnflow.nvim.git)
 - [nvim-neotest/neotest](https://github.com/nvim-neotest/neotest)
-- [nvim-neotest/neotest-go](https://github.com/nvim-neotest/neotest-go)
+- [nvim-neotest/neotest-go](https://github.com/nvim-neotest/neotest-go.git)
 - [EdenEast/nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
+- [nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim.git)
 - [shaunsingh/nord.nvim](https://github.com/shaunsingh/nord.nvim)
-- [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)
+- [jay-babu/mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)
 - [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
 - [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
-- [mxsdev/nvim-dap-vscode-js](https://github.com/mxsdev/nvim-dap-vscode-js)
+- [mxsdev/nvim-dap-vscode-js](https://github.com/mxsdev/nvim-dap-vscode-js.git)
 - [mfussenegger/nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
@@ -75,14 +78,15 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 - [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
-- [HiPhish/nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2)
+- [kevinhwang91/nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- [ful1e5/onedark.nvim](https://github.com/ful1e5/onedark.nvim)
-- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
 - [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [kevinhwang91/promise-async](https://github.com/kevinhwang91/promise-async)
+- [HiPhish/rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim.git)
 - [simrat39/rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 - [b0o/schemastore.nvim](https://github.com/b0o/schemastore.nvim)
-- [LinArcX/telescope-env.nvim](https://github.com/LinArcX/telescope-env.nvim)
+- [LinArcX/telescope-env.nvim](https://github.com/LinArcX/telescope-env.nvim.git)
 - [nvim-telescope/telescope-live-grep-args.nvim](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
 - [nvim-telescope/telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -90,7 +94,7 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 - [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim)
-- [jbyuki/venn.nvim](https://github.com/jbyuki/venn.nvim)
+- [jbyuki/venn.nvim](https://github.com/jbyuki/venn.nvim.git)
 - [moll/vim-bbye](https://github.com/moll/vim-bbye)
 - [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
@@ -120,41 +124,6 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> v</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> gh</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> ns</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> nf</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> nd</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> nr</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> nt</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code> bp</code> |
 | **Right hand side** | <code>:BufferLinePickClose&lt;CR&gt;</code> |
 
@@ -180,42 +149,7 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code> de</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> dh</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> dT</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> dt</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> do</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> di</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> dj</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code> dc</code> |
+| **Left hand side** | <code> v</code> |
 | **Right hand side** | |
 
 | **Description** | |
@@ -298,6 +232,11 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | **Left hand side** | <code>ff</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
 
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+
 | **Description** | Comment toggle current block |
 | :---- | :---- |
 | **Left hand side** | <code>gbc</code> |
@@ -317,11 +256,6 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | :---- | :---- |
 | **Left hand side** | <code>gc</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>g%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -405,28 +339,63 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>zc</code> |
-| **Right hand side** | <code>:foldclose&lt;CR&gt;</code> |
+| **Left hand side** | <code>zm</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>zo</code> |
-| **Right hand side** | <code>:foldopen&lt;CR&gt;</code> |
+| **Left hand side** | <code>zr</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
-| **Right hand side** | <code>:lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
+| **Left hand side** | <code>zM</code> |
+| **Right hand side** | |
 
 | **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>zR</code> |
+| **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
+| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
+
+| **Description** | LuaSnip: Repeat last node expansion |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
 | **Right hand side** | |
 
-| **Description** | |
+| **Description** | LuaSnip: Removes current snippet from jumplist |
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;luasnip-delete-check</code> |
 | **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-F&gt;</code> |
+| **Right hand side** | <code>:&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-P&gt;</code> |
+| **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
 
 | **Description** | Comment toggle blockwise with count |
 | :---- | :---- |
@@ -457,6 +426,21 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise)</code> |
 | **Right hand side** | |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-W&gt;</code> |
+| **Right hand side** | <code>:Bdelete!&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;C-H&gt;</code> |
+| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
+
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;PlenaryTestFile</code> |
+| **Right hand side** | <code>:lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))&lt;CR&gt;</code> |
 
 | **Description** | Change a surrounding pair, putting replacements on new lines |
 | :---- | :---- |
@@ -495,48 +479,8 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;C-W&gt;</code> |
-| **Right hand side** | <code>:Bdelete!&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-H&gt;</code> |
-| **Right hand side** | <code>:BufferLineCyclePrev&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-F&gt;</code> |
-| **Right hand side** | <code>:&lt;Cmd&gt;Telescope live_grep&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;C-P&gt;</code> |
-| **Right hand side** | <code>&lt;Cmd&gt;Telescope find_files&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;M-m&gt;</code> |
 | **Right hand side** | <code>&lt;Cmd&gt;NvimTreeToggle&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiForward)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "n")&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalMultiBackward)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("bW", "n")&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalBackward)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',0,'n')&lt;CR&gt;</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(MatchitNormalForward)</code> |
-| **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'n')&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -641,6 +585,11 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | **Left hand side** | <code>a%</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualTextObject)</code> |
 
+| **Description** | |
+| :---- | :---- |
+| **Left hand side** | <code>g%</code> |
+| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
+
 | **Description** | Comment toggle blockwise (visual) |
 | :---- | :---- |
 | **Left hand side** | <code>gb</code> |
@@ -658,11 +607,6 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>g%</code> |
-| **Right hand side** | <code>&lt;Plug&gt;(MatchitVisualBackward)</code> |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>g_</code> |
 | **Right hand side** | <code>$</code> |
 
@@ -675,31 +619,6 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | :---- | :---- |
 | **Left hand side** | <code>s</code> |
 | **Right hand side** | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
-
-| **Description** | |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
-
-| **Description** | Comment toggle blockwise (visual) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-
-| **Description** | Comment toggle linewise (visual) |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
-
-| **Description** | Add a surrounding pair around a visual selection, on new lines |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = true })&lt;CR&gt;</code> |
-
-| **Description** | Add a surrounding pair around a visual selection |
-| :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
-| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require'nvim-surround'.visual_surround({ line_mode = false })&lt;CR&gt;</code> |
 
 | **Description** | |
 | :---- | :---- |
@@ -725,6 +644,31 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitVisualForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'v')&lt;CR&gt;:if col("''") != col("$") &#124; exe ":normal! m'" | endif&lt;CR&gt;gv``</code> |
+
+| **Description** | LuaSnip: Repeat last node expansion |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
+
+| **Description** | Comment toggle blockwise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_blockwise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Comment toggle linewise (visual) |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(comment_toggle_linewise_visual)</code> |
+| **Right hand side** | <code>&lt;Esc&gt;&lt;Cmd&gt;lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())&lt;CR&gt;</code> |
+
+| **Description** | Add a surrounding pair around a visual selection, on new lines |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual-line)</code> |
+| **Right hand side** | |
+
+| **Description** | Add a surrounding pair around a visual selection |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;(nvim-surround-visual)</code> |
+| **Right hand side** | |
 
 | **Description** | |
 | :---- | :---- |
@@ -771,11 +715,6 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 
 | **Description** | |
 | :---- | :---- |
-| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
-| **Right hand side** | |
-
-| **Description** | |
-| :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationMultiForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#MultiMatch("W",  "o")&lt;CR&gt;</code> |
 
@@ -793,4 +732,9 @@ An out-of-the-box Neovim IDE solution with simple development environment setup
 | :---- | :---- |
 | **Left hand side** | <code>&lt;Plug&gt;(MatchitOperationForward)</code> |
 | **Right hand side** | <code>:&lt;C-U&gt;call matchit#Match_wrapper('',1,'o')&lt;CR&gt;</code> |
+
+| **Description** | LuaSnip: Repeat last node expansion |
+| :---- | :---- |
+| **Left hand side** | <code>&lt;Plug&gt;luasnip-expand-repeat</code> |
+| **Right hand side** | |
 
