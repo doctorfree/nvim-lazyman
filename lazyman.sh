@@ -4840,7 +4840,7 @@ install_remove() {
       [ -d ${DOTCONF}/nvim-SingleFile ] && action="Updating"
       printf "\n${action} SingleFile Neovim configuration"
       lazyman ${darg} -C https://github.com/creativenull/nvim-oneconfig \
-        -N nvim-SingleFile -P ${quietflag} -z ${yesflag}
+        -N nvim-SingleFile -b lazy ${quietflag} -z ${yesflag}
     else
       start_url=
       start_dir=
@@ -4953,7 +4953,7 @@ install_remove() {
           ;;
         SingleFile)
           start_url="https://github.com/creativenull/nvim-oneconfig"
-          start_opt="-P"
+          start_opt="-b lazy"
           ;;
         *)
           startbranch=

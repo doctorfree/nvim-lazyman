@@ -971,7 +971,6 @@ make_info() {
     SingleFile)
       GH_URL="https://github.com/creativenull/nvim-oneconfig"
       CF_CAT="Starter"
-      PL_MAN="Packer"
       C_DESC="A clean, organized pre-configured Neovim configuration guide in a single 'init.lua'"
       C_INST="lazyman -x SingleFile"
       ;;
