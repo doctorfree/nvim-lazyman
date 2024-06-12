@@ -312,7 +312,7 @@ init_neovim() {
     plug=
     packer=
   }
-  [ "${neodir}" == "${magicvimdir}" ] || [ "${neodir}" == "${abstractdir}" ] && {
+  [ "${neodir}" == "${abstractdir}" ] && {
     oldpack=${packer}
     packer=1
   }
@@ -580,7 +580,6 @@ init_neovim() {
       [ "$quiet" ] || printf "\n"
     fi
   }
-  [ "${neodir}" == "${magicvimdir}" ] && packer=${oldpack}
   [ "${neodir}" == "${LAZYMAN}" ] && {
     [ -f "${LMANDIR}/.initialized" ] || {
       touch "${LMANDIR}/.initialized"
@@ -4342,7 +4341,7 @@ install_remove() {
       [ "$(getok nvim-Lukas)" == "ok" ] && {
         printf "\n${action} Lukas Neovim configuration"
         lazyman ${darg} -C https://github.com/lukas-reineke/dotfiles \
-          -D vim -N nvim-Lukas -P ${quietflag} -z ${yesflag}
+          -D vim -N nvim-Lukas ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-LvimAdib)" == "ok" ] && {
         printf "\n${action} LvimAdib Neovim configuration"
@@ -4619,7 +4618,6 @@ install_remove() {
           ;;
         Lukas)
           prsnl_url="-C https://github.com/lukas-reineke/dotfiles"
-          prsnl_opt="-P"
           prsnl_dir="-D vim"
           ;;
         LvimAdib)
@@ -5622,7 +5620,6 @@ apply_patch "${neovimdir[0]}"
       if [[ " ${basenvimdirs[*]} " =~ " ${neovim} " ]]; then
         pm="$pmgr"
         [ "$neovim" == "$spacevimdir" ] && pm="SP"
-        [ "$neovim" == "$magicvimdir" ] && pm="Packer"
         printf "\nInitializing ${neovim} Neovim configuration with ${pm}"
       fi
     }

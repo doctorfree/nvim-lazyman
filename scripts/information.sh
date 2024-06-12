@@ -281,7 +281,6 @@ make_info() {
     MagicVim)
       GH_URL="https://gitlab.com/GitMaster210/magicvim"
       CF_CAT="Base"
-      PL_MAN="Packer"
       C_DESC="Custom Neovim configuration designed to be light and fast. LSP, Treesitter & Code Completion all work out of the box and auto install when you open a file type that doesn't have code completion for it yet."
       C_INST="lazyman -m"
       ;;
@@ -601,7 +600,6 @@ make_info() {
     Lukas)
       GH_URL="https://github.com/lukas-reineke/dotfiles"
       CF_CAT="Personal"
-      PL_MAN="Packer"
       C_DESC="Personal Neovim configuration of Lukas Reineke, author of many excellent Neovim plugins. Requires an externally installed \`lua-language-server\` and \`efm-langserver\`"
       C_INST="lazyman -w Lukas"
       ;;
