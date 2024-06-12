@@ -4466,7 +4466,7 @@ install_remove() {
       [ "$(getok nvim-Primeagen)" == "ok" ] && {
         printf "\n${action} Primeagen Neovim configuration"
         lazyman ${darg} -C https://github.com/ThePrimeagen/init.lua \
-          -N nvim-Primeagen -P ${quietflag} -z ${yesflag}
+          -N nvim-Primeagen ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-Rafi)" == "ok" ] && {
         printf "\n${action} Rafi Neovim configuration"
@@ -4551,7 +4551,6 @@ install_remove() {
           ;;
         Primeagen)
           prsnl_url="-C https://github.com/ThePrimeagen/init.lua"
-          prsnl_opt="-P"
           ;;
         Rafi)
           prsnl_url="-C https://github.com/rafi/vim-config"

@@ -658,7 +658,6 @@ make_info() {
       GH_URL="https://github.com/ThePrimeagen/init.lua"
       YT_URL="https://www.youtube.com/@ThePrimeagen"
       CF_CAT="Personal"
-      PL_MAN="Packer"
       C_DESC="[Config from scratch](https://youtu.be/w7i4amO_zaE) by ThePrimeagen"
       C_INST="lazyman -w Primeagen"
       ;;
