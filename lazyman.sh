@@ -4469,7 +4469,7 @@ install_remove() {
       [ "$(getok nvim-Josean)" == "ok" ] && {
         printf "\n${action} Josean Neovim configuration"
         lazyman ${darg} -C https://github.com/josean-dev/dev-environment-files \
-          -b main -D .config/nvim -N nvim-Josean -P ${quietflag} -z ${yesflag}
+          -b main -D .config/nvim -N nvim-Josean ${quietflag} -z ${yesflag}
       }
       [ "$(getok nvim-Primeagen)" == "ok" ] && {
         printf "\n${action} Primeagen Neovim configuration"
@@ -4554,7 +4554,7 @@ install_remove() {
           ;;
         Josean)
           prsnl_url="-C https://github.com/josean-dev/dev-environment-files"
-          prsnl_opt="-b main -P"
+          prsnl_opt="-b main"
           prsnl_dir="-D .config/nvim"
           ;;
         Primeagen)

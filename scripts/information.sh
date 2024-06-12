@@ -585,8 +585,7 @@ make_info() {
       GH_URL="https://github.com/josean-dev/dev-environment-files"
       YT_URL="https://www.youtube.com/@joseanmartinez"
       CF_CAT="Personal"
-      PL_MAN="Packer"
-      C_DESC="Josean Martinez [video tutorial](https://youtu.be/vdn_pKJUda8)"
+      C_DESC="Josean Martinez [video tutorial](https://youtu.be/6pAG3BHurdM)"
       C_INST="lazyman -w Josean"
       ;;
     Kodo)
