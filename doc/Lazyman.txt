@@ -322,8 +322,8 @@ Webdev
 `-w conf` : indicates install and initialize Personal 'conf' configuration.
 'conf' can be one of: All Adib Artur Beethoven Brain Charles Craftzdog Dillon
 Elianiva Elijah Enrique Kristijan Heiker J4de Josean JustinNvim Kodo LamarVim
-LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi
-RNvim Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
+LvimAdib Maddison Metis Mini ONNO OnMyWay Optixal Orhun Primeagen Rafi RNvim
+Roiz Simple Slydragonn Spider Traap Wuelner xero Xiao
 
 `-W` : indicates install and initialize all 'Personal' Neovim configurations
 
