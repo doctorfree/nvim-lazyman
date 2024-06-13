@@ -401,34 +401,15 @@ init_neovim() {
         -a \( -name \*\.lua -o -name \*\.vim -o -name \*\.fnl \) -print0 \
         | xargs -0 grep wakatime/vim-wakatime > /dev/null && {
         [ -f "${HOME}"/.wakatime.cfg ] && havewaka=1
-        wakafile=$(find "${DOTCONF}/${neodir}" -type f -print0 | xargs -0 grep wakatime/vim-wakatime | head -1 | awk -F ':' ' { print $1 } ')
-        printf "\n\nThe ${neodir} Neovim configuration appears to use the WakaTime metrics plugin."
-        printf "\nand cannot be automatically initialized as it requires user interaction."
         if [ "${havewaka}" ]; then
-          printf "\nHowever, it appears you may have previously configured WakaTime."
-          printf "\nWould you like to proceed with the Neovim ${neodir} initialization?\n"
-          while true; do
-            read -r -p "Initialze ${neodir} (may hang if API key not configured) ? (y/n) " yn
-            case $yn in
-              [Yy]*)
-                printf "\nProceeding with initialization of ${neodir}"
-                printf "\nIf the initialization process hangs, 'Ctrl-c' to exit and manually initialize\n"
-                break
-                ;;
-              [Nn]*)
-                printf "\nSkipping initialization of ${neodir}\n"
-                skipthis=1
-                break
-                ;;
-              *)
-                printf "\nPlease answer yes or no.\n"
-                ;;
-            esac
-          done
+          skipthis=
         else
+          printf "\n\nThe ${neodir} Neovim configuration appears to use the WakaTime metrics plugin."
+          printf "\nand cannot be automatically initialized as it requires user interaction."
           skipthis=1
         fi
         [ "${skipthis}" ] && {
+          wakafile=$(find "${DOTCONF}/${neodir}" -type f -print0 | xargs -0 grep wakatime/vim-wakatime | head -1 | awk -F ':' ' { print $1 } ')
           printf "\nTo initialize this configuration, either comment out the WakaTime plugin in:"
           printf "\n\t${wakafile}"
           printf "\nor get a WakaTime API key and manually initialize this configuration with:"
