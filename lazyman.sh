@@ -2547,10 +2547,12 @@ show_main_menu() {
     else
       options+=("Debug Mode [off]")
     fi
-    [ "${have_bob}" ] && {
+    if [ "${have_bob}" ]; then
       used=$(bob list | grep Used | awk ' { print $2 } ')
-      options+=("Neovim Ver [${used}]")
-    }
+    else
+      used=$(nvim --version | grep NVIM | awk '{ print $2 }')
+    fi
+    options+=("Neovim Ver [${used}]")
     if [ "${have_neovide}" ]; then
       options+=("Toggle UI [${use_gui}]")
     fi
@@ -3079,7 +3081,38 @@ show_main_menu() {
           break
           ;;
         "Neovim Ver"*,* | *,"Neovim Ver"*)
-          versmenu=1
+          if [ "${have_bob}" ]; then
+            versmenu=1
+          else
+            tput reset
+            if [ "${have_rich}" ]; then
+              rich "[b cyan]Lazyman Neovim Version Info[/]" -p -a rounded -c -C
+            else
+              if [ "${have_figlet}" ]; then
+                show_figlet "Neovim Version"
+              else
+                printf "\nLazyman Neovim Version Info\n"
+              fi
+            fi
+            printf "\n"
+            nvimloc=$(command -v nvim)
+            if [ "${have_rich}" ]; then
+              rich "[yellow]Neovim path[/]: [green]${nvimloc}[/]" -p
+            else
+              printf "\nNeovim path: ${nvimloc}\n"
+            fi
+            if [ "${have_brew}" ]; then
+              brew info nvim >/dev/null 2>&1
+              if [ $? -eq 0 ]; then
+                brew info nvim
+              else
+                nvim -V1 -v
+              fi
+            else
+              nvim -V1 -v
+            fi
+            prompt_continue
+          fi
           break
           ;;
         " What is Bob"*,* | *," What is Bob"*)
