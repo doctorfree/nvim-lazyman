@@ -113,6 +113,7 @@ to install, initialize, remove, and manage multiple Neovim configurations.
 - [Motivation](#motivation)
   - [Inspiration](#inspiration)
 - [Notes](#notes)
+  - [Windows Subsystem for Linux](#windows-subsystem-for-linux)
 - [Removal](#removal)
 - [Known limitations and troubleshooting](#known-limitations-and-troubleshooting)
 - [Appendix](#appendix)
@@ -974,6 +975,25 @@ Thanks everybody!
 
 View the Lazyman Notes in the
 [Lazyman Notes article on the Lazyman website](https://lazyman.dev/posts/Notes).
+
+### Windows Subsystem for Linux
+
+If you have installed `Lazyman` in the Windows Subsystem for Linux (WSL)
+then set the `NVIM_APPNAME` environment variable on the Windows side with:
+
+```bash
+setx NVIM_APPNAME "nvim-<ConfigName>"
+# For example, to use the AstroNvimV4 configuration
+setx NVIM_APPNAME "nvim-AstroNvimV4"
+```
+
+Where `nvim-<ConfigName>` is the Neovim configuration directory you want to use in WSL.
+
+Then set `WSLENV` to include `NVIM_APPNAME` with something like:
+
+```bash
+setx WSLENV NVIM_APPNAME/u
+```
 
 ## Removal
 
