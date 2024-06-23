@@ -482,6 +482,11 @@ init_neovim() {
                     xtimeout ${timeout} nvim --headless "+UpdateRemotePlugins" +qa 2>&1 \
                       | tee -a ${LOG}
                   }
+                  # Perform a 2nd sync on some configs
+                  [ "${neodir}" == "nvim-Allaman" ] && {
+                    xtimeout ${timeout} nvim --headless "+Lazy! sync" +qa 2>&1 \
+                      | tee -a ${LOG}
+                  }
                 }
               }
             fi
@@ -547,6 +552,11 @@ init_neovim() {
                   [ "${neodir}" == "nvim-2k" ] && {
                     xtimeout ${timeout} nvim \
                       --headless "+UpdateRemotePlugins" +qa > /dev/null 2>&1
+                  }
+                  # Perform a 2nd sync on some configs
+                  [ "${neodir}" == "nvim-Allaman" ] && {
+                    xtimeout ${timeout} nvim --headless \
+                      "+Lazy! sync" +qa > /dev/null 2>&1
                   }
                 }
               }
