@@ -19,6 +19,16 @@ LOLCAT="lolcat"
 BOLD=$(tput bold 2> /dev/null)
 NORM=$(tput sgr0 2> /dev/null)
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 PLEASE="Please enter your choice"
 USEGUI=
 # Array with font names
@@ -185,15 +195,15 @@ set_conf_value() {
     case ${confval} in
       true | false | [0-9])
         cat "${NVIMCONF}" \
-          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" > /tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = ${confval}/" > ${TMPDIR}/nvim$$
         ;;
       *)
         cat "${NVIMCONF}" \
-          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" > /tmp/nvim$$
+          | ${SED} -e "s/conf.${confname} =.*/conf.${confname} = \"${confval}\"/" > ${TMPDIR}/nvim$$
         ;;
     esac
-    cp /tmp/nvim$$ "${NVIMCONF}"
-    rm -f /tmp/nvim$$
+    cp ${TMPDIR}/nvim$$ "${NVIMCONF}"
+    rm -f ${TMPDIR}/nvim$$
   }
 }
 
@@ -227,15 +237,15 @@ set_conf_table() {
         case ${action} in
           disable)
             cat "${NVIMCONF}" \
-              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" > /tmp/nvim$$
+              | ${SED} -E "s/  \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/  -- \"${confval}\", -- ${marker}/" > ${TMPDIR}/nvim$$
             ;;
           enable)
             cat "${NVIMCONF}" \
-              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" > /tmp/nvim$$
+              | ${SED} -E "s/-- \"${confval}\",[[:space:]]+--[[:space:]]+${marker}/\"${confval}\", -- ${marker}/" > ${TMPDIR}/nvim$$
             ;;
         esac
-        cp /tmp/nvim$$ "${NVIMCONF}"
-        rm -f /tmp/nvim$$
+        cp ${TMPDIR}/nvim$$ "${NVIMCONF}"
+        rm -f ${TMPDIR}/nvim$$
       }
       ;;
   esac
@@ -1106,9 +1116,9 @@ show_plugin_menu() {
                   esac
                   [ "${neorg_temp}" ] && {
                     cat "${NVIMCONF}" \
-                      | ${SED} -e "s/${neorg_temp}/${notes}/" > /tmp/nvim$$
-                    cp /tmp/nvim$$ "${NVIMCONF}"
-                    rm -f /tmp/nvim$$
+                      | ${SED} -e "s/${neorg_temp}/${notes}/" > ${TMPDIR}/nvim$$
+                    cp ${TMPDIR}/nvim$$ "${NVIMCONF}"
+                    rm -f ${TMPDIR}/nvim$$
                     set_conf_table "NEORG_NOTES" "${notes}" "enable"
                   }
                   break

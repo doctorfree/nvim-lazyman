@@ -15,6 +15,16 @@ SED="sed"
 have_gsed=$(type -p gsed)
 [ "${have_gsed}" ] && SED="gsed"
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 checkdir="nvim-Lazyman"
 [ "$1" ] && checkdir="$1"
 nvimconf=$(echo "${checkdir}" | ${SED} -e "s/^nvim-//")
@@ -36,7 +46,7 @@ nvim --headless "+checkhealth" "+w!${HEALTHDIR}/${HEALTH}" +qa \
 
 [ -f "${HEALTHDIR}/${HEALTH}" ] && {
   ${SED} -i "1s;^;# ${checkdir} Neovim health check\n;" "${HEALTHDIR}/${HEALTH}"
-  cat "${HEALTHDIR}/${HEALTH}" | ${SED} -e "s/===.*/--------/" > /tmp/h$$
-  cp /tmp/h$$ "${HEALTHDIR}/${HEALTH}"
-  rm -f /tmp/h$$
+  cat "${HEALTHDIR}/${HEALTH}" | ${SED} -e "s/===.*/--------/" > ${TMPDIR}/h$$
+  cp ${TMPDIR}/h$$ "${HEALTHDIR}/${HEALTH}"
+  rm -f ${TMPDIR}/h$$
 }

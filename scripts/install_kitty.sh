@@ -5,21 +5,31 @@ SED="sed"
 have_gsed=$(type -p gsed)
 [ "${have_gsed}" ] && SED="gsed"
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 LOCAL=".local/kitty.app"
 printf "\n\tInstalling Kitty terminal emulator ..."
 curl --silent --location \
-  https://sw.kovidgoyal.net/kitty/installer.sh >/tmp/kitty-$$.sh
+  https://sw.kovidgoyal.net/kitty/installer.sh >${TMPDIR}/kitty-$$.sh
 [ $? -eq 0 ] || {
-  rm -f /tmp/kitty-$$.sh
+  rm -f ${TMPDIR}/kitty-$$.sh
   curl --insecure --silent --location \
-    https://sw.kovidgoyal.net/kitty/installer.sh >/tmp/kitty-$$.sh
-  cat /tmp/kitty-$$.sh | ${SED} -e "s/curl -/curl -k/" >/tmp/k$$
-  cp /tmp/k$$ /tmp/kitty-$$.sh
-  rm -f /tmp/k$$
+    https://sw.kovidgoyal.net/kitty/installer.sh >${TMPDIR}/kitty-$$.sh
+  cat ${TMPDIR}/kitty-$$.sh | ${SED} -e "s/curl -/curl -k/" >${TMPDIR}/k$$
+  cp ${TMPDIR}/k$$ ${TMPDIR}/kitty-$$.sh
+  rm -f ${TMPDIR}/k$$
 }
-if [ -s /tmp/kitty-$$.sh ]; then
-  sh /tmp/kitty-$$.sh launch=n >/dev/null 2>&1
-  rm -f /tmp/kitty-$$.sh
+if [ -s ${TMPDIR}/kitty-$$.sh ]; then
+  sh ${TMPDIR}/kitty-$$.sh launch=n >/dev/null 2>&1
+  rm -f ${TMPDIR}/kitty-$$.sh
   # Create a symbolic link to add kitty to PATH
   [ -d ~/.local/bin ] || mkdir -p ~/.local/bin
   if [ -x ~/${LOCAL}/bin/kitty ]; then

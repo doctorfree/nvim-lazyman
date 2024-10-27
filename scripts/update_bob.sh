@@ -9,6 +9,16 @@ SED="sed"
 have_gsed=$(type -p gsed)
 [ "${have_gsed}" ] && SED="gsed"
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 have_brew=$(type -p brew)
 have_curl=$(type -p curl)
 [ "${have_brew}" ] && brew update --quiet >/dev/null 2>&1
@@ -26,18 +36,18 @@ else
       exit 1
     }
     RUST_URL="https://sh.rustup.rs"
-    curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
+    curl -fsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
     [ $? -eq 0 ] || {
-      rm -f /tmp/rust-$$.sh
-      curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
-      [ -f /tmp/rust-$$.sh ] && {
-        cat /tmp/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
-        cp /tmp/ins$$ /tmp/rust-$$.sh
-        rm -f /tmp/ins$$
+      rm -f ${TMPDIR}/rust-$$.sh
+      curl -kfsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
+      [ -f ${TMPDIR}/rust-$$.sh ] && {
+        cat ${TMPDIR}/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >${TMPDIR}/ins$$
+        cp ${TMPDIR}/ins$$ ${TMPDIR}/rust-$$.sh
+        rm -f ${TMPDIR}/ins$$
       }
     }
-    [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
-    rm -f /tmp/rust-$$.sh
+    [ -f ${TMPDIR}/rust-$$.sh ] && sh ${TMPDIR}/rust-$$.sh -y >/dev/null 2>&1
+    rm -f ${TMPDIR}/rust-$$.sh
   fi
   printf " done"
 fi

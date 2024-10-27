@@ -32,6 +32,16 @@ else
   AUTH_HEADER=
 fi
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 cargo_install() {
   [ "${have_cargo}" ] || {
     printf "\nNeovide build requires cargo but cargo not found.\n"
@@ -45,18 +55,18 @@ cargo_install() {
             brew install rust >/dev/null 2>&1
           else
             RUST_URL="https://sh.rustup.rs"
-            curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
+            curl -fsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
             [ $? -eq 0 ] || {
-              rm -f /tmp/rust-$$.sh
-              curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
-              [ -f /tmp/rust-$$.sh ] && {
-                cat /tmp/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
-                cp /tmp/ins$$ /tmp/rust-$$.sh
-                rm -f /tmp/ins$$
+              rm -f ${TMPDIR}/rust-$$.sh
+              curl -kfsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
+              [ -f ${TMPDIR}/rust-$$.sh ] && {
+                cat ${TMPDIR}/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >${TMPDIR}/ins$$
+                cp ${TMPDIR}/ins$$ ${TMPDIR}/rust-$$.sh
+                rm -f ${TMPDIR}/ins$$
               }
             }
-            [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
-            rm -f /tmp/rust-$$.sh
+            [ -f ${TMPDIR}/rust-$$.sh ] && sh ${TMPDIR}/rust-$$.sh -y >/dev/null 2>&1
+            rm -f ${TMPDIR}/rust-$$.sh
           fi
           printf " done"
           break
@@ -126,27 +136,27 @@ dl_asset() {
       fi
       wget --quiet -O "${TEMP_ASS}" "${DL_URL}" >/dev/null 2>&1
       chmod 644 "${TEMP_ASS}"
-      mkdir -p /tmp/neov$$
+      mkdir -p ${TMPDIR}/neov$$
       if [ "${DLFMT}" == "tgz" ]
       then
-        tar -C /tmp/neov$$ -xzf "${TEMP_ASS}"
+        tar -C ${TMPDIR}/neov$$ -xzf "${TEMP_ASS}"
       else
         [ "${have_unzip}" ] && {
-          unzip -d /tmp/neov$$ "${TEMP_ASS}"
+          unzip -d ${TMPDIR}/neov$$ "${TEMP_ASS}"
         }
       fi
-      [ -f /tmp/neov$$/neovide ] && {
-        chmod 755 /tmp/neov$$/neovide
-        rm -f /tmp/neovide$$
-        mv /tmp/neov$$/neovide /tmp/neovide$$
+      [ -f ${TMPDIR}/neov$$/neovide ] && {
+        chmod 755 ${TMPDIR}/neov$$/neovide
+        rm -f ${TMPDIR}/neovide$$
+        mv ${TMPDIR}/neov$$/neovide ${TMPDIR}/neovide$$
       }
-      [ -f /tmp/neov$$/neovide.dmg ] && {
-        chmod 644 /tmp/neov$$/neovide.dmg
-        rm -f /tmp/neovide$$.dmg
-        mv /tmp/neov$$/neovide.dmg /tmp/neovide$$.dmg
+      [ -f ${TMPDIR}/neov$$/neovide.dmg ] && {
+        chmod 644 ${TMPDIR}/neov$$/neovide.dmg
+        rm -f ${TMPDIR}/neovide$$.dmg
+        mv ${TMPDIR}/neov$$/neovide.dmg ${TMPDIR}/neovide$$.dmg
       }
       rm -f "${TEMP_ASS}"
-      rm -rf /tmp/neov$$
+      rm -rf ${TMPDIR}/neov$$
       printf " done"
     }
   }
@@ -168,12 +178,12 @@ then
     brew install neovide >/dev/null 2>&1
   else
     dl_asset dmg
-    if [ -f /tmp/neovide$$.dmg ]
+    if [ -f ${TMPDIR}/neovide$$.dmg ]
     then
       have_mount=$(type -p hdiutil)
       [ "${have_mount}" ] && {
         [ -d "$HOME"/Applications ] || mkdir -p "$HOME"/Applications
-        hdiutil mount /tmp/neovide$$.dmg
+        hdiutil mount ${TMPDIR}/neovide$$.dmg
         [ -d /Volumes/neovide/neovide.app ] && {
           [ -d "$HOME"/Applications/neovide.app ] && {
             rm -rf "$HOME"/Applications/neovide.app
@@ -189,16 +199,16 @@ then
           }
         }
       }
-      rm -f /tmp/neovide$$.dmg
+      rm -f ${TMPDIR}/neovide$$.dmg
     else
       cargo_install
     fi
   fi
 else
   dl_asset tgz
-  if [ -x /tmp/neovide$$ ]
+  if [ -x ${TMPDIR}/neovide$$ ]
   then
-    mv /tmp/neovide$$ "$HOME"/.local/bin/neovide
+    mv ${TMPDIR}/neovide$$ "$HOME"/.local/bin/neovide
   else
     cargo_install
   fi

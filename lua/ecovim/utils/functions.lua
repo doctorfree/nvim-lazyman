@@ -1,4 +1,5 @@
 local utils = require('ecovim.utils')
+local tmpdir = os.getenv("TMPDIR") or "/tmp"
 
 local async_present, async = pcall(require, "plenary.async")
 if not async_present then
@@ -9,14 +10,14 @@ end
 local M = {}
 
 M.first_ecovim_run = function()
-  local is_first_run = utils.file_exists('/tmp/first-ecovim-run')
+  local is_first_run = utils.file_exists(tmpdir .. '/first-ecovim-run')
 
   if is_first_run then
     async.run(function()
       require('notify')("Welcome to Ecovim! Hope you'll have a nice experience!", "info", { title = "Ecovim", timeout = 5000 })
       require('notify')("Please install treesitter servers manually by :TSInstall command.", "info", { title = "Installation", timeout = 10000 })
     end)
-    local suc = os.remove('/tmp/first-ecovim-run')
+    local suc = os.remove(tmpdir .. '/first-ecovim-run')
     if (not suc) then print("Error: Couldn't remove /tmp/first-ecovim-run!") end
   end
 end

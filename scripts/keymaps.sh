@@ -39,6 +39,16 @@ OUTDIR=$(dirname "${OUT}")
 [ -d "${KEYTMP}" ] || mkdir -p "${KEYTMP}"
 [ -d "${OUTDIR}" ] || mkdir -p "${OUTDIR}"
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 echo "local normal_mode = " > "${KEYTMP}"/${CFNAME}.lua
 echo "" >> "${KEYTMP}"/${CFNAME}.lua
 nvim --headless '+lua vim.print(vim.api.nvim_get_keymap("n"))' +qa >> "${KEYTMP}"/${CFNAME}.lua 2>&1
@@ -78,10 +88,10 @@ cat "${KEYTMP}"/${CFNAME}.lua | ${SED} -e "s/{ {$/\n{ {/" | \
   grep -v -- "[[:space:]]- " | grep -v ^Install | grep -v ^Welcome | \
   grep -v "[[:space:]]vim/" | grep -v ^run | grep -v ^plea | \
   grep -v ^Plugin | grep -v ^All | grep -v -- ^- | \
-  grep -v "^$(printf '\t')" | grep -v ^line > /tmp/${CFNAME}$$.lua
+  grep -v "^$(printf '\t')" | grep -v ^line > ${TMPDIR}/${CFNAME}$$.lua
 for mode in "normal" "visual" "operator"
 do
-  cp /tmp/${CFNAME}$$.lua "${KEYTMP}"/${CFNAME}.lua
+  cp ${TMPDIR}/${CFNAME}$$.lua "${KEYTMP}"/${CFNAME}.lua
   echo "" >> "${KEYTMP}"/${CFNAME}.lua
   echo "for k,v in pairs(${mode}_mode) do" >> "${KEYTMP}"/${CFNAME}.lua
   echo '  local lstr = ""' >> "${KEYTMP}"/${CFNAME}.lua
@@ -121,4 +131,4 @@ do
 done
 
 rm -f "${KEYTMP}"/${CFNAME}.lua
-rm -f /tmp/${CFNAME}$$.lua
+rm -f ${TMPDIR}/${CFNAME}$$.lua

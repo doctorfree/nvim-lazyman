@@ -30,6 +30,16 @@ else
   AUTH_HEADER=
 fi
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 export PATH=${HOME}/.local/bin:${PATH}
 
 abort() {
@@ -305,15 +315,15 @@ install_homebrew() {
     [ "$debug" ] && START_SECONDS=$(date +%s)
     log "Installing Homebrew ..."
     BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
-    curl -fsSL "$BREW_URL" >/tmp/brew-$$.sh
+    curl -fsSL "$BREW_URL" >${TMPDIR}/brew-$$.sh
     [ $? -eq 0 ] || {
-      rm -f /tmp/brew-$$.sh
-      curl -kfsSL "$BREW_URL" >/tmp/brew-$$.sh
+      rm -f ${TMPDIR}/brew-$$.sh
+      curl -kfsSL "$BREW_URL" >${TMPDIR}/brew-$$.sh
     }
-    [ -f /tmp/brew-$$.sh ] || abort "Brew install script download failed"
-    chmod 755 /tmp/brew-$$.sh
-    NONINTERACTIVE=1 /bin/bash -c "/tmp/brew-$$.sh" >/dev/null 2>&1
-    rm -f /tmp/brew-$$.sh
+    [ -f ${TMPDIR}/brew-$$.sh ] || abort "Brew install script download failed"
+    chmod 755 ${TMPDIR}/brew-$$.sh
+    NONINTERACTIVE=1 /bin/bash -c "${TMPDIR}/brew-$$.sh" >/dev/null 2>&1
+    rm -f ${TMPDIR}/brew-$$.sh
     export HOMEBREW_NO_INSTALL_CLEANUP=1
     export HOMEBREW_NO_ENV_HINTS=1
     export HOMEBREW_NO_AUTO_UPDATE=1
@@ -538,23 +548,23 @@ install_neovim_dependencies() {
           TEMP_TGZ="$(mktemp --suffix=.tgz)"
           wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
           chmod 644 "${TEMP_TGZ}"
-          mkdir -p /tmp/ghit$$
-          tar -C /tmp/ghit$$ -xzf "${TEMP_TGZ}"
-          for ghimbin in /tmp/"ghit$$"/*/bin/gh /tmp/"ghit$$"/bin/gh
+          mkdir -p ${TMPDIR}/ghit$$
+          tar -C ${TMPDIR}/ghit$$ -xzf "${TEMP_TGZ}"
+          for ghimbin in ${TMPDIR}/"ghit$$"/*/bin/gh ${TMPDIR}/"ghit$$"/bin/gh
           do
-            [ "${ghimbin}" == "/tmp/ghit$$/*/bin/gh" ] && continue
+            [ "${ghimbin}" == "${TMPDIR}/ghit$$/*/bin/gh" ] && continue
             [ -f "${ghimbin}" ] && {
               ghimdir=$(dirname ${ghimbin})
               ghimdir=$(dirname ${ghimdir})
-              tar -C ${ghimdir} -cf /tmp/ghim-$$.tar bin share
-              tar -C ${HOME}/.local -xf /tmp/ghim-$$.tar
+              tar -C ${ghimdir} -cf ${TMPDIR}/ghim-$$.tar bin share
+              tar -C ${HOME}/.local -xf ${TMPDIR}/ghim-$$.tar
               [ -f ${HOME}/.local/bin/gh ] && chmod 755 ${HOME}/.local/bin/gh
               break
             }
           done
           rm -f "${TEMP_TGZ}"
-          rm -f "/tmp/ghim-$$.tar"
-          rm -rf /tmp/ghit$$
+          rm -f "${TMPDIR}/ghim-$$.tar"
+          rm -rf ${TMPDIR}/ghit$$
           [ "$quiet" ] || printf " done"
         }
       }
@@ -588,14 +598,14 @@ install_neovim_dependencies() {
           TEMP_TGZ="$(mktemp --suffix=.tgz)"
           wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
           chmod 644 "${TEMP_TGZ}"
-          mkdir -p /tmp/lgit$$
-          tar -C /tmp/lgit$$ -xzf "${TEMP_TGZ}"
-          [ -f /tmp/lgit$$/lazygit ] && {
-            cp /tmp/lgit$$/lazygit ${HOME}/.local/bin/lazygit
+          mkdir -p ${TMPDIR}/lgit$$
+          tar -C ${TMPDIR}/lgit$$ -xzf "${TEMP_TGZ}"
+          [ -f ${TMPDIR}/lgit$$/lazygit ] && {
+            cp ${TMPDIR}/lgit$$/lazygit ${HOME}/.local/bin/lazygit
             chmod 755 ${HOME}/.local/bin/lazygit
           }
           rm -f "${TEMP_TGZ}"
-          rm -rf /tmp/lgit$$
+          rm -rf ${TMPDIR}/lgit$$
           [ "$quiet" ] || printf " done"
         }
       }
@@ -632,9 +642,9 @@ install_neovim_dependencies() {
             TEMP_TGZ="$(mktemp --suffix=.tgz)"
             wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
             chmod 644 "${TEMP_TGZ}"
-            mkdir -p /tmp/lual$$
-            tar -C /tmp/lual$$ -xzf "${TEMP_TGZ}"
-            cp -a /tmp/lual$$ ${HOME}/.local/share/lua-language-server
+            mkdir -p ${TMPDIR}/lual$$
+            tar -C ${TMPDIR}/lual$$ -xzf "${TEMP_TGZ}"
+            cp -a ${TMPDIR}/lual$$ ${HOME}/.local/share/lua-language-server
             chmod 755 ${HOME}/.local/share/lua-language-server/bin/lua-language-server
             [ -f "${HOME}/.local/bin/lua-language-server" ] || {
               echo '#!/usr/bin/env bash' > "${HOME}/.local/bin/lua-language-server"
@@ -642,7 +652,7 @@ install_neovim_dependencies() {
               chmod 755 "${HOME}/.local/bin/lua-language-server"
             }
             rm -f "${TEMP_TGZ}"
-            rm -rf /tmp/lual$$
+            rm -rf ${TMPDIR}/lual$$
             [ "$quiet" ] || printf " done"
           }
         }
@@ -655,13 +665,13 @@ install_neovim_dependencies() {
   else
     log "Installing zoxide ..."
     ZOXI_URL="https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh"
-    curl -fsSL "${ZOXI_URL}" >/tmp/zoxi-$$.sh
+    curl -fsSL "${ZOXI_URL}" >${TMPDIR}/zoxi-$$.sh
     [ $? -eq 0 ] || {
-      rm -f /tmp/zoxi-$$.sh
-      curl -kfsSL "${ZOXI_URL}" >/tmp/zoxi-$$.sh
+      rm -f ${TMPDIR}/zoxi-$$.sh
+      curl -kfsSL "${ZOXI_URL}" >${TMPDIR}/zoxi-$$.sh
     }
-    [ -f /tmp/zoxi-$$.sh ] && bash /tmp/zoxi-$$.sh >/dev/null 2>&1
-    rm -f /tmp/zoxi-$$.sh
+    [ -f ${TMPDIR}/zoxi-$$.sh ] && bash ${TMPDIR}/zoxi-$$.sh >/dev/null 2>&1
+    rm -f ${TMPDIR}/zoxi-$$.sh
 
     if [ -f "${HOME}/.bashrc" ]; then
       grep "eval \"\$(zoxide init" "${HOME}/.bashrc" >/dev/null || {
@@ -715,29 +725,29 @@ install_neovim() {
           TEMP_TGZ="$(mktemp --suffix=.tgz)"
           wget --quiet -O "${TEMP_TGZ}" "${DL_URL}"
           chmod 644 "${TEMP_TGZ}"
-          mkdir -p /tmp/nvim$$
-          tar -C /tmp/nvim$$ -xzf "${TEMP_TGZ}"
-          if [ -f /tmp/nvim$$/nvim-linux64/bin/nvim ]; then
-            tar -C /tmp/nvim$$/nvim-linux64 -cf /tmp/nvim-$$.tar .
-            tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+          mkdir -p ${TMPDIR}/nvim$$
+          tar -C ${TMPDIR}/nvim$$ -xzf "${TEMP_TGZ}"
+          if [ -f ${TMPDIR}/nvim$$/nvim-linux64/bin/nvim ]; then
+            tar -C ${TMPDIR}/nvim$$/nvim-linux64 -cf ${TMPDIR}/nvim-$$.tar .
+            tar -C ${HOME}/.local -xf ${TMPDIR}/nvim-$$.tar
             chmod 755 ${HOME}/.local/bin/nvim
           else
-            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim
+            for nvimbin in ${TMPDIR}/"nvim$$"/*/bin/nvim ${TMPDIR}/"nvim$$"/bin/nvim
             do
-              [ "${nvimbin}" == "/tmp/nvim$$/*/bin/nvim" ] && continue
+              [ "${nvimbin}" == "${TMPDIR}/nvim$$/*/bin/nvim" ] && continue
               [ -f "${nvimbin}" ] && {
                 nvimdir=$(dirname ${nvimbin})
                 nvimdir=$(dirname ${nvimdir})
-                tar -C ${nvimdir} -cf /tmp/nvim-$$.tar .
-                tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+                tar -C ${nvimdir} -cf ${TMPDIR}/nvim-$$.tar .
+                tar -C ${HOME}/.local -xf ${TMPDIR}/nvim-$$.tar
                 chmod 755 ${HOME}/.local/bin/nvim
                 break
               }
             done
           fi
           rm -f "${TEMP_TGZ}"
-          rm -f /tmp/nvim-$$.tar
-          rm -rf /tmp/nvim$$
+          rm -f ${TMPDIR}/nvim-$$.tar
+          rm -rf ${TMPDIR}/nvim$$
         }
       }
     fi
@@ -757,28 +767,28 @@ install_neovim() {
           TEMP_TGZ="$(mktemp --suffix=.tgz)"
           wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
           chmod 644 "${TEMP_TGZ}"
-          mkdir -p /tmp/nvim$$
-          tar -C /tmp/nvim$$ -xzf "${TEMP_TGZ}"
-          if [ -f /tmp/nvim$$/nvim-linux64/bin/nvim ]; then
-            tar -C /tmp/nvim$$/nvim-linux64 -cf /tmp/nvim-$$.tar .
-            tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+          mkdir -p ${TMPDIR}/nvim$$
+          tar -C ${TMPDIR}/nvim$$ -xzf "${TEMP_TGZ}"
+          if [ -f ${TMPDIR}/nvim$$/nvim-linux64/bin/nvim ]; then
+            tar -C ${TMPDIR}/nvim$$/nvim-linux64 -cf ${TMPDIR}/nvim-$$.tar .
+            tar -C ${HOME}/.local -xf ${TMPDIR}/nvim-$$.tar
             chmod 755 ${HOME}/.local/bin/nvim
           else
-            for nvimbin in /tmp/"nvim$$"/*/bin/nvim /tmp/"nvim$$"/bin/nvim; do
-              [ "${nvimbin}" == "/tmp/nvim$$/*/bin/nvim" ] && continue
+            for nvimbin in ${TMPDIR}/"nvim$$"/*/bin/nvim ${TMPDIR}/"nvim$$"/bin/nvim; do
+              [ "${nvimbin}" == "${TMPDIR}/nvim$$/*/bin/nvim" ] && continue
               [ -f "${nvimbin}" ] && {
                 nvimdir=$(dirname ${nvimbin})
                 nvimdir=$(dirname ${nvimdir})
-                tar -C ${nvimdir} -cf /tmp/nvim-$$.tar .
-                tar -C ${HOME}/.local -xf /tmp/nvim-$$.tar
+                tar -C ${nvimdir} -cf ${TMPDIR}/nvim-$$.tar .
+                tar -C ${HOME}/.local -xf ${TMPDIR}/nvim-$$.tar
                 chmod 755 ${HOME}/.local/bin/nvim
                 break
               }
             done
           fi
           rm -f "${TEMP_TGZ}"
-          rm -f /tmp/nvim-$$.tar
-          rm -rf /tmp/nvim$$
+          rm -f ${TMPDIR}/nvim-$$.tar
+          rm -rf ${TMPDIR}/nvim$$
         }
       }
     fi
@@ -798,31 +808,31 @@ install_neovim_head() {
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install --HEAD neovim
     else
-      [ -d /tmp/neovim$$ ] && rm -rf /tmp/neovim$$
-      git clone https://github.com/neovim/neovim.git /tmp/neovim$$
-      cd /tmp/neovim$$
+      [ -d ${TMPDIR}/neovim$$ ] && rm -rf ${TMPDIR}/neovim$$
+      git clone https://github.com/neovim/neovim.git ${TMPDIR}/neovim$$
+      cd ${TMPDIR}/neovim$$
       rm -f ${HOME}/.local/bin/nvim
       rm -rf ${HOME}/.local/share/nvim
       make CMAKE_BUILD_TYPE=Release \
         CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local"
       make install
       cd
-      rm -rf /tmp/neovim$$
+      rm -rf ${TMPDIR}/neovim$$
     fi
   else
     if [ "${use_homebrew}" ]; then
       "$BREW_EXE" install -q --HEAD neovim >/dev/null 2>&1
     else
-      [ -d /tmp/neovim$$ ] && rm -rf /tmp/neovim$$
-      git clone https://github.com/neovim/neovim.git /tmp/neovim$$ >/dev/null 2>&1
-      cd /tmp/neovim$$
+      [ -d ${TMPDIR}/neovim$$ ] && rm -rf ${TMPDIR}/neovim$$
+      git clone https://github.com/neovim/neovim.git ${TMPDIR}/neovim$$ >/dev/null 2>&1
+      cd ${TMPDIR}/neovim$$
       rm -f ${HOME}/.local/bin/nvim
       rm -rf ${HOME}/.local/share/nvim
       make CMAKE_BUILD_TYPE=Release \
         CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${HOME}/.local" >/dev/null 2>&1
       make install >/dev/null 2>&1
       cd
-      rm -rf /tmp/neovim$$
+      rm -rf ${TMPDIR}/neovim$$
     fi
   fi
   if [ "$debug" ]; then
@@ -926,14 +936,14 @@ install_extra() {
               TEMP_TGZ="$(mktemp --suffix=.tgz)"
               wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
               chmod 644 "${TEMP_TGZ}"
-              mkdir -p /tmp/lmnd$$
-              tar -C /tmp/lmnd$$ -xzf "${TEMP_TGZ}"
-              [ -f /tmp/lmnd$$/lemonade ] && {
-                cp /tmp/lmnd$$/lemonade ${HOME}/.local/bin/lemonade
+              mkdir -p ${TMPDIR}/lmnd$$
+              tar -C ${TMPDIR}/lmnd$$ -xzf "${TEMP_TGZ}"
+              [ -f ${TMPDIR}/lmnd$$/lemonade ] && {
+                cp ${TMPDIR}/lmnd$$/lemonade ${HOME}/.local/bin/lemonade
                 chmod 755 ${HOME}/.local/bin/lemonade
               }
               rm -f "${TEMP_TGZ}"
-              rm -rf /tmp/lmnd$$
+              rm -rf ${TMPDIR}/lmnd$$
               [ "$quiet" ] || printf " done"
             }
           }
@@ -990,14 +1000,14 @@ install_fzf() {
       TEMP_TGZ="$(mktemp --suffix=.tgz)"
       wget --quiet -O "${TEMP_TGZ}" "${DL_URL}"
       chmod 644 "${TEMP_TGZ}"
-      mkdir -p /tmp/fzft$$
-      tar -C /tmp/fzft$$ -xzf "${TEMP_TGZ}"
-      [ -f /tmp/fzft$$/fzf ] && {
-        cp /tmp/fzft$$/fzf ${HOME}/.local/bin/fzf
+      mkdir -p ${TMPDIR}/fzft$$
+      tar -C ${TMPDIR}/fzft$$ -xzf "${TEMP_TGZ}"
+      [ -f ${TMPDIR}/fzft$$/fzf ] && {
+        cp ${TMPDIR}/fzft$$/fzf ${HOME}/.local/bin/fzf
         chmod 755 ${HOME}/.local/bin/fzf
       }
       rm -f "${TEMP_TGZ}"
-      rm -rf /tmp/fzft$$
+      rm -rf ${TMPDIR}/fzft$$
     }
   else
     plat_install fzf
@@ -1125,18 +1135,18 @@ install_tools() {
       [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rust" >/dev/null 2>&1
     else
       RUST_URL="https://sh.rustup.rs"
-      curl -fsSL "${RUST_URL}" >/tmp/rust-$$.sh
+      curl -fsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
       [ $? -eq 0 ] || {
-        rm -f /tmp/rust-$$.sh
-        curl -kfsSL "${RUST_URL}" >/tmp/rust-$$.sh
-        [ -f /tmp/rust-$$.sh ] && {
-          cat /tmp/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >/tmp/ins$$
-          cp /tmp/ins$$ /tmp/rust-$$.sh
-          rm -f /tmp/ins$$
+        rm -f ${TMPDIR}/rust-$$.sh
+        curl -kfsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
+        [ -f ${TMPDIR}/rust-$$.sh ] && {
+          cat ${TMPDIR}/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >${TMPDIR}/ins$$
+          cp ${TMPDIR}/ins$$ ${TMPDIR}/rust-$$.sh
+          rm -f ${TMPDIR}/ins$$
         }
       }
-      [ -f /tmp/rust-$$.sh ] && sh /tmp/rust-$$.sh -y >/dev/null 2>&1
-      rm -f /tmp/rust-$$.sh
+      [ -f ${TMPDIR}/rust-$$.sh ] && sh ${TMPDIR}/rust-$$.sh -y >/dev/null 2>&1
+      rm -f ${TMPDIR}/rust-$$.sh
     fi
     if [ "$debug" ]; then
       calc_elapsed
@@ -1243,12 +1253,12 @@ install_tools() {
           TEMP_TGZ="$(mktemp --suffix=.bin)"
           wget --quiet -O "${TEMP_TGZ}" "${DL_URL}" >/dev/null 2>&1
           chmod 644 "${TEMP_TGZ}"
-          mkdir -p /tmp/ascc$$
+          mkdir -p ${TMPDIR}/ascc$$
           [ -d ${HOME}/.local/bin ] || mkdir -p ${HOME}/.local/bin
-          tar -C /tmp/ascc$$ -xzf "${TEMP_TGZ}"
-          for asccbin in /tmp/"ascc$$"/*/ascii-image-converter /tmp/"ascc$$"/ascii-image-converter
+          tar -C ${TMPDIR}/ascc$$ -xzf "${TEMP_TGZ}"
+          for asccbin in ${TMPDIR}/"ascc$$"/*/ascii-image-converter ${TMPDIR}/"ascc$$"/ascii-image-converter
           do
-            [ "${asccbin}" == "/tmp/ascc$$/*/ascii-image-converter" ] && continue
+            [ "${asccbin}" == "${TMPDIR}/ascc$$/*/ascii-image-converter" ] && continue
             [ -f "${asccbin}" ] && {
               cp "${asccbin}" ${HOME}/.local/bin/ascii-image-converter
               [ -f ${HOME}/.local/bin/ascii-image-converter ] && {
@@ -1258,7 +1268,7 @@ install_tools() {
             }
           done
           rm -f "${TEMP_TGZ}"
-          rm -rf /tmp/ascc$$
+          rm -rf ${TMPDIR}/ascc$$
           [ "$quiet" ] || printf " done"
         }
       }
@@ -1493,17 +1503,17 @@ install_tools() {
     else
       log "Installing misspell ..."
       MISS_URL="https://git.io/misspell"
-      curl -fsSL "$MISS_URL" >/tmp/miss-$$.sh
+      curl -fsSL "$MISS_URL" >${TMPDIR}/miss-$$.sh
       [ $? -eq 0 ] || {
-        rm -f /tmp/miss-$$.sh
-        curl -kfsSL "$MISS_URL" >/tmp/miss-$$.sh
+        rm -f ${TMPDIR}/miss-$$.sh
+        curl -kfsSL "$MISS_URL" >${TMPDIR}/miss-$$.sh
       }
-      [ -f /tmp/miss-$$.sh ] && {
-        chmod 755 /tmp/miss-$$.sh
-        /tmp/miss-$$.sh -b ${HOME}/.local/bin >/dev/null 2>&1
-        rm -f /tmp/miss-$$.sh
+      [ -f ${TMPDIR}/miss-$$.sh ] && {
+        chmod 755 ${TMPDIR}/miss-$$.sh
+        ${TMPDIR}/miss-$$.sh -b ${HOME}/.local/bin >/dev/null 2>&1
+        rm -f ${TMPDIR}/miss-$$.sh
       }
-      rm -f /tmp/misspell*
+      rm -f ${TMPDIR}/misspell*
       [ "$quiet" ] || printf " done"
     fi
   }
@@ -1564,15 +1574,15 @@ install_tools() {
     GHUC="https://raw.githubusercontent.com"
     JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
     [ "$quiet" ] || printf "\n\tInstalling JetBrains Mono font ... "
-    curl -fsSL "$JETB_URL" >/tmp/jetb-$$.sh
+    curl -fsSL "$JETB_URL" >${TMPDIR}/jetb-$$.sh
     [ $? -eq 0 ] || {
-      rm -f /tmp/jetb-$$.sh
-      curl -kfsSL "$JETB_URL" >/tmp/jetb-$$.sh
+      rm -f ${TMPDIR}/jetb-$$.sh
+      curl -kfsSL "$JETB_URL" >${TMPDIR}/jetb-$$.sh
     }
-    [ -f /tmp/jetb-$$.sh ] && {
-      chmod 755 /tmp/jetb-$$.sh
-      /bin/bash -c "/tmp/jetb-$$.sh" >/dev/null 2>&1
-      rm -f /tmp/jetb-$$.sh
+    [ -f ${TMPDIR}/jetb-$$.sh ] && {
+      chmod 755 ${TMPDIR}/jetb-$$.sh
+      /bin/bash -c "${TMPDIR}/jetb-$$.sh" >/dev/null 2>&1
+      rm -f ${TMPDIR}/jetb-$$.sh
     }
     [ "$quiet" ] || printf "done\n"
   }

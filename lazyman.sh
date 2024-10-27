@@ -47,6 +47,16 @@ have_gsed=$(type -p gsed)
   }
 }
 
+# Use TMPDIR or TEMPDIR if they are set, otherwise /tmp
+TMP=
+if [ "${TMPDIR}" ]; then
+  [ -d "${TMPDIR}" ] && TMP="${TMPDIR}"
+else
+  [ "${TEMPDIR}" ] && [ -d "${TEMPDIR}" ] && TMP="${TEMPDIR}"
+fi
+[ "${TMP}" ] || TMP="/tmp"
+export TMPDIR="${TMP}"
+
 prompt_continue() {
   printf "\nPress <Enter> to continue ... "
   read -r yn
@@ -220,9 +230,9 @@ fix_lvim_dir() {
       | while read -r f; do
         echo "$f" | grep /.git/ > /dev/null && continue
         grep /lvim/ "$f" > /dev/null && {
-          cat "$f" | ${SED} -e "s%/lvim/%/${fixlvimdir}/%g" > /tmp/lvim$$
-          cp /tmp/lvim$$ "$f"
-          rm -f /tmp/lvim$$
+          cat "$f" | ${SED} -e "s%/lvim/%/${fixlvimdir}/%g" > ${TMPDIR}/lvim$$
+          cp ${TMPDIR}/lvim$$ "$f"
+          rm -f ${TMPDIR}/lvim$$
         }
       done
   }
@@ -237,9 +247,9 @@ fix_nvim_dir() {
       | while read -r f; do
         echo "$f" | grep /.git/ > /dev/null && continue
         grep /nvim/ "$f" > /dev/null && {
-          cat "$f" | ${SED} -e "s%/nvim/%/${fixnvimdir}/%g" > /tmp/nvim$$
-          cp /tmp/nvim$$ "$f"
-          rm -f /tmp/nvim$$
+          cat "$f" | ${SED} -e "s%/nvim/%/${fixnvimdir}/%g" > ${TMPDIR}/nvim$$
+          cp ${TMPDIR}/nvim$$ "$f"
+          rm -f ${TMPDIR}/nvim$$
         }
       done
   }
@@ -249,9 +259,9 @@ fix_help_file() {
   helpfile="$1"
   [ -f "${helpfile}" ] && {
     grep help "${helpfile}" > /dev/null && {
-      cat "${helpfile}" | ${SED} -e "s/\"help\",/\"vimdoc\",/" > /tmp/nvimhelp$$
-      cp /tmp/nvimhelp$$ "${helpfile}"
-      rm -f /tmp/nvimhelp$$
+      cat "${helpfile}" | ${SED} -e "s/\"help\",/\"vimdoc\",/" > ${TMPDIR}/nvimhelp$$
+      cp ${TMPDIR}/nvimhelp$$ "${helpfile}"
+      rm -f ${TMPDIR}/nvimhelp$$
     }
   }
 }
@@ -279,8 +289,8 @@ init_lvim() {
   LVIM_INSTALL="${LVIM_URL}/master/utils/installer/install.sh"
   [ "$quiet" ] || printf "\nCloning and initializing LunarVim"
   [ "$tellme" ] || {
-    curl -s ${LVIM_INSTALL} > /tmp/lvim-install$$.sh
-    chmod 755 /tmp/lvim-install$$.sh
+    curl -s ${LVIM_INSTALL} > ${TMPDIR}/lvim-install$$.sh
+    chmod 755 ${TMPDIR}/lvim-install$$.sh
     [ -x $HOME/.local/bin/lvim ] || {
       [ -f ${LMANDIR}/scripts/lvim ] && {
         if [ "${lvimdir}" == "nvim-LunarVim" ]; then
@@ -293,11 +303,11 @@ init_lvim() {
       }
     }
     if [ "$debug" ]; then
-      /tmp/lvim-install$$.sh --no-install-dependencies --yes
+      ${TMPDIR}/lvim-install$$.sh --no-install-dependencies --yes
     else
-      /tmp/lvim-install$$.sh --no-install-dependencies --yes > /dev/null 2>&1
+      ${TMPDIR}/lvim-install$$.sh --no-install-dependencies --yes > /dev/null 2>&1
     fi
-    rm -f /tmp/lvim-install$$.sh
+    rm -f ${TMPDIR}/lvim-install$$.sh
     add_nvimdirs_entry "${lvimdir}"
   }
 }
@@ -608,9 +618,9 @@ remove_nvimdirs_entry() {
   ndir="$1"
   [ -f "${NVIMDIRS}" ] && {
     grep ^"$ndir"$ "${NVIMDIRS}" > /dev/null && {
-      grep -v ^"$ndir"$ "${NVIMDIRS}" > /tmp/nvimdirs$$
-      cp /tmp/nvimdirs$$ "${NVIMDIRS}"
-      rm -f /tmp/nvimdirs$$
+      grep -v ^"$ndir"$ "${NVIMDIRS}" > ${TMPDIR}/nvimdirs$$
+      cp ${TMPDIR}/nvimdirs$$ "${NVIMDIRS}"
+      rm -f ${TMPDIR}/nvimdirs$$
     }
   }
 }
@@ -710,9 +720,9 @@ remove_config() {
     [ -x ${USCP} ] || {
       LVIM_URL="https://raw.githubusercontent.com/lunarvim/lunarvim"
       LVIM_UNINSTALL="${LVIM_URL}/master/utils/installer/uninstall.sh"
-      curl -s ${LVIM_UNINSTALL} > /tmp/lvim-uninstall$$.sh
-      chmod 755 /tmp/lvim-uninstall$$.sh
-      USCP="/tmp/lvim-uninstall$$.sh"
+      curl -s ${LVIM_UNINSTALL} > ${TMPDIR}/lvim-uninstall$$.sh
+      chmod 755 ${TMPDIR}/lvim-uninstall$$.sh
+      USCP="${TMPDIR}/lvim-uninstall$$.sh"
     }
     [ "$quiet" ] || {
       printf "\nRunning LunarVim uninstall script"
@@ -726,7 +736,7 @@ remove_config() {
       remove_backups=
       [ "$removeall" ] && remove_backups="--remove-backups"
       ${USCP} ${remove_backups} --remove-config > /dev/null 2>&1
-      rm -f "/tmp/lvim-uninstall$$.sh"
+      rm -f "${TMPDIR}/lvim-uninstall$$.sh"
     }
   fi
   [ -d "${DOTCONF}/$ndir" ] && {
@@ -840,7 +850,7 @@ update_config() {
         || [ "${ndir}" == "${WEBDMAN}" ] \
         || [ "${ndir}" == "${LIDEMAN}" ] && {
         [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ] && {
-          cp "${HOME}/${GITDIR}/lua/configuration.lua" /tmp/lazyconf$$
+          cp "${HOME}/${GITDIR}/lua/configuration.lua" ${TMPDIR}/lazyconf$$
         }
       }
       git -C "${HOME}/${GITDIR}" stash > /dev/null 2>&1
@@ -874,9 +884,9 @@ update_config() {
     fi
     [ -f "${NVIMCONF}" ] && {
       cp ${NVIMCONF} ${CONFBACK}
-      [ -f /tmp/lazyconf$$ ] && {
+      [ -f ${TMPDIR}/lazyconf$$ ] && {
         restore_config=
-        numconfold=$(grep ^conf /tmp/lazyconf$$ | wc -l)
+        numconfold=$(grep ^conf ${TMPDIR}/lazyconf$$ | wc -l)
         if [ -f "${HOME}/${GITDIR}/lua/configuration.lua" ]; then
           numconfnew=$(grep ^conf "${HOME}/${GITDIR}/lua/configuration.lua" | wc -l)
           [ ${numconfold} -eq ${numconfnew} ] && restore_config=1
@@ -892,9 +902,9 @@ update_config() {
           }
           printf "\nRestoring your previous configuration file as:"
           printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
-          cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
+          cp ${TMPDIR}/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration.lua"
         else
-          cp /tmp/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration-prev.lua"
+          cp ${TMPDIR}/lazyconf$$ "${HOME}/${GITDIR}/lua/configuration-prev.lua"
           printf "\n\nThe format of the Lazyman configuration file has changed."
           printf "\nSaving your previous configuration file as:"
           printf "\n\t${HOME}/${GITDIR}/lua/configuration-prev.lua"
@@ -902,7 +912,7 @@ update_config() {
           printf "\n\t${HOME}/${GITDIR}/lua/configuration.lua"
           prompt_continue
         fi
-        rm -f /tmp/lazyconf$$
+        rm -f ${TMPDIR}/lazyconf$$
         ${SUBMENUS} -i
       }
       [ -d "${HOME}"/.local/bin ] || mkdir -p "${HOME}"/.local/bin
@@ -1717,9 +1727,9 @@ install_astronvim() {
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
         # Perform some git tricks here to retrieve a repo subdirectory
-        mkdir /tmp/lazyman$$
-        cd /tmp/lazyman$$ || {
-          printf "\nCreation of /tmp/lazyman$$ temporary directory failed. Exiting."
+        mkdir ${TMPDIR}/lazyman$$
+        cd ${TMPDIR}/lazyman$$ || {
+          printf "\nCreation of ${TMPDIR}/lazyman$$ temporary directory failed. Exiting."
           exit 1
         }
         git init > /dev/null 2>&1
@@ -1729,8 +1739,8 @@ install_astronvim() {
         echo "${subdir}" >> .git/info/sparse-checkout
         git pull origin ${branch} > /dev/null 2>&1
         cd || exit
-        mv "/tmp/lazyman$$/${subdir}" "${DOTCONF}/${base_dir}/lua/user"
-        rm -rf "/tmp/lazyman$$"
+        mv "${TMPDIR}/lazyman$$/${subdir}" "${DOTCONF}/${base_dir}/lua/user"
+        rm -rf "${TMPDIR}/lazyman$$"
       else
         git clone ${user_url} \
           "${DOTCONF}/$base_dir"/lua/user > /dev/null 2>&1
@@ -3295,13 +3305,13 @@ show_main_menu() {
           ;;
         "Status Report",* | *,"Status Report")
           printf "\nPreparing Lazyman status report\n"
-          show_status > /tmp/lminfo$$
+          show_status > ${TMPDIR}/lminfo$$
           if [ "${USEGUI}" ]; then
-            NVIM_APPNAME="${LAZYMAN}" neovide /tmp/lminfo$$
+            NVIM_APPNAME="${LAZYMAN}" neovide ${TMPDIR}/lminfo$$
           else
-            NVIM_APPNAME="${LAZYMAN}" nvim /tmp/lminfo$$
+            NVIM_APPNAME="${LAZYMAN}" nvim ${TMPDIR}/lminfo$$
           fi
-          rm -f /tmp/lminfo$$
+          rm -f ${TMPDIR}/lminfo$$
           break
           ;;
         "Homebrew Upgrade",* | *,"Homebrew Upgrade")
@@ -5526,14 +5536,14 @@ set_brew
         || [ "${neovimdir[0]}" == "nvim-Shuvro" ] \
         || [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
         init_lvim "${neovimdir[0]}"
-        mv ${DOTCONF}/${neovimdir[0]} /tmp/lvim$$
+        mv ${DOTCONF}/${neovimdir[0]} ${TMPDIR}/lvim$$
       }
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
         # Perform some git tricks here to retrieve a repo subdirectory
-        mkdir /tmp/lazyman$$
-        cd /tmp/lazyman$$ || {
-          printf "\nCreation of /tmp/lazyman$$ temporary directory failed. Exiting."
+        mkdir ${TMPDIR}/lazyman$$
+        cd ${TMPDIR}/lazyman$$ || {
+          printf "\nCreation of ${TMPDIR}/lazyman$$ temporary directory failed. Exiting."
           exit 1
         }
         git init > /dev/null 2>&1
@@ -5543,8 +5553,8 @@ set_brew
         echo "${subdir}" >> .git/info/sparse-checkout
         git pull origin ${branch} > /dev/null 2>&1
         cd || exit
-        mv "/tmp/lazyman$$/${subdir}" "${DOTCONF}/${neovimdir[0]}"
-        rm -rf "/tmp/lazyman$$"
+        mv "${TMPDIR}/lazyman$$/${subdir}" "${DOTCONF}/${neovimdir[0]}"
+        rm -rf "${TMPDIR}/lazyman$$"
       else
         git clone \
           "${custom_url}" "${DOTCONF}/${neovimdir[0]}" > /dev/null 2>&1
@@ -5562,18 +5572,18 @@ set_brew
         || [ "${neovimdir[0]}" == "nvim-Shuvro" ] \
         || [ "${neovimdir[0]}" == "nvim-LunarIde" ] && {
         [ -f ${DOTCONF}/${neovimdir[0]}/init.lua ] || {
-          cp /tmp/lvim$$/init.lua ${DOTCONF}/${neovimdir[0]}
+          cp ${TMPDIR}/lvim$$/init.lua ${DOTCONF}/${neovimdir[0]}
         }
         [ -d ${DOTCONF}/${neovimdir[0]}/snapshots ] || {
-          cp -a /tmp/lvim$$/snapshots ${DOTCONF}/${neovimdir[0]}
+          cp -a ${TMPDIR}/lvim$$/snapshots ${DOTCONF}/${neovimdir[0]}
         }
         [ -d ${DOTCONF}/${neovimdir[0]}/utils ] || {
-          cp -a /tmp/lvim$$/utils ${DOTCONF}/${neovimdir[0]}
+          cp -a ${TMPDIR}/lvim$$/utils ${DOTCONF}/${neovimdir[0]}
         }
         [ -d ${DOTCONF}/${neovimdir[0]}/lua/lvim ] || {
-          cp -a /tmp/lvim$$/lua/lvim ${DOTCONF}/${neovimdir[0]}/lua
+          cp -a ${TMPDIR}/lvim$$/lua/lvim ${DOTCONF}/${neovimdir[0]}/lua
         }
-        rm -rf /tmp/lvim$$
+        rm -rf ${TMPDIR}/lvim$$
       }
       # Replace references to /nvim/ with /$neovimdir[0]/
       fix_nvim_dir "${neovimdir[0]}"
@@ -5597,15 +5607,15 @@ set_brew
       if [ "${subdir}" ]; then
         [ "${branch}" ] || branch="master"
         # Perform some git tricks here to retrieve a repo subdirectory
-        mkdir /tmp/lazyman$$
-        git -C /tmp/lazyman$$ init > /dev/null 2>&1
-        git -C /tmp/lazyman$$ remote add -f origin ${nvchadcustom} > /dev/null 2>&1
-        git -C /tmp/lazyman$$ config core.sparseCheckout true > /dev/null 2>&1
-        [ -d /tmp/lazyman$$/.git/info ] || mkdir -p /tmp/lazyman$$/.git/info
-        echo "${subdir}" >> /tmp/lazyman$$/.git/info/sparse-checkout
-        git -C /tmp/lazyman$$ pull origin ${branch} > /dev/null 2>&1
-        mv "/tmp/lazyman$$/${subdir}" "${DOTCONF}/${neovimdir[0]}"/lua/custom
-        rm -rf "/tmp/lazyman$$"
+        mkdir ${TMPDIR}/lazyman$$
+        git -C ${TMPDIR}/lazyman$$ init > /dev/null 2>&1
+        git -C ${TMPDIR}/lazyman$$ remote add -f origin ${nvchadcustom} > /dev/null 2>&1
+        git -C ${TMPDIR}/lazyman$$ config core.sparseCheckout true > /dev/null 2>&1
+        [ -d ${TMPDIR}/lazyman$$/.git/info ] || mkdir -p ${TMPDIR}/lazyman$$/.git/info
+        echo "${subdir}" >> ${TMPDIR}/lazyman$$/.git/info/sparse-checkout
+        git -C ${TMPDIR}/lazyman$$ pull origin ${branch} > /dev/null 2>&1
+        mv "${TMPDIR}/lazyman$$/${subdir}" "${DOTCONF}/${neovimdir[0]}"/lua/custom
+        rm -rf "${TMPDIR}/lazyman$$"
       else
         git clone "${nvchadcustom}" \
           "${DOTCONF}/${neovimdir[0]}"/lua/custom > /dev/null 2>&1

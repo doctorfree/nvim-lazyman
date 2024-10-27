@@ -6,6 +6,8 @@ local action_layout = require("telescope.actions.layout")
 local fb_actions = require("telescope").extensions.file_browser.actions
 local icons = require("icons")
 
+local tmpdir = os.getenv("TMPDIR") or "/tmp"
+
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 if settings.telescope_grep_hidden then
   table.insert(vimgrep_arguments, "--hidden")
@@ -45,7 +47,7 @@ telescope.setup({
       -- backend = "ueberzug", -- "ueberzug"|"viu"|"chafa"|"jp2a"|catimg
       backend = settings.media_backend,
       -- move = true, -- experimental GIF preview
-      cache_path = "/tmp/tele.media.cache",
+      cache_path = tmpdir .. "/tele.media.cache",
       hidden = false,
     },
   },
