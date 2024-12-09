@@ -15,6 +15,7 @@ PYTHON=
 SED="sed"
 have_gsed=$(type -p gsed)
 [ "${have_gsed}" ] && SED="gsed"
+curl_opts="-kfsSL"
 
 # Use a Github API token if one is set
 [ "${GITHUB_TOKEN}" ] || {
@@ -315,11 +316,8 @@ install_homebrew() {
     [ "$debug" ] && START_SECONDS=$(date +%s)
     log "Installing Homebrew ..."
     BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
-    curl -fsSL "$BREW_URL" >${TMPDIR}/brew-$$.sh
-    [ $? -eq 0 ] || {
-      rm -f ${TMPDIR}/brew-$$.sh
-      curl -kfsSL "$BREW_URL" >${TMPDIR}/brew-$$.sh
-    }
+    rm -f ${TMPDIR}/brew-$$.sh
+    curl ${curl_opts} "$BREW_URL" >${TMPDIR}/brew-$$.sh
     [ -f ${TMPDIR}/brew-$$.sh ] || abort "Brew install script download failed"
     chmod 755 ${TMPDIR}/brew-$$.sh
     NONINTERACTIVE=1 /bin/bash -c "${TMPDIR}/brew-$$.sh" >/dev/null 2>&1
@@ -665,11 +663,8 @@ install_neovim_dependencies() {
   else
     log "Installing zoxide ..."
     ZOXI_URL="https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh"
-    curl -fsSL "${ZOXI_URL}" >${TMPDIR}/zoxi-$$.sh
-    [ $? -eq 0 ] || {
-      rm -f ${TMPDIR}/zoxi-$$.sh
-      curl -kfsSL "${ZOXI_URL}" >${TMPDIR}/zoxi-$$.sh
-    }
+    rm -f ${TMPDIR}/zoxi-$$.sh
+    curl ${curl_opts} "${ZOXI_URL}" >${TMPDIR}/zoxi-$$.sh
     [ -f ${TMPDIR}/zoxi-$$.sh ] && bash ${TMPDIR}/zoxi-$$.sh >/dev/null 2>&1
     rm -f ${TMPDIR}/zoxi-$$.sh
 
@@ -1135,15 +1130,12 @@ install_tools() {
       [ $? -eq 0 ] || "$BREW_EXE" link --overwrite --quiet "rust" >/dev/null 2>&1
     else
       RUST_URL="https://sh.rustup.rs"
-      curl -fsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
-      [ $? -eq 0 ] || {
-        rm -f ${TMPDIR}/rust-$$.sh
-        curl -kfsSL "${RUST_URL}" >${TMPDIR}/rust-$$.sh
-        [ -f ${TMPDIR}/rust-$$.sh ] && {
-          cat ${TMPDIR}/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >${TMPDIR}/ins$$
-          cp ${TMPDIR}/ins$$ ${TMPDIR}/rust-$$.sh
-          rm -f ${TMPDIR}/ins$$
-        }
+      curl ${curl_opts} "${RUST_URL}" >${TMPDIR}/rust-$$.sh
+      rm -f ${TMPDIR}/rust-$$.sh
+      [ -f ${TMPDIR}/rust-$$.sh ] && {
+        cat ${TMPDIR}/rust-$$.sh | ${SED} -e "s/--show-error/--insecure --show-error/" >${TMPDIR}/ins$$
+        cp ${TMPDIR}/ins$$ ${TMPDIR}/rust-$$.sh
+        rm -f ${TMPDIR}/ins$$
       }
       [ -f ${TMPDIR}/rust-$$.sh ] && sh ${TMPDIR}/rust-$$.sh -y >/dev/null 2>&1
       rm -f ${TMPDIR}/rust-$$.sh
@@ -1503,11 +1495,8 @@ install_tools() {
     else
       log "Installing misspell ..."
       MISS_URL="https://git.io/misspell"
-      curl -fsSL "$MISS_URL" >${TMPDIR}/miss-$$.sh
-      [ $? -eq 0 ] || {
-        rm -f ${TMPDIR}/miss-$$.sh
-        curl -kfsSL "$MISS_URL" >${TMPDIR}/miss-$$.sh
-      }
+      rm -f ${TMPDIR}/miss-$$.sh
+      curl ${curl_opts} "$MISS_URL" >${TMPDIR}/miss-$$.sh
       [ -f ${TMPDIR}/miss-$$.sh ] && {
         chmod 755 ${TMPDIR}/miss-$$.sh
         ${TMPDIR}/miss-$$.sh -b ${HOME}/.local/bin >/dev/null 2>&1
@@ -1552,7 +1541,7 @@ install_tools() {
   else
     log "Installing deno ..."
     export DENO_INSTALL="${HOME}/.local"
-    curl -fsSL https://deno.land/x/install/install.sh | sh > /dev/null 2>&1
+    curl ${curl_opts} https://deno.land/x/install/install.sh | sh > /dev/null 2>&1
     [ "$quiet" ] || printf " done"
   fi
 
@@ -1560,7 +1549,7 @@ install_tools() {
     log "Using previously installed tectonic"
   else
     log "Installing tectonic ..."
-    curl --proto '=https' --tlsv1.2 -fsSL \
+    curl ${curl_opts} \
       https://drop-sh.fullyjustified.net |sh > /dev/null 2>&1
     [ -f tectonic ] && {
       chmod +x tectonic
@@ -1574,11 +1563,8 @@ install_tools() {
     GHUC="https://raw.githubusercontent.com"
     JETB_URL="${GHUC}/JetBrains/JetBrainsMono/master/install_manual.sh"
     [ "$quiet" ] || printf "\n\tInstalling JetBrains Mono font ... "
-    curl -fsSL "$JETB_URL" >${TMPDIR}/jetb-$$.sh
-    [ $? -eq 0 ] || {
-      rm -f ${TMPDIR}/jetb-$$.sh
-      curl -kfsSL "$JETB_URL" >${TMPDIR}/jetb-$$.sh
-    }
+    rm -f ${TMPDIR}/jetb-$$.sh
+    curl ${curl_opts} "$JETB_URL" >${TMPDIR}/jetb-$$.sh
     [ -f ${TMPDIR}/jetb-$$.sh ] && {
       chmod 755 ${TMPDIR}/jetb-$$.sh
       /bin/bash -c "${TMPDIR}/jetb-$$.sh" >/dev/null 2>&1
